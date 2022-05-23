@@ -1,0 +1,14 @@
+<div class="grid">
+  <div class="grid__item" *ngFor="let card of cards;let i=index;">
+    <div class=" position-relative">
+      <img class="card__img" src="../../../../../assets/images/Front.jpg" alt="Snowy Mountains">
+      <p class="date-time description"> 12 May, 2022</p>
+      <div class="card__content">
+        <h6 class="my-2"><b>Good to Go</b></h6>
+        <p class="description mb-2">This is dummy design i will sure change this one soon.</p>
+        <p class="my-2">Via: <span class="text-info">Ananta Poudel</span></p>
+        <button class="card__btn" routerLink="{{i}}">Edit this design <span>&rarr;</span></button>
+      </div>
+    </div>
+  </div>
+</div>

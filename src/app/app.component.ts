@@ -1,10 +1,13 @@
 import { Component } from '@angular/core';
+import 'jquery-ui-dist/jquery-ui';
+import { SessionData } from './Data/Session';
 
 @Component({
   selector: 'app-root',
   templateUrl: './app.component.html',
-  styleUrls: ['./app.component.css']
+  styleUrls: [],
 })
 export class AppComponent {
-  title = 'generate';
+  title = 'Generatee';
+  constructor(public session: SessionData) {}
 }
