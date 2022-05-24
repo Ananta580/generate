@@ -2,6 +2,7 @@ import { GenElement } from './Element';
 
 export const FRONTCONTENT: GenElement[] = [
   {
+    id: 1,
     type: 1,
     position: 1,
     height: 186.3003,
@@ -14,6 +15,7 @@ export const FRONTCONTENT: GenElement[] = [
     svgFillColor: '#52a4ef',
   },
   {
+    id: 2,
     type: 1,
     position: 2,
     height: 250.3844,
@@ -26,6 +28,7 @@ export const FRONTCONTENT: GenElement[] = [
     svgFillColor: '#0d4684',
   },
   {
+    id: 3,
     type: 1,
     position: 3,
     height: 299.6706,
@@ -38,6 +41,7 @@ export const FRONTCONTENT: GenElement[] = [
     svgFillColor: '',
   },
   {
+    id: 4,
     type: 2,
     position: 4,
     height: 125.9311,
@@ -50,6 +54,7 @@ export const FRONTCONTENT: GenElement[] = [
 
 export const BACKCONTENT: GenElement[] = [
   {
+    id: 5,
     type: 1,
     position: 1,
     height: 300,
@@ -61,6 +66,7 @@ export const BACKCONTENT: GenElement[] = [
     svgFillColor: '',
   },
   {
+    id: 6,
     type: 2,
     position: 2,
     height: 56,
@@ -70,6 +76,7 @@ export const BACKCONTENT: GenElement[] = [
     src: '/visitingcard1/logo.png',
   },
   {
+    id: 7,
     type: 3,
     position: 3,
     top: 24,
@@ -78,10 +85,15 @@ export const BACKCONTENT: GenElement[] = [
     width: 250,
     text: 'Ananta Poudel',
     fontColor: '#0089D0',
+    fontFamily: 2,
     fontSize: 35.77,
     fontWeight: 'bold',
+    bold: true,
+    italic: true,
+    underline: true,
   },
   {
+    id: 8,
     type: 3,
     position: 4,
     top: 61,
@@ -92,6 +104,7 @@ export const BACKCONTENT: GenElement[] = [
     fontSize: 18.07,
   },
   {
+    id: 9,
     type: 1,
     position: 5,
     height: 15,
@@ -106,6 +119,7 @@ export const BACKCONTENT: GenElement[] = [
     svgFillColor: '',
   },
   {
+    id: 10,
     type: 3,
     position: 6,
     top: 146,
@@ -114,6 +128,7 @@ export const BACKCONTENT: GenElement[] = [
     fontColor: '#0089D0',
   },
   {
+    id: 11,
     type: 1,
     position: 7,
     height: 15,
@@ -145,6 +160,7 @@ export const BACKCONTENT: GenElement[] = [
     svgFillColor: '',
   },
   {
+    id: 12,
     type: 3,
     position: 8,
     top: 183,
@@ -153,6 +169,7 @@ export const BACKCONTENT: GenElement[] = [
     fontColor: '#0089D0',
   },
   {
+    id: 13,
     type: 1,
     position: 9,
     height: 15,
@@ -168,6 +185,7 @@ export const BACKCONTENT: GenElement[] = [
     svgFillColor: '',
   },
   {
+    id: 14,
     type: 3,
     position: 10,
     top: 219,

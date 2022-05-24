@@ -51,11 +51,21 @@ select {
 .editor-btn {
     padding: 7.5px 15px;
     font-weight: normal;
-    background-color: rgb(228, 228, 228);
+    background-color: rgb(236, 236, 236);
     border: 0.5px solid white;
     font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
     box-shadow: none;
     color: black;
+}
+
+.btn-selected {
+    background-color: rgb(52, 52, 52);
+    color: white;
+    padding: 7.5px 15px;
+    font-weight: normal;
+    border: 0.5px solid white;
+    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+    box-shadow: none;
 }
 
 /* End Editor css */
