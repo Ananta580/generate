@@ -38,7 +38,7 @@ export const FRONTCONTENT: GenElement[] = [
     svgPath:
       'M11.1,142.36l-8.91-7.9a6.52,6.52,0,0,1-.91-8.75L92.6,2.63A6.5,6.5,0,0,1,97.82,0h14.41V144H15.42A6.49,6.49,0,0,1,11.1,142.36Z',
     svgViewBox: '0 0 112.23 144',
-    svgFillColor: '',
+    svgFillColor: 'black',
   },
   {
     id: 4,
@@ -48,7 +48,7 @@ export const FRONTCONTENT: GenElement[] = [
     width: 129.4922,
     top: 87,
     left: 61,
-    src: '/visitingcard1/logo.png',
+    src: './assets/visitingcard1/logo.png',
   },
 ];
 
@@ -63,7 +63,7 @@ export const BACKCONTENT: GenElement[] = [
     left: 347.6812,
     svgPath: 'M177.32 0 0 300 177.32 300 177.32 0',
     svgViewBox: '0 0 177.32 300',
-    svgFillColor: '',
+    svgFillColor: 'black',
   },
   {
     id: 6,
@@ -73,7 +73,7 @@ export const BACKCONTENT: GenElement[] = [
     width: 58,
     top: 220,
     left: 435,
-    src: '/visitingcard1/logo.png',
+    src: './assets/visitingcard1/logo.png',
   },
   {
     id: 7,
@@ -81,9 +81,7 @@ export const BACKCONTENT: GenElement[] = [
     position: 3,
     top: 24,
     left: 30,
-    height: 44,
-    width: 250,
-    text: 'Ananta Poudel',
+    text: 'John Doe',
     fontColor: '#0089D0',
     fontFamily: 2,
     fontSize: 35.77,
@@ -97,11 +95,10 @@ export const BACKCONTENT: GenElement[] = [
     type: 3,
     position: 4,
     top: 61,
-    width: 150,
-    height: 21.5,
     left: 30,
     text: 'Software Engineer',
     fontSize: 18.07,
+    fontFamily: 2,
   },
   {
     id: 9,
@@ -116,7 +113,7 @@ export const BACKCONTENT: GenElement[] = [
         C335.179,61.609,273.569,0,197.849,0z M197.849,88.138c27.13,0,49.191,22.062,49.191,49.191c0,27.115-22.062,49.191-49.191,49.191
         c-27.114,0-49.191-22.076-49.191-49.191C148.658,110.2,170.734,88.138,197.849,88.138z`,
     svgViewBox: '0 0 395.71 395.71',
-    svgFillColor: '',
+    svgFillColor: 'black',
   },
   {
     id: 10,
@@ -126,6 +123,8 @@ export const BACKCONTENT: GenElement[] = [
     left: 60,
     text: 'Balkumari 8, Lalitpur',
     fontColor: '#0089D0',
+    fontFamily: 2,
+    fontSize: 18.07,
   },
   {
     id: 11,
@@ -157,7 +156,7 @@ export const BACKCONTENT: GenElement[] = [
         c13.482,32.637,31.076,58.634,47.752,78.034C117.059,421.262,86.318,394.148,64.692,360.51z M336.576,438.54
         c16.672-19.398,34.263-45.395,47.742-78.03h40.99C403.684,394.146,372.945,421.258,336.576,438.54z`,
     svgViewBox: '0 0 490 490',
-    svgFillColor: '',
+    svgFillColor: 'black',
   },
   {
     id: 12,
@@ -167,6 +166,8 @@ export const BACKCONTENT: GenElement[] = [
     left: 60,
     text: 'www.anantapoudel.com.np',
     fontColor: '#0089D0',
+    fontFamily: 2,
+    fontSize: 18.07,
   },
   {
     id: 13,
@@ -182,7 +183,7 @@ export const BACKCONTENT: GenElement[] = [
         c12.926,12.477,20.009,18.241,26.194,14.118l12.008-13.395c2.941-2.472,7.328-2.169,9.839,0.821l32.603,38.543v0.02
         C172.607,160.316,172.519,164.703,169.393,167.37z`,
     svgViewBox: '0 0 181.352 181.352',
-    svgFillColor: '',
+    svgFillColor: 'black',
   },
   {
     id: 14,
@@ -192,5 +193,7 @@ export const BACKCONTENT: GenElement[] = [
     left: 60,
     text: '+977-9846863918',
     fontColor: '#0089D0',
+    fontFamily: 2,
+    fontSize: 18.07,
   },
 ];

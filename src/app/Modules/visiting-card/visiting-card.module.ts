@@ -8,9 +8,15 @@ import { ColorPickerModule } from 'ngx-color-picker';
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 import { NgSelectModule } from '@ng-select/ng-select';
 import { FormsModule } from '@angular/forms';
+import { ToastsContainer } from '../global/toasts-container.component';
+import { ToastService } from '../services/toast-service';
 
 @NgModule({
-  declarations: [VisitingPresetComponent, VisitingDetailComponent],
+  declarations: [
+    VisitingPresetComponent,
+    VisitingDetailComponent,
+    ToastsContainer,
+  ],
   imports: [
     CommonModule,
     ColorPickerModule,
@@ -19,5 +25,6 @@ import { FormsModule } from '@angular/forms';
     FormsModule,
     VisitingCardRoutingModule,
   ],
+  providers: [ToastService],
 })
 export class VisitingCardModule {}

@@ -31,4 +31,14 @@ export const FONTSCOLLECTION: FontCollection[] = [
     name: "'Times New Roman', Times, serif",
     display: 'Times',
   },
+  {
+    id: 7,
+    name: "'Tourney', cursive",
+    display: 'Tourney',
+  },
+  {
+    id: 8,
+    name: "'Big Shoulders Stencil Text', cursive",
+    display: 'Big Shoulders',
+  },
 ];
