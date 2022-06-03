@@ -1,0 +1,17 @@
+.top-bar {
+    background-color: #0A2235;
+    font-size: 20px;
+    height: 50px;
+}
+
+.headings {
+    font-size: 20px;
+    color: white;
+    font-family: 'Dancing Script', cursive;
+    cursor: pointer;
+}
+
+.g-font {
+    color: #ffea65;
+    font-size: 30px;
+}
