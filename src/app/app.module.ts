@@ -8,7 +8,11 @@ import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 import { ToastsContainer } from './Common/global/toasts-container.component';
 import { VisitingDetailComponent } from './components/visitingcard/visiting-detail/visiting-detail.component';
 import { BannerPresetComponent } from './components/Banner/banner-preset/banner-preset.component';
-import { CommonModule } from '@angular/common';
+import {
+  CommonModule,
+  HashLocationStrategy,
+  LocationStrategy,
+} from '@angular/common';
 import { ToastService } from './Common/services/toast-service';
 import { NgSelectModule } from '@ng-select/ng-select';
 import { ColorPickerModule } from 'ngx-color-picker';
@@ -58,7 +62,10 @@ import { PostDetailComponent } from './components/Posts/post-detail/post-detail.
     NgbModule,
     NgSelectModule,
   ],
-  providers: [ToastService],
+  providers: [
+    ToastService,
+    { provide: LocationStrategy, useClass: HashLocationStrategy },
+  ],
   bootstrap: [AppComponent],
 })
 export class AppModule {}
