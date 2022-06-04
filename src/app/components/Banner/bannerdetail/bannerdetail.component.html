@@ -1,0 +1,44 @@
+<!-- Side Navigation -->
+<gen-sidenav [content]="bannerContent" (loadDrops)="callBackFromChild($event)"></gen-sidenav>
+<!-- End Side Navigation -->
+
+<!-- Element Editor tab -->
+<gen-editor-tab [content]="bannerContent" [selectedElementId]="selectedElementId">
+</gen-editor-tab>
+<!-- End Editor tab -->
+
+<!-- Container Main Editor -->
+<div class="container" (click)="closeContextMenu()">
+    <div class="row justify-content-center">
+        <div class="col-lg-12">
+            <div class="custom-tab-content flex-column flex-md-row">
+                <div>
+                    <div class="editor" id="image-section" [style.height.px]="itemHeight" [style.width.px]="itemWidth"
+                        (mouseup)="detectMouseClick($event)">
+                        <div class="position-relative">
+                            <gen-element-container [cardContent]="bannerContent" [selectedElementId]="selectedElementId"
+                                (elementSelectorFunction)="detectMouseClick($event)">
+                            </gen-element-container>
+                        </div>
+                    </div>
+                    <div class="d-flex justify-content-between" [style.width.px]="itemWidth">
+                        <button class="btn btn-primary mt-3" (click)="downloadJpg()" [style.width.px]="itemWidth/2-5"><i
+                                class="fas fa-download mr-4"></i>Download
+                            JPEG</button>
+                        <button class="btn btn-danger mt-3" (click)="downloadSvg()" [style.width.px]="itemWidth/2-5"><i
+                                class="fas fa-download  mr-4"></i>Download
+                            SVG</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<!-- End Main Editor -->
+
+<!-- New RightClickPanel-->
+<gen-right-click-container [content]="bannerContent" [showRightClickPanel]="showRightClickPanel"
+    [rightClickPanelY]="rightClickPanelY" [rightClickPanelX]="rightClickPanelX" [positionX]="positionX"
+    [positionY]="positionY" [selectedElementId]="selectedElementId" (loadDrops)="callBackFromChildRightClick($event)">
+</gen-right-click-container>
+<!-- End RightClickPanel -->

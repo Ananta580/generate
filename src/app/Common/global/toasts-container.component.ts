@@ -4,6 +4,11 @@ import { ToastService } from '../services/toast-service';
 @Component({
   selector: 'gen-toasts',
   template: `
+    <style>
+      .toast-body {
+        padding: 0.3rem;
+      }
+    </style>
     <ngb-toast
       *ngFor="let toast of toastService.toasts"
       [class]="toast.classname"
@@ -27,7 +32,7 @@ import { ToastService } from '../services/toast-service';
   `,
   host: {
     class: 'toast-container position-fixed bottom-0 mb-3 ',
-    style: 'z-index: 1200; left:40%;right:40%;width:20%',
+    style: 'z-index: 1200;top: 120px;right: 20px;',
   },
 })
 export class ToastsContainer {

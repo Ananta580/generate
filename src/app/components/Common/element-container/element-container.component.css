@@ -1,0 +1,7 @@
+.bordering {
+    outline: 1px dashed var(--primary);
+}
+
+.bordering-fill {
+    outline: 0.1px solid var(--primary);
+}

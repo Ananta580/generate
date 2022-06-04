@@ -1,0 +1,86 @@
+<!-- Side Navigation -->
+<gen-sidenav [twoSides]="true" [frontSideSelected]="frontSideSelected" [cardFrontContent]="cardFrontContent"
+    [cardBackContent]="cardBackContent" (loadDrops)="callBackFromChildSideNav($event)"></gen-sidenav>
+<!-- End Side Navigation -->
+
+<!-- Element Editor tab -->
+<gen-editor-tab [twoSides]="true" [frontSideSelected]="frontSideSelected" [cardFrontContent]="cardFrontContent"
+    [cardBackContent]="cardBackContent" [selectedElementId]="selectedElementId">
+</gen-editor-tab>
+<!-- End Editor tab -->
+
+<!-- Container Main Editor -->
+<div class="container" (click)="closeContextMenu()">
+    <div class="row justify-content-center">
+        <div class="col-lg-12">
+            <div class="custom-tab-content flex-column flex-md-row">
+                <ul ngbNav #nav="ngbNav" class="nav navbar-light nav-pills justify-content-center">
+                    <!--  Front Side of Visitng Card -->
+                    <li ngbNavItem class="nav-item" (click)="selectFrontSide()">
+                        <a ngbNavLink>Front Side</a>
+                        <ng-template ngbNavContent>
+                            <div>
+                                <div class="editor" id="f-image-section" [style.height.px]="itemHeight"
+                                    [style.width.px]="itemWidth" (mouseup)="detectMouseClick($event)">
+                                    <div class="position-relative">
+                                        <gen-element-container [cardContent]="cardFrontContent"
+                                            [selectedElementId]="selectedElementId"
+                                            (elementSelectorFunction)="detectMouseClick($event)">
+                                        </gen-element-container>
+                                    </div>
+                                </div>
+                                <div class="d-flex justify-content-between" [style.width.px]="itemWidth">
+                                    <button class="btn btn-primary mt-3" (click)="downloadJpg('f')"
+                                        [style.width.px]="itemWidth/2-5"><i class="fas fa-download mr-4"></i>Download
+                                        JPEG</button>
+                                    <button class="btn btn-danger mt-3" (click)="downloadSvg('f')"
+                                        [style.width.px]="itemWidth/2-5"><i class="fas fa-download  mr-4"></i>Download
+                                        SVG</button>
+                                </div>
+                            </div>
+                        </ng-template>
+                    </li>
+                    <!--  End Front side of Visiting Card -->
+                    <!-- Back Side of Visiting Card -->
+                    <li ngbNavItem class="nav-item" (click)="selectBackSide()">
+                        <a ngbNavLink>Back Side</a>
+                        <ng-template ngbNavContent>
+                            <div class="back-side">
+                                <div class="editor" id="b-image-section" [style.height.px]="itemHeight"
+                                    [style.height.px]="itemHeight" [style.width.px]="itemWidth"
+                                    (mouseup)="detectMouseClick($event)">
+                                    <div class="position-relative">
+                                        <gen-element-container [cardContent]="cardBackContent"
+                                            [selectedElementId]="selectedElementId"
+                                            (elementSelectorFunction)="detectMouseClick($event)">
+                                        </gen-element-container>
+                                    </div>
+                                </div>
+                                <div class="d-flex justify-content-between" [style.width.px]="itemWidth">
+                                    <button class="btn btn-primary mt-3" (click)="downloadJpg('b')"
+                                        [style.width.px]="itemWidth/2-5"><i class="fas fa-download  mr-4"></i>Download
+                                        JPEG</button>
+                                    <button class="btn btn-danger mt-3" (click)="downloadSvg('b')"
+                                        [style.width.px]="itemWidth/2-5"><i class="fas fa-download  mr-4"></i>Download
+                                        SVG</button>
+                                </div>
+                            </div>
+                        </ng-template>
+                    </li>
+                    <!-- End Bak side of Visiting card -->
+                </ul>
+            </div>
+            <div [ngbNavOutlet]="nav"></div>
+        </div>
+    </div>
+</div>
+<!-- End Main Editor -->
+
+<!-- New RightClickPanel-->
+<gen-right-click-container [twoSides]="true" [frontSideSelected]="frontSideSelected"
+    [cardFrontContent]="cardFrontContent" [cardBackContent]="cardBackContent"
+    [showRightClickPanel]="showRightClickPanel" [rightClickPanelY]="rightClickPanelY"
+    [rightClickPanelX]="rightClickPanelX" [positionX]="positionX" [positionY]="positionY"
+    [selectedElementId]="selectedElementId" (loadDrops)="callBackFromChildRightClick($event)">
+</gen-right-click-container>
+<!-- End RightClickPanel -->
