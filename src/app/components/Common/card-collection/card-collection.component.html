@@ -1,7 +1,7 @@
 <div class="grid">
     <div class="grid__item" *ngFor="let card of itemList;let i=index;">
       <div class=" position-relative">
-        <img class="card__img" src="../../../../../assets/images/Front.jpg" alt="Snowy Mountains">
+        <img class="card__img" [src]="card.imgsrc" alt="Snowy Mountains">
         <p class="date-time description">{{card.date | date}}</p>
         <div class="card__content">
           <h6 class="my-2"><b>{{card.title}}</b></h6>

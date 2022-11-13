@@ -5,3 +5,7 @@
 .bordering-fill {
     outline: 0.1px solid var(--primary);
 }
+
+hr {
+    margin: 0px;
+}

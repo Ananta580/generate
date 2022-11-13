@@ -9,12 +9,12 @@ import { Preset } from 'src/app/Common/Models/Preset';
 export class FlyersPresetComponent implements OnInit {
   flyers: Preset[] = [
     {
-      imgsrc: 'src/assets/images/Front.jpg',
+      imgsrc: 'assets/flyer/flyer1.png',
       designer: 'Ananta Poudel',
       date: new Date(),
-      title: 'Made for Leo club',
+      title: 'Royal Real Estate Flyer',
       subtitle:
-        'You can use this to congratulate anyone with 2 person at a time',
+        'This can be used for several puroposes to showcase different things.',
     },
   ];
   constructor() {}

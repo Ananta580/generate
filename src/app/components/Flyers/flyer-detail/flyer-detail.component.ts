@@ -20,8 +20,8 @@ export class FlyerDetailComponent implements OnInit {
   // Properties as required
   selectedElementId = 0;
   selectedElementType = 0;
-  itemHeight = 630;
-  itemWidth = 930;
+  itemHeight = 900;
+  itemWidth = 635;
 
   // Right click related properties
   showRightClickPanel = 'none';

@@ -9,7 +9,7 @@ import { Preset } from 'src/app/Common/Models/Preset';
 export class BannerPresetComponent implements OnInit {
   banners: Preset[] = [
     {
-      imgsrc: 'src/assets/images/Front.jpg',
+      imgsrc: 'assets/banner/banner1.jpg',
       designer: 'Ananta Poudel',
       date: new Date(),
       title: 'Made for Leo club',

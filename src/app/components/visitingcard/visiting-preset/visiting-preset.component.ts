@@ -9,10 +9,10 @@ import { Preset } from 'src/app/Common/Models/Preset';
 export class VisitingPresetComponent implements OnInit {
   visitingCards: Preset[] = [
     {
-      imgsrc: 'src/assets/images/Front.jpg',
+      imgsrc: 'assets/visitingcard/visitingcard1.png',
       designer: 'Ananta Poudel',
       date: new Date(),
-      title: 'Dummy Visiting card for Nike',
+      title: 'Dummy Visiting card for Adidas',
       subtitle: 'You can use this to make other type of cards',
     },
   ];

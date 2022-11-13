@@ -43,7 +43,9 @@ export class BannerdetailComponent implements OnInit {
     this.loadDrops();
   }
 
-  ngOnInit(): void {}
+  ngOnInit(): void {
+    this.bannerContent.sort((x) => x.position);
+  }
   ngOnDestroy() {
     this.session.setMenuBar(true);
   }
