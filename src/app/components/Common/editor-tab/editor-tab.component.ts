@@ -1,6 +1,6 @@
 import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
-import { GenElement } from 'src/app/Common/Models/Element';
-import { FONTSCOLLECTION } from 'src/app/Common/Models/FontCollection';
+import { GenElement } from 'src/app/Common/Models/element';
+import { FONTSCOLLECTION } from 'src/app/Common/Models/font';
 
 @Component({
   selector: 'gen-editor-tab',

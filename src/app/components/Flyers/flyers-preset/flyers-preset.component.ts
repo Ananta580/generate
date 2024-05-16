@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { Preset } from 'src/app/Common/Models/Preset';
+import { Preset } from 'src/app/Common/Models/preset';
 
 @Component({
   selector: 'gen-flyers-preset',
