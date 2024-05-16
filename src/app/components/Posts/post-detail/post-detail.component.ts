@@ -6,8 +6,8 @@ import { EditorTabComponent } from '../../Common/editor-tab/editor-tab.component
 import * as htmlToImage from 'html-to-image';
 import * as $ from 'jquery';
 import 'jquery-ui-dist/jquery-ui';
-import { GenElement } from 'src/app/Common/Models/Element';
-import { POSTCONTENT } from 'src/app/Common/Models/DummyPostContent';
+import { GenElement } from 'src/app/Common/Models/element';
+import { POSTCONTENT } from 'src/app/Common/Models/content';
 
 @Component({
   selector: 'gen-post-detail',

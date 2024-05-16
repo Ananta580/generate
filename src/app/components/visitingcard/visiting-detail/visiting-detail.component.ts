@@ -4,14 +4,12 @@ import * as htmlToImage from 'html-to-image';
 import * as $ from 'jquery';
 import 'jquery-ui-dist/jquery-ui';
 import { SessionData } from 'src/app/Common/Data/Session';
-import {
-  BACKCONTENT,
-  FRONTCONTENT,
-} from 'src/app/Common/Models/DummyVisitingCardContent';
-import { GenElement } from 'src/app/Common/Models/Element';
-import { FONTSCOLLECTION } from 'src/app/Common/Models/FontCollection';
+
+import { GenElement } from 'src/app/Common/Models/element';
 import { ToastService } from 'src/app/Common/services/toast-service';
 import { EditorTabComponent } from '../../Common/editor-tab/editor-tab.component';
+import { FRONTCONTENT, BACKCONTENT } from 'src/app/Common/Models/content';
+import { FONTSCOLLECTION } from 'src/app/Common/Models/font';
 
 @Component({
   selector: 'gen-visiting-detail',
