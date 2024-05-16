@@ -4,6 +4,11 @@ export interface FontCollection {
   display: string;
 }
 
+export interface FontSize {
+  id: number;
+  name: string;
+}
+
 export const FONTSCOLLECTION: FontCollection[] = [
   { id: 1, name: "'Courier New', Courier, monospace", display: 'Courier' },
   {
@@ -43,4 +48,11 @@ export const FONTSCOLLECTION: FontCollection[] = [
   },
   { id: 9, name: "'Open Sans', sans-serif", display: 'Open Sans' },
   { id: 10, name: "'Dancing Script', cursive", display: 'Dancing Script' },
+];
+
+export const FONTSIZES: FontSize[] = [
+  { id: 1, name: '12' },
+  { id: 2, name: '14' },
+  { id: 3, name: '16' },
+  { id: 4, name: '18' },
 ];
