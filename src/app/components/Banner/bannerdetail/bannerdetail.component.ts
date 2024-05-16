@@ -4,11 +4,11 @@ import * as htmlToImage from 'html-to-image';
 import * as $ from 'jquery';
 import 'jquery-ui-dist/jquery-ui';
 import { SessionData } from 'src/app/Common/Data/Session';
-import { BANNERCONTENT } from 'src/app/Common/Models/DummyBannerContent';
-import { GenElement } from 'src/app/Common/Models/Element';
-import { FONTSCOLLECTION } from 'src/app/Common/Models/FontCollection';
+import { BANNERCONTENT } from 'src/app/Common/Models/content';
+import { GenElement } from 'src/app/Common/Models/element';
 import { ToastService } from 'src/app/Common/services/toast-service';
 import { EditorTabComponent } from '../../Common/editor-tab/editor-tab.component';
+import { FONTSCOLLECTION } from 'src/app/Common/Models/font';
 
 @Component({
   selector: 'gen-bannerdetail',
