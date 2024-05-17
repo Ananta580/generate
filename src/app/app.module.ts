@@ -62,10 +62,7 @@ import { PostDetailComponent } from './components/Posts/post-detail/post-detail.
     NgbModule,
     NgSelectModule,
   ],
-  providers: [
-    ToastService,
-    { provide: LocationStrategy, useClass: HashLocationStrategy },
-  ],
+  providers: [ToastService],
   bootstrap: [AppComponent],
 })
 export class AppModule {}

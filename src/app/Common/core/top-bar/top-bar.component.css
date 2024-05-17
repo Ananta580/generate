@@ -6,11 +6,12 @@
 .headings {
     font-weight: 300;
     cursor: pointer;
-    color: transparent;
+    color: gray;
 
 }
 
 .logo {
     font-size: 22px;
     font-weight: 600;
+    color: transparent;
 }
