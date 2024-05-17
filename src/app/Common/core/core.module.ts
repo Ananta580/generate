@@ -5,18 +5,9 @@ import { TopBarComponent } from './top-bar/top-bar.component';
 import { MainComponent } from './main/main.component';
 import { RouterModule } from '@angular/router';
 
-
-
 @NgModule({
-  declarations: [
-    MenuBarComponent,
-    TopBarComponent,
-    MainComponent
-  ],
-  imports: [
-    CommonModule,
-    RouterModule
-  ],
-  exports: [MenuBarComponent, TopBarComponent]
+  declarations: [MenuBarComponent, TopBarComponent, MainComponent],
+  imports: [CommonModule, RouterModule],
+  exports: [MenuBarComponent, TopBarComponent],
 })
-export class CoreModule { }
+export class CoreModule {}
