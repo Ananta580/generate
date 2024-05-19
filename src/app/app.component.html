@@ -1,10 +1,10 @@
 <main class="main-container-app">
-  <div class="position-sticky fixed-top">
-      <gen-top-bar></gen-top-bar>
-      <gen-menu-bar *ngIf="session.showMenuBar"></gen-menu-bar>
+  <div *ngIf="session.showMenuBar" class="position-sticky fixed-top">
+    <gen-top-bar> </gen-top-bar>
+    <gen-menu-bar></gen-menu-bar>
   </div>
   <div class="app-content-section">
-      <router-outlet></router-outlet>
+    <router-outlet></router-outlet>
   </div>
 </main>
 

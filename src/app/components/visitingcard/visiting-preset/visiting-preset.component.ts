@@ -15,6 +15,34 @@ export class VisitingPresetComponent implements OnInit {
       title: 'Dummy Visiting card for Adidas',
       subtitle: 'You can use this to make other type of cards',
     },
+    {
+      imgsrc: 'assets/visitingcard/visitingcard1.png',
+      designer: 'Ananta Poudel',
+      date: new Date(),
+      title: 'Dummy Visiting card for Adidas',
+      subtitle: 'You can use this to make other type of cards',
+    },
+    {
+      imgsrc: 'assets/visitingcard/visitingcard1.png',
+      designer: 'Ananta Poudel',
+      date: new Date(),
+      title: 'Dummy Visiting card for Adidas',
+      subtitle: 'You can use this to make other type of cards',
+    },
+    {
+      imgsrc: 'assets/visitingcard/visitingcard1.png',
+      designer: 'Ananta Poudel',
+      date: new Date(),
+      title: 'Dummy Visiting card for Adidas',
+      subtitle: 'You can use this to make other type of cards',
+    },
+    {
+      imgsrc: 'assets/visitingcard/visitingcard1.png',
+      designer: 'Ananta Poudel',
+      date: new Date(),
+      title: 'Dummy Visiting card for Adidas',
+      subtitle: 'You can use this to make other type of cards',
+    },
   ];
   constructor() {}
 
