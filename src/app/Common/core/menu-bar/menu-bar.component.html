@@ -1,11 +1,52 @@
 <div class="navigation-bar">
-    <ul class="navigation-menu">
-        <li  routerLinkActive="active-link" routerLink="/visitingcard" class="navigation-menu-item">
-            <i class="icons fas fa-pen-nib"></i>Visiting Cards
-        </li>
-        <li  routerLinkActive="active-link" routerLink="/banner" class="navigation-menu-item"><i class="icons fas fa-pencil-alt"></i>Banners</li>
-        <li routerLinkActive="active-link" routerLink="/logo" class="navigation-menu-item"><i class="icons fas fa-pen-alt"></i>Logos</li>
-        <li routerLinkActive="active-link" routerLink="/flyer" class="navigation-menu-item"><i class="icons fas fa-crop-alt"></i>Flyers</li>
-        <li routerLinkActive="active-link" routerLink="/post" class="navigation-menu-item"><i class="icons fas fa-object-group"></i>Post</li>
+  <div class="flex items-center justify-between gap-2 w-[90%] m-auto">
+    <ul class="flex gap-2 py-2">
+      <li
+        routerLinkActive="active-link"
+        routerLink="/"
+        [routerLinkActiveOptions]="{ exact: true }"
+        class="navigation-menu-item text-lg !py-[13px]"
+      >
+        <i class="fas fa-home"></i>
+      </li>
+      <li
+        routerLinkActive="active-link"
+        routerLink="/visitingcard"
+        class="navigation-menu-item"
+      >
+        Visiting Cards
+      </li>
+      <li
+        routerLinkActive="active-link"
+        routerLink="/banner"
+        class="navigation-menu-item"
+      >
+        Banners
+      </li>
+      <li
+        routerLinkActive="active-link"
+        routerLink="/logo"
+        class="navigation-menu-item"
+      >
+        Logos
+      </li>
+      <li
+        routerLinkActive="active-link"
+        routerLink="/flyer"
+        class="navigation-menu-item"
+      >
+        Flyers
+      </li>
+      <li
+        routerLinkActive="active-link"
+        routerLink="/post"
+        class="navigation-menu-item"
+      >
+        Posts
+      </li>
     </ul>
+    <div>
+      <p class="cursor-pointer border-b px-2">Login</p>
+    </div>
+  </div>
 </div>
