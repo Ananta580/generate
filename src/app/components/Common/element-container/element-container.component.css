@@ -1,9 +1,9 @@
 .bordering {
-    outline: 1px dashed var(--primary);
+    outline: 1px dashed red;
 }
 
 .bordering-fill {
-    outline: 0.1px solid var(--primary);
+    outline: 0.1px solid red;
 }
 
 hr {
