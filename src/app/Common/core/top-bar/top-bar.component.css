@@ -1,6 +1,5 @@
 .top-bar {
     background-color: #ffffff;
-    height: 50px;
 }
 
 .headings {
@@ -13,5 +12,8 @@
 .logo {
     font-size: 22px;
     font-weight: 600;
-    color: transparent;
+    display: flex;
+    padding: 10px 0px;
+    align-items: center;
+
 }
