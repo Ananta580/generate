@@ -9,7 +9,7 @@ export const ELEMENTTYPES: ElementType[] = [
   { id: 4, name: 'line' },
 ];
 
-export interface GenElement
+export interface ElementInner
   extends TextElement,
     ImageElement,
     SvgElement,

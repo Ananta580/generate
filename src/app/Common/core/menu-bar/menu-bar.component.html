@@ -10,39 +10,12 @@
         <i class="fas fa-home"></i>
       </li>
       <li
+        *ngFor="let menu of menuItems"
         routerLinkActive="active-link"
-        routerLink="/visitingcard"
+        [routerLink]="menu.link"
         class="navigation-menu-item"
       >
-        Visiting Cards
-      </li>
-      <li
-        routerLinkActive="active-link"
-        routerLink="/banner"
-        class="navigation-menu-item"
-      >
-        Banners
-      </li>
-      <li
-        routerLinkActive="active-link"
-        routerLink="/logo"
-        class="navigation-menu-item"
-      >
-        Logos
-      </li>
-      <li
-        routerLinkActive="active-link"
-        routerLink="/flyer"
-        class="navigation-menu-item"
-      >
-        Flyers
-      </li>
-      <li
-        routerLinkActive="active-link"
-        routerLink="/post"
-        class="navigation-menu-item"
-      >
-        Posts
+        {{ menu.name }}
       </li>
     </ul>
     <div>
