@@ -1,80 +1,112 @@
 <!-- Navigation Menu -->
 <ul class="navigation-menu">
-    <li routerLink="/banner" class="navigation-menu-item backto">
-        <i class="mr-3 fas fa-arrow-left"></i>Back to List
-    </li>
-    <li class="navigation-menu-item" (click)="open(content,3)"><i class="mr-3 fas fa-font"></i>Text</li>
-    <li class="navigation-menu-item" (click)="open(content,2)"><i class="mr-3 fas fa-image"></i>Image</li>
-    <li class="navigation-menu-item" (click)="open(content,1)"><i class="mr-3 fas fa-shapes"></i>Shape</li>
-    <li class="navigation-menu-item" (click)="open(content,4)"><i class="mr-3 fas fa-vector-square"></i>Line</li>
+  <li (click)="goback()" class="navigation-menu-item backto">
+    <i class="mr-3 fas fa-arrow-left"></i>Back to List
+  </li>
+  <li class="navigation-menu-item" (click)="open(content, 3)">
+    <i class="mr-3 fas fa-font"></i>Text
+  </li>
+  <li class="navigation-menu-item" (click)="open(content, 2)">
+    <i class="mr-3 fas fa-image"></i>Image
+  </li>
+  <li class="navigation-menu-item" (click)="open(content, 1)">
+    <i class="mr-3 fas fa-shapes"></i>Shape
+  </li>
+  <li class="navigation-menu-item" (click)="open(content, 4)">
+    <i class="mr-3 fas fa-vector-square"></i>Line
+  </li>
 </ul>
 <!-- End Navigation menu -->
 
 <!-- Off Canvas -->
 <ng-template #content let-offcanvas>
-    <div class="offcanvas-header">
-        <h4 class="offcanvas-title" id="offcanvas-basic-title" [ngSwitch]="addElementType">
-            <span *ngSwitchCase="1">
-                Choose Svg
-            </span>
-            <span *ngSwitchCase="2">
-                Upload Image
-            </span>
-            <span *ngSwitchCase="3">
-                Choose Text
-            </span>
-            <span *ngSwitchCase="4">
-                Choose Line
-            </span>
-        </h4>
-        <button type="button" class="btn-close" aria-label="Close" (click)="offcanvas.dismiss('Cross click')"></button>
-    </div>
-    <div class="offcanvas-body" [ngSwitch]="addElementType">
-        <form *ngSwitchCase="1">
-            <div class="svg-templates">
-                <div class="svg-template-item" *ngFor="let svg of svgTemplates;let i=index;"
-                    [style.width.px]="svg.width" (click)="addSvg(i)">
-                    <svg [attr.fill]="svg.svgFillColor" [attr.viewBox]="svg.svgViewBox">
-                        <path [attr.d]="svg.svgPath" />
-                    </svg>
-                </div>
-            </div>
-        </form>
-        <form *ngSwitchCase="2">
-            <div class="image-template-card cursor-pointer" *ngFor="let image of imageTemplates;let i=index;"
-                for="image-template-btn" (click)="addImage(i)">
-                <input hidden type="file" id="image-template-btn" />
-                <img class="image-template-src" [src]="image.src">
-                <div class="image-template-property">
-                    <pre class="mb-2 overflow-hidden">Height: {{image.height}}</pre>
-                    <pre class="overflow-hidden">Width:  {{image.width}}</pre>
-                </div>
-            </div>
-        </form>
-        <form *ngSwitchCase="3">
-            <div class="text-element cursor-pointer" *ngFor="let text of textTemplates;let i=index;"
-                (click)="addText(i)">
-                <p [style.fontSize.px]="text.fontSize" [style.fontWeight]="text.bold?'bold':'normal'"
-                    [style.fontStyle]="text.italic?'italic':'normal'"
-                    [style.textDecoration]="text.underline?'underline':'none'"
-                    [style.fontFamily]="text.fontFamily?fonts[text.fontFamily-1]:''" [style.color]="text.fontColor">
-                    {{text.text}}
-                </p>
-            </div>
-        </form>
-        <form *ngSwitchCase="4">
-            <div *ngFor="let line of lineTemplates;let i=index;" class="d-flex line-card mb-2">
-                <div [style.width.px]="line.length"
-                    [style.border-bottom]="line.thickness+'px '+line.lineColor+' '+line.lineStyle">
-                </div>
-                <div class="btn-group">
-                    <button class="btn btn-warning btn-sm mr-2" (click)="addLine('h',i)"><i
-                            class="fas fa-grip-lines"></i></button>
-                    <button class="btn btn-primary btn-sm" (click)="addLine('v',i)"><i
-                            class="fas fa-grip-lines-vertical"></i></button>
-                </div>
-            </div>
-        </form>
-    </div>
+  <div class="offcanvas-header">
+    <h4
+      class="offcanvas-title"
+      id="offcanvas-basic-title"
+      [ngSwitch]="addElementType"
+    >
+      <span *ngSwitchCase="1"> Choose Svg </span>
+      <span *ngSwitchCase="2"> Upload Image </span>
+      <span *ngSwitchCase="3"> Choose Text </span>
+      <span *ngSwitchCase="4"> Choose Line </span>
+    </h4>
+    <button
+      type="button"
+      class="btn-close"
+      aria-label="Close"
+      (click)="offcanvas.dismiss('Cross click')"
+    ></button>
+  </div>
+  <div class="offcanvas-body" [ngSwitch]="addElementType">
+    <form *ngSwitchCase="1">
+      <div class="svg-templates">
+        <div
+          class="svg-template-item"
+          *ngFor="let svg of svgTemplates; let i = index"
+          [style.width.px]="svg.width"
+          (click)="addSvg(i)"
+        >
+          <svg [attr.fill]="svg.svgFillColor" [attr.viewBox]="svg.svgViewBox">
+            <path [attr.d]="svg.svgPath" />
+          </svg>
+        </div>
+      </div>
+    </form>
+    <form *ngSwitchCase="2">
+      <div
+        class="image-template-card cursor-pointer"
+        *ngFor="let image of imageTemplates; let i = index"
+        for="image-template-btn"
+        (click)="addImage(i)"
+      >
+        <input hidden type="file" id="image-template-btn" />
+        <img class="image-template-src" [src]="image.src" />
+        <div class="image-template-property">
+          <pre class="mb-2 overflow-hidden">Height: {{ image.height }}</pre>
+          <pre class="overflow-hidden">Width:  {{ image.width }}</pre>
+        </div>
+      </div>
+    </form>
+    <form *ngSwitchCase="3">
+      <div
+        class="text-element cursor-pointer"
+        *ngFor="let text of textTemplates; let i = index"
+        (click)="addText(i)"
+      >
+        <p
+          [style.fontSize.px]="text.fontSize"
+          [style.fontWeight]="text.bold ? 'bold' : 'normal'"
+          [style.fontStyle]="text.italic ? 'italic' : 'normal'"
+          [style.textDecoration]="text.underline ? 'underline' : 'none'"
+          [style.fontFamily]="text.fontFamily ? fonts[text.fontFamily - 1] : ''"
+          [style.color]="text.fontColor"
+        >
+          {{ text.text }}
+        </p>
+      </div>
+    </form>
+    <form *ngSwitchCase="4">
+      <div
+        *ngFor="let line of lineTemplates; let i = index"
+        class="d-flex line-card mb-2"
+      >
+        <div
+          [style.width.px]="line.length"
+          [style.border-bottom]="
+            line.thickness + 'px ' + line.lineColor + ' ' + line.lineStyle
+          "
+        ></div>
+        <div class="btn-group">
+          <button class="btn btn-warning btn-sm mr-2" (click)="addLine('h', i)">
+            <i class="fas fa-grip-lines"></i>
+          </button>
+          <button class="btn btn-primary btn-sm" (click)="addLine('v', i)">
+            <i class="fas fa-grip-lines-vertical"></i>
+          </button>
+        </div>
+      </div>
+    </form>
+  </div>
 </ng-template>
 <!-- End Off Canvas -->

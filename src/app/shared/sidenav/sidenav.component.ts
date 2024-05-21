@@ -1,3 +1,4 @@
+import { Location } from '@angular/common';
 import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
 import { NgbOffcanvas } from '@ng-bootstrap/ng-bootstrap';
 import { ElementInner } from 'src/app/common/Models/element';
@@ -25,7 +26,10 @@ export class SidenavComponent implements OnInit {
 
   selectedElementId!: number;
 
-  constructor(private offcanvasService: NgbOffcanvas) {}
+  constructor(
+    private offcanvasService: NgbOffcanvas,
+    private location: Location
+  ) {}
 
   textTemplates = TEXTTEMPLATES;
   imageTemplates = IMAGETEMPLATES;
@@ -34,6 +38,10 @@ export class SidenavComponent implements OnInit {
   fonts = FONTSCOLLECTION;
   addElementType = 0;
   ngOnInit(): void {}
+
+  goback() {
+    this.location.back();
+  }
 
   open(content: any, type: number) {
     this.selectedElementId = 0;
