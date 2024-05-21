@@ -1,6 +1,6 @@
 import { Component } from '@angular/core';
 import 'jquery-ui-dist/jquery-ui';
-import { SessionData } from './Common/Data/Session';
+import { SessionData } from './common/Data/Session';
 
 @Component({
   selector: 'app-root',

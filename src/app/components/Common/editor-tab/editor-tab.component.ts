@@ -1,6 +1,6 @@
 import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
-import { GenElement } from 'src/app/Common/Models/element';
-import { FONTSCOLLECTION } from 'src/app/Common/Models/font';
+import { GenElement } from 'src/app/common/Models/element';
+import { FONTSCOLLECTION } from 'src/app/common/Models/font';
 
 @Component({
   selector: 'gen-editor-tab',
@@ -16,7 +16,7 @@ export class EditorTabComponent implements OnInit {
   @Input() twoSides!: boolean;
 
   // Elments Properties
-  // Common Prperties
+  // common Prperties
   selectedElementType!: number;
   selectedHeight: number | undefined = 1;
   selectedWidth: number | undefined = 1;

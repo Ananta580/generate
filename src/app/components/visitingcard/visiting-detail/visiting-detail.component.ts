@@ -3,13 +3,13 @@ import { ActivatedRoute } from '@angular/router';
 import * as htmlToImage from 'html-to-image';
 import * as $ from 'jquery';
 import 'jquery-ui-dist/jquery-ui';
-import { SessionData } from 'src/app/Common/Data/Session';
+import { SessionData } from 'src/app/common/Data/Session';
 
-import { GenElement } from 'src/app/Common/Models/element';
-import { ToastService } from 'src/app/Common/services/toast-service';
-import { EditorTabComponent } from '../../Common/editor-tab/editor-tab.component';
-import { FRONTCONTENT, BACKCONTENT } from 'src/app/Common/Models/content';
-import { FONTSCOLLECTION } from 'src/app/Common/Models/font';
+import { GenElement } from 'src/app/common/Models/element';
+import { ToastService } from 'src/app/common/services/toast-service';
+import { EditorTabComponent } from '../../common/editor-tab/editor-tab.component';
+import { FRONTCONTENT, BACKCONTENT } from 'src/app/common/Models/content';
+import { FONTSCOLLECTION } from 'src/app/common/Models/font';
 
 @Component({
   selector: 'gen-visiting-detail',

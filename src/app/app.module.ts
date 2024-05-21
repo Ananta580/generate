@@ -3,9 +3,9 @@ import { BrowserModule } from '@angular/platform-browser';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
-import { CoreModule } from './Common/core/core.module';
+import { CoreModule } from './common/core/core.module';
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
-import { ToastsContainer } from './Common/global/toasts-container.component';
+import { ToastsContainer } from './common/global/toasts-container.component';
 import { VisitingDetailComponent } from './components/visitingcard/visiting-detail/visiting-detail.component';
 import { BannerPresetComponent } from './components/Banner/banner-preset/banner-preset.component';
 import {
@@ -13,15 +13,15 @@ import {
   HashLocationStrategy,
   LocationStrategy,
 } from '@angular/common';
-import { ToastService } from './Common/services/toast-service';
+import { ToastService } from './common/services/toast-service';
 import { NgSelectModule } from '@ng-select/ng-select';
 import { ColorPickerModule } from 'ngx-color-picker';
 import { FormsModule } from '@angular/forms';
-import { CardCollectionComponent } from './components/Common/card-collection/card-collection.component';
-import { SidenavComponent } from './components/Common/sidenav/sidenav.component';
-import { EditorTabComponent } from './components/Common/editor-tab/editor-tab.component';
-import { ElementContainerComponent } from './components/Common/element-container/element-container.component';
-import { RightClickContainerComponent } from './components/Common/right-click-container/right-click-container.component';
+import { CardCollectionComponent } from './components/common/card-collection/card-collection.component';
+import { SidenavComponent } from './components/common/sidenav/sidenav.component';
+import { EditorTabComponent } from './components/common/editor-tab/editor-tab.component';
+import { ElementContainerComponent } from './components/common/element-container/element-container.component';
+import { RightClickContainerComponent } from './components/common/right-click-container/right-click-container.component';
 import { BannerdetailComponent } from './components/Banner/bannerdetail/bannerdetail.component';
 import { VisitingPresetComponent } from './components/visitingcard/visiting-preset/visiting-preset.component';
 import { LogoPresetComponent } from './components/Logos/logo-preset/logo-preset.component';

@@ -1,6 +1,6 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
-import { MainComponent } from './Common/core/main/main.component';
+import { MainComponent } from './common/core/main/main.component';
 import { BannerPresetComponent } from './components/Banner/banner-preset/banner-preset.component';
 import { BannerdetailComponent } from './components/Banner/bannerdetail/bannerdetail.component';
 import { FlyerDetailComponent } from './components/Flyers/flyer-detail/flyer-detail.component';

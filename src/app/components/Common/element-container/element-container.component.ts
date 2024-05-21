@@ -1,6 +1,6 @@
 import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
-import { GenElement } from 'src/app/Common/Models/element';
-import { FONTSCOLLECTION } from 'src/app/Common/Models/font';
+import { GenElement } from 'src/app/common/Models/element';
+import { FONTSCOLLECTION } from 'src/app/common/Models/font';
 
 @Component({
   selector: 'gen-element-container',

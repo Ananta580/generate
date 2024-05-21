@@ -1,5 +1,5 @@
 import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
-import { GenElement } from 'src/app/Common/Models/element';
+import { GenElement } from 'src/app/common/Models/element';
 
 @Component({
   selector: 'gen-right-click-container',

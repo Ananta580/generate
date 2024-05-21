@@ -1,5 +1,5 @@
 import { Component, Input, OnInit } from '@angular/core';
-import { Preset } from 'src/app/Common/Models/preset';
+import { Preset } from 'src/app/common/Models/preset';
 
 @Component({
   selector: 'gen-card-collection',

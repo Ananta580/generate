@@ -1,13 +1,13 @@
 import { Component, OnInit, ViewChild } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
-import { SessionData } from 'src/app/Common/Data/Session';
-import { ToastService } from 'src/app/Common/services/toast-service';
-import { EditorTabComponent } from '../../Common/editor-tab/editor-tab.component';
+import { SessionData } from 'src/app/common/Data/Session';
+import { ToastService } from 'src/app/common/services/toast-service';
+import { EditorTabComponent } from '../../common/editor-tab/editor-tab.component';
 import * as htmlToImage from 'html-to-image';
 import * as $ from 'jquery';
 import 'jquery-ui-dist/jquery-ui';
-import { GenElement } from 'src/app/Common/Models/element';
-import { POSTCONTENT } from 'src/app/Common/Models/content';
+import { GenElement } from 'src/app/common/Models/element';
+import { POSTCONTENT } from 'src/app/common/Models/content';
 
 @Component({
   selector: 'gen-post-detail',
