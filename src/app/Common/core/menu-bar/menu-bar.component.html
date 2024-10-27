@@ -1,29 +1,21 @@
 <div class="navigation-bar">
   <div class="flex items-center justify-between gap-2 w-[90%] m-auto">
     <ul class="flex gap-2 py-2">
-      <li
-        routerLinkActive="active-link"
-        routerLink="/"
-        [routerLinkActiveOptions]="{ exact: true }"
-        class="navigation-menu-item text-lg !py-[13px]"
-      >
+      <li routerLinkActive="active-link" routerLink="/" [routerLinkActiveOptions]="{ exact: true }"
+        class="navigation-menu-item bg-black text-lg py-2">
         <i class="fas fa-home"></i>
       </li>
-      <li
-        *ngFor="let menu of menuItems"
-        routerLinkActive="active-link"
-        [routerLink]="menu.link"
-        class="navigation-menu-item"
-      >
+      <li *ngFor="let menu of menuItems" routerLinkActive="active-link" [routerLink]="menu.link"
+        class="navigation-menu-item">
         {{ menu.name }}
       </li>
     </ul>
-    <div>
+    <!-- <div>
       <p
         class="cursor-pointer border px-5 py-2 hover:!bg-black bg-transparent animate-pulse font-semibold"
       >
         Login
       </p>
-    </div>
+    </div> -->
   </div>
 </div>

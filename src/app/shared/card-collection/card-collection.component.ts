@@ -1,4 +1,4 @@
-import { Component, Input, OnInit } from '@angular/core';
+import { Component, Input } from '@angular/core';
 import { Preset } from 'src/app/common/Models/preset';
 
 @Component({
@@ -6,9 +6,6 @@ import { Preset } from 'src/app/common/Models/preset';
   templateUrl: './card-collection.component.html',
   styleUrls: ['./card-collection.component.css'],
 })
-export class CardCollectionComponent implements OnInit {
+export class CardCollectionComponent {
   @Input() itemList: Preset[] | undefined;
-  constructor() {}
-
-  ngOnInit(): void {}
 }

@@ -1,32 +1,29 @@
-<div class="flex p-5 gap-5 justify-start flex-wrap">
-  <div
-    class="rounded-md shadow-sm border-l border-r border-[#eeeeee] w-[22%]"
-    *ngFor="let card of itemList; let i = index"
-  >
-    <div class="relative">
-      <img
-        class="block h-[200px] object-cover w-full object-top rounded-t-md"
-        [src]="card.imgsrc"
-      />
-      <p class="absolute top-2 right-2 bg-black text-white p-2 text-xs">
+<div class="grid p-5 gap-5 grid-cols-1 sm:grid-cols-2 md:grid-cols-3 xl:grid-cols-5">
+  <div class="rounded-lg max-h-fit transition-transform transform hover:scale-105 "
+    *ngFor="let card of itemList; let i = index">
+    <div class="relative p-2 pb-0 rounded-lg rounded-b-none !border-b-0 border !border-amber-300 bg-amber-50">
+      <img class="block h-fit rounded-md overflow-clip object-contain w-full object-top rounded-t-lg"
+        [src]="card.imgsrc" />
+      <p class="absolute top-2 right-2 bg-black bg-opacity-50 backdrop-blur-lg text-white p-2 py-1 text-xs rounded">
         {{ card.date | date }}
       </p>
-      <div class="p-3">
-        <h6 class="my-2">
-          <b>{{ card.title }}</b>
+      <div class="p-4 px-2">
+        <h6 class=" text-xs font-semibold">
+          {{ card.title }}
         </h6>
-        <p class="description mb-2 leading-5">{{ card.subtitle }}</p>
-        <p class="mt-3 text-right">
-          <span class="text-[#0493c2] text-xs">{{ card.designer }}</span>
+        <p class="text-xs text-gray-700 overflow-ellipsis whitespace-nowrap overflow-hidden">{{
+          card.subtitle }}</p>
+        <p class="">
+          <span class="text-blue-500 text-xs font-medium">{{ card.designer }}</span>
         </p>
-        <button
-          class="mt-3 flex justify-between items-center font-normal bg-gradient-to-tr border-[1.5px] border-[#0493c2] text-[#0762b1] p-2 px-3 rounded-md w-full text-start hover:bg-[#0762b1c9] hover:text-white"
-          routerLink="/editor/{{ card.type }}/{{ i }}"
-        >
-          Use Design
-          <i class="icons fas fa-pen-nib"></i>
-        </button>
+
       </div>
     </div>
+    <button
+      class="flex text-xs px-4 py-2 justify-between items-center font-normal bg-gradient-to-r from-amber-600 to-amber-500  text-white rounded-b-md w-full text-start hover:bg-blue-700"
+      routerLink="/editor/{{ card.type }}/{{ i }}">
+      Use Design
+      <i class="icons fas fa-pen-nib ml-2"></i>
+    </button>
   </div>
 </div>
