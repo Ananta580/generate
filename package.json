@@ -30,6 +30,7 @@
     "ngx-color-picker": "^12.0.1",
     "ngx-masonry": "^14.0.1",
     "rxjs": "~7.5.0",
+    "swiper": "^11.1.14",
     "tslib": "^2.3.0",
     "zone.js": "~0.13.3"
   },

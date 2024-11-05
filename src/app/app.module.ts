@@ -11,6 +11,10 @@ import { AppComponent } from './app.component';
 import { CoreModule } from './common/core/core.module';
 import { ToastsContainer } from './common/global/toasts-container.component';
 import { ToastService } from './common/services/toast-service';
+// import function to register Swiper custom elements
+import { register } from 'swiper/element/bundle';
+// register Swiper custom elements
+register();
 
 @NgModule({
   declarations: [AppComponent, ToastsContainer],
