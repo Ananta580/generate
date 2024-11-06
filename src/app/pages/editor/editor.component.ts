@@ -1,4 +1,4 @@
-import { Component, ViewChild } from '@angular/core';
+import { Component, HostListener, ViewChild } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { SharedModule } from 'src/app/shared/shared.module';
 import { ActivatedRoute } from '@angular/router';
@@ -166,8 +166,9 @@ export class EditorComponent {
       this.selectElement(id);
     }
   }
-  closeContextMenu() {
+  closeContextMenu(event: any = '') {
     this.showRightClickPanel = 'none';
+    this.containerClicked(event);
   }
   //#endregion
 
@@ -200,5 +201,14 @@ export class EditorComponent {
     this.showSuccess('Right Click Detected');
     this.closeContextMenu();
     this.selectElement(this.selectedElementId);
+  }
+
+  containerClicked(event: MouseEvent) {
+    // Check if the clicked element is inside any item within the gen-element-container
+    const target = event.target as HTMLElement;
+    const isContent = target.id.startsWith('content');
+    if (!isContent) {
+      this.selectedElementId = 0; // Deselect if the click is outside and id of selected element starts with 'content'
+    }
   }
 }

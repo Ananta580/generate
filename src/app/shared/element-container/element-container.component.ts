@@ -1,4 +1,11 @@
-import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
+import {
+  Component,
+  EventEmitter,
+  HostListener,
+  Input,
+  OnInit,
+  Output,
+} from '@angular/core';
 import { ElementInner } from 'src/app/common/Models/element';
 import { FONTSCOLLECTION } from 'src/app/common/Models/font';
 

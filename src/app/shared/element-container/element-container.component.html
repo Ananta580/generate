@@ -1,6 +1,8 @@
+
 <ng-container *ngFor="let content of cardContent">
+    {{content.type}}
     <!-- For Svg -->
-    <div *ngIf="content.type==1" id="{{content.id}}" class="position-absolute remove-outline cursor-pointer"
+    <div *ngIf="content.type==1" id="content-{{content.id}}" class="absolute cursor-pointer"
         (mouseup)="detectMouseClick($event,content.id)" [style.left.px]="content.left" [style.top.px]="content.top"
         [style.width.px]="content.width" [ngClass]="selectedElementId==content.id?'bordering':''">
         <svg [attr.fill]="content.svgFillColor" [attr.viewBox]="content.svgViewBox">
@@ -8,12 +10,12 @@
         </svg>
     </div>
     <!-- For Image -->
-    <img *ngIf="content.type==2" id="{{content.id}}" class="position-absolute remove-outline cursor-pointer"
-        (mouseup)="detectMouseClick($event,content.id)" [style.left.px]="content.left" [style.top.px]="content.top"
+    <img *ngIf="content.type==2" id="content-{{content.id}}" class="absolute cursor-pointer"
+        (mouseup)="detectMouseClick($event,content.id);" [style.left.px]="content.left" [style.top.px]="content.top"
         [style.width.px]="content.width" [ngClass]="selectedElementId==content.id?'bordering':''"
         [style.height.px]="content.height" src="{{content.src}}" />
     <!-- For Text -->
-    <div *ngIf="content.type==3" id="{{content.id}}" class="position-absolute remove-outline"
+    <div *ngIf="content.type==3" id="content-{{content.id}}" class="absolute leading-none"
         (mouseup)="detectMouseClick($event,content.id)" [ngClass]="selectedElementId==content.id?'bordering':''"
         [style.left.px]="content.left" [style.top.px]="content.top" [style.fontSize.px]="content.fontSize"
         [style.fontWeight]="content.bold?'bold':'normal'" [style.fontStyle]="content.italic?'italic':'normal'"
@@ -22,9 +24,9 @@
         {{content.text}}
     </div>
     <!-- For Line -->
-    <hr *ngIf="content.type==4" id="{{content.id}}" (mouseup)="detectMouseClick($event,content.id)"
+    <hr *ngIf="content.type==4" id="content-{{content.id}}" (mouseup)="detectMouseClick($event,content.id)"
         [ngClass]="selectedElementId==content.id?'bordering-fill':''"
-        class="position-absolute cursor-pointer remove-outline opacity-100 bg-transparent"
+        class="absolute cursor-pointer opacity-100 bg-transparent"
         [style.left.px]="content.left" [style.top.px]="content.top" [style.color]="content.lineColor"
         [style.width.px]="content.length" [style.height.px]="content.thickness" [style.border]="'none'"
         [style.border-top]="content.length!>content.thickness!?content.thickness!+'px '+content.lineStyle!:'0px'"

@@ -1,4 +1,3 @@
-/* Editior Tab css */
 .editor-tab {
     justify-content: center;
     background: #ffffff;
@@ -90,5 +89,3 @@ select {
 .remove-outline :focus, :active {
     outline: none !important;
 }
-
-/* End Editor css */

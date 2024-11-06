@@ -1,9 +1,9 @@
 .bordering {
-    outline: 1px dashed red;
+    @apply outline-2 outline-dashed outline-indigo-700;
 }
 
 .bordering-fill {
-    outline: 0.1px solid red;
+    @apply outline-[0.1px] outline outline-indigo-700;
 }
 
 hr {
