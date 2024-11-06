@@ -12,7 +12,7 @@ import { DB_PRESETS } from './preset.data';
   templateUrl: './preset.component.html',
 })
 export class PresetComponent {
-  presets: Preset[] = [];
+  presets?: Preset[];
 
   dbPresets: Preset[] = DB_PRESETS;
 
@@ -23,10 +23,13 @@ export class PresetComponent {
       next: (params: Params) => {
         const { type } = params;
         this.presetType = type;
+        this.presets = undefined;
         if (type != undefined) {
-          this.presets = this.dbPresets.filter(
-            (x) => x.type?.toString() === type
-          );
+          setTimeout(() => {
+            this.presets = this.dbPresets.filter(
+              (x) => x.type?.toString() === type
+            );
+          }, 500);
         }
       },
     });
@@ -34,6 +37,6 @@ export class PresetComponent {
 
   get title() {
     const chars = this.presetType?.replace('-', ' ');
-    return 'explore ' + chars + 's';
+    return chars + 's';
   }
 }

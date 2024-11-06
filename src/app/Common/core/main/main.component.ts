@@ -14,6 +14,6 @@ export class MainComponent implements OnInit {
   ngOnInit(): void {
     setTimeout(() => {
       this.presets = [...DB_PRESETS, ...DB_PRESETS];
-    }, 1000);
+    }, 500);
   }
 }
