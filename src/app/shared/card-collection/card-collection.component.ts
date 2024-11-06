@@ -24,6 +24,18 @@ export class CardCollectionComponent implements OnInit, OnChanges {
   searchValue: string = '';
   private searchSubject: Subject<string> = new Subject();
 
+  breakpoints = {
+    300: { slidesPerView: 1, spaceBetween: 20 },
+
+    640: { slidesPerView: 2, spaceBetween: 20 },
+
+    980: { slidesPerView: 3, spaceBetween: 20 },
+
+    1100: { slidesPerView: 4, spaceBetween: 20 },
+
+    1300: { slidesPerView: 5, spaceBetween: 20 },
+  };
+
   ngOnInit(): void {
     this.searchSubject.pipe(debounceTime(200)).subscribe(() => {
       this.onSearch();

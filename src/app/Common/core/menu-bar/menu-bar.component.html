@@ -1,4 +1,7 @@
-<div class="navigation-bar bg-gradient-to-r from-indigo-800 max-sm:bg-gradient-to-br max-sm:from-black max-sm:via-indigo-950 max-sm:to-black to-indigo-950">
+<div 
+
+[ngClass]="{'max-sm:bg-gradient-to-br max-sm:from-black max-sm:via-indigo-950 max-sm:to-black':!isMenuHidden, 'max-sm:!bg-gradient-to-r max-sm:!from-black max-sm:!to-black':isMenuHidden}"
+class="navigation-bar bg-gradient-to-r from-indigo-800 to-indigo-950">
   <div class="flex items-center justify-between gap-2 max-sm:w-full w-[90%] max-sm:px-6 max-sm:h-auto max-sm:flex-col max-sm:items-start m-auto">
     <!-- Hamburger Icon (visible on small screens) -->
     <div class="hidden max-sm:flex items-center max-sm:py-4" (click)="toggleMenu()">

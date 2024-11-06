@@ -1,59 +1,62 @@
 <ng-container *ngIf="itemList else loader">
-<div class="flex flex-col w-[90%] mx-auto gap-10 py-6">
-  <div class="flex justify-between items-center mt-4">
-    <h1 class="text-3xl font-bold">Explore {{title | titlecase}}</h1>
-    <div class="relative max-w-96 w-full">
-      <input 
-        type="text" 
-        [(ngModel)]="searchValue"
-        (input)="onSearchInputChange()"
-        placeholder="Search for designs ..." 
-        class="w-full p-2 rounded-full !pl-12 pr-20 border border-gray-300 text-gray-800 placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-indigo-900"
-      />
-      <div class="absolute left-4 top-1/2 transform -translate-y-1/2">
-        <svg xmlns="http://www.w3.org/2000/svg" class="w-5 h-5 text-gray-400" fill="currentColor" viewBox="0 0 20 20">
-          <path fill-rule="evenodd" d="M12.9 14.32a7 7 0 111.41-1.41l4.38 4.38a1 1 0 01-1.42 1.42l-4.38-4.38zM14 8a6 6 0 11-12 0 6 6 0 0112 0z" clip-rule="evenodd" />
-        </svg>
-      </div><button class="absolute right-0 top-1/2 rounded-r-full h-full transform -translate-y-1/2 bg-black text-white px-4 py-2 hover:bg-gray-400 focus:outline-none focus:ring-2 focus:ring-gray-300">
-        Search
-      </button>
-      
+  <div class="flex flex-col w-[90%] mx-auto gap-10 py-6">
+    <div class="flex justify-between max-md:flex-col max-md:gap-4 items-center mt-4 max-md:!mt-0">
+      <h1 class="text-3xl font-bold">Explore {{title | titlecase}}</h1>
+      <div class="relative max-w-96 w-full">
+        <input 
+          type="text" 
+          [(ngModel)]="searchValue"
+          (input)="onSearchInputChange()"
+          placeholder="Search for designs ..." 
+          class="w-full p-2 rounded-full !pl-12 pr-20 border border-gray-300 text-gray-800 placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-indigo-900"
+        />
+        <div class="absolute left-4 top-1/2 transform -translate-y-1/2">
+          <svg xmlns="http://www.w3.org/2000/svg" class="w-5 h-5 text-gray-400" fill="currentColor" viewBox="0 0 20 20">
+            <path fill-rule="evenodd" d="M12.9 14.32a7 7 0 111.41-1.41l4.38 4.38a1 1 0 01-1.42 1.42l-4.38-4.38zM14 8a6 6 0 11-12 0 6 6 0 0112 0z" clip-rule="evenodd" />
+          </svg>
+        </div>
+        <button class="absolute right-0 top-1/2 rounded-r-full h-full transform -translate-y-1/2 bg-black text-white px-4 py-2 hover:bg-gray-400 focus:outline-none focus:ring-2 focus:ring-gray-300">
+          Search
+        </button>
+      </div>
+    </div>
+
+    <div *ngIf="itemList.length > 0 else empty">
+      <swiper-container
+        (slideChange)="onSlideChange($event)"
+        [navigation]="true"
+        [breakpoints]="breakpoints"
+        class="swiper-container flex">
+        
+        <swiper-slide *ngFor="let card of itemList; let i = index" class="max-w-60">
+          <div class="rounded-lg transition-transform transform hover:shadow-xl hover:translate-y-1 duration-200">
+            <div class="relative p-2 pb-0 rounded-lg rounded-b-none !border-b-0 border !border-orange-300 bg-orange-50">
+              <img class="block h-fit rounded-md overflow-clip object-contain w-full object-top rounded-t-lg"
+                [src]="card.imgsrc" />
+              <p class="absolute top-2 right-2 bg-black bg-opacity-50 backdrop-blur-lg text-white p-2 py-1 text-xs rounded">
+                {{ card.date | date }}
+              </p>
+              <div class="p-4 px-2">
+                <h6 class="text-xs font-semibold">
+                  {{ card.title }}
+                </h6>
+                <p class="text-xs text-gray-700 overflow-ellipsis whitespace-nowrap overflow-hidden">{{ card.subtitle }}</p>
+                <p>
+                  <span class="text-indigo-500 text-xs font-medium">{{ card.designer }}</span>
+                </p>
+              </div>
+            </div>
+            <button 
+              class="flex text-xs px-4 py-2 justify-between items-center font-normal bg-gradient-to-r from-orange-700 to-amber-600 text-white rounded-b-md w-full text-start"
+              routerLink="/editor/{{ card.type }}/{{ i }}">
+              Use Design
+              <i class="icons fas fa-pen-nib ml-2"></i>
+            </button>
+          </div>
+        </swiper-slide>
+      </swiper-container>
     </div>
   </div>
-  
-  <div *ngIf="itemList.length>  0 else empty">
-    <swiper-container (slideChange)="onSlideChange($event)" [slidesPerView]="5" [spaceBetween]="20" [navigation]="true" class="swiper-container flex">
-      <swiper-slide
-      *ngFor="let card of itemList; let i = index">
-        <div class="rounded-lg transition-transform transform hover:shadow-xl hover:translate-y-1 duration-200">
-          <div class="relative p-2 pb-0 rounded-lg rounded-b-none !border-b-0 border !border-orange-300 bg-orange-50">
-            <img class="block h-fit rounded-md overflow-clip object-contain w-full object-top rounded-t-lg"
-              [src]="card.imgsrc" />
-            <p class="absolute top-2 right-2 bg-black bg-opacity-50 backdrop-blur-lg text-white p-2 py-1 text-xs rounded">
-              {{ card.date | date }}
-            </p>
-            <div class="p-4 px-2">
-              <h6 class="text-xs font-semibold">
-                {{ card.title }}
-              </h6>
-              <p class="text-xs text-gray-700 overflow-ellipsis whitespace-nowrap overflow-hidden">{{ card.subtitle }}</p>
-              <p>
-                <span class="text-indigo-500 text-xs font-medium">{{ card.designer }}</span>
-              </p>
-            </div>
-          </div>
-          <button 
-            class="flex text-xs px-4 py-2 justify-between items-center font-normal bg-gradient-to-r from-orange-700 to-amber-600 text-white rounded-b-md w-full text-start"
-            routerLink="/editor/{{ card.type }}/{{ i }}">
-            Use Design
-            <i class="icons fas fa-pen-nib ml-2"></i>
-          </button>
-        </div>
-      </swiper-slide>
-    </swiper-container>
-  </div>
-
-</div>
 </ng-container>
 
 <ng-template #loader>
@@ -61,6 +64,7 @@
     <div class="animate-spin rounded-full h-20 w-20 border-t-2 border-b-2 border-indigo-500"></div>
   </div>
 </ng-template>
+
 <ng-template #empty>
   <div class="flex flex-col justify-center items-center h-[60vh]">
     <i class="fas fa-folder-open text-6xl text-gray-400 mb-4"></i>
