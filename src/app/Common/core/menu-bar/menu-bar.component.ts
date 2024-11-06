@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, HostListener, OnInit } from '@angular/core';
 import { PRESET_TYPE } from '../../Models/preset';
 
 @Component({
@@ -6,7 +6,7 @@ import { PRESET_TYPE } from '../../Models/preset';
   templateUrl: './menu-bar.component.html',
   styleUrls: ['./menu-bar.component.css'],
 })
-export class MenuBarComponent implements OnInit {
+export class MenuBarComponent {
   menuItems = [
     {
       name: 'Visiting Cards',
@@ -30,7 +30,19 @@ export class MenuBarComponent implements OnInit {
     },
   ];
 
-  constructor() {}
+  isMenuHidden = true;
+  isLargeScreen = false;
 
-  ngOnInit(): void {}
+  toggleMenu() {
+    this.isMenuHidden = !this.isMenuHidden;
+  }
+
+  @HostListener('window:resize', ['$event'])
+  onResize(event: any) {
+    this.isLargeScreen = event.target.innerWidth >= 640;
+  }
+
+  ngOnInit() {
+    this.isLargeScreen = window.innerWidth >= 640;
+  }
 }

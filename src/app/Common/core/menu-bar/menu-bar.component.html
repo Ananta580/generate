@@ -1,21 +1,33 @@
-<div class="navigation-bar bg-gradient-to-r from-indigo-800 to-indigo-950">
-  <div class="flex items-center justify-between gap-2 w-[90%] m-auto">
-    <ul class="flex gap-2 py-2">
-      <li routerLinkActive="active-link" routerLink="/" [routerLinkActiveOptions]="{ exact: true }"
-        class="navigation-menu-item bg-black text-lg py-2">
+<div class="navigation-bar bg-gradient-to-r from-indigo-800 max-sm:bg-gradient-to-br max-sm:from-black max-sm:via-indigo-950 max-sm:to-black to-indigo-950">
+  <div class="flex items-center justify-between gap-2 max-sm:w-full w-[90%] max-sm:px-6 max-sm:h-auto max-sm:flex-col max-sm:items-start m-auto">
+    <!-- Hamburger Icon (visible on small screens) -->
+    <div class="hidden max-sm:flex items-center max-sm:py-4" (click)="toggleMenu()">
+      <i [ngClass]="isMenuHidden ? 'fas fa-bars text-white text-2xl' : 'fas fa-times text-white text-2xl'"></i>
+    </div>
+
+    <!-- Menu (only visible when not hidden on small screens) -->
+    <ul [ngClass]="{
+          'hidden': isMenuHidden && !isLargeScreen, 
+          'sm:flex': isLargeScreen, 
+          'flex-col': !isLargeScreen && isMenuHidden, 
+          'flex': !isLargeScreen && !isMenuHidden
+        }" class="flex gap-2 py-2 max-sm:!pb-6 max-sm:flex-col max-sm:w-full">
+      <li 
+        routerLinkActive="active-link" 
+        routerLink="/" 
+        (click)="toggleMenu()"
+        [routerLinkActiveOptions]="{ exact: true }"
+        class="navigation-menu-item gap-3 bg-black max-sm:!bg-transparent text-lg py-2 sm:px-4 px-2">
         <i class="fas fa-home"></i>
+        <span *ngIf="!isLargeScreen">Home</span>
       </li>
-      <li *ngFor="let menu of menuItems" routerLinkActive="active-link" [routerLink]="menu.link"
-        class="navigation-menu-item">
+      <li *ngFor="let menu of menuItems" 
+          routerLinkActive="active-link" 
+          [routerLink]="menu.link"
+          (click)="toggleMenu()"
+          class="navigation-menu-item sm:px-4 px-2 py-2">
         {{ menu.name }}
       </li>
     </ul>
-    <!-- <div>
-      <p
-        class="cursor-pointer border px-5 py-2 hover:!bg-black bg-transparent animate-pulse font-semibold"
-      >
-        Login
-      </p>
-    </div> -->
   </div>
 </div>
