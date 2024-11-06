@@ -22,6 +22,7 @@ export class PresetComponent {
     this._route.params.subscribe({
       next: (params: Params) => {
         const { type } = params;
+        this.presetType = type;
         if (type != undefined) {
           this.presets = this.dbPresets.filter(
             (x) => x.type?.toString() === type
@@ -29,5 +30,10 @@ export class PresetComponent {
         }
       },
     });
+  }
+
+  get title() {
+    const chars = this.presetType?.replace('-', ' ');
+    return 'explore ' + chars + 's';
   }
 }

@@ -1,3 +1,38 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+.swiper-button-prev,
+.swiper-button-next {
+  color: #4B5563; /* Change this to any color you prefer */
+  width: 40px; /* Adjust width */
+  height: 40px; /* Adjust height */
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-color: white; /* Background color */
+  border-radius: 50%; /* Circular shape */
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2); /* Shadow for depth */
+  z-index: 10; /* Ensure buttons are above other elements */
+}
+
+/* Change colors on hover */
+.swiper-button-prev:hover,
+.swiper-button-next:hover {
+  background-color: #FBBF24; /* Change to your hover color */
+  color: white; /* Change icon color on hover */
+}
+
+
+.swiper-button-prev {
+    left: 10px; /* Position from left */
+    top: 50%; /* Center vertically */
+    transform: translateY(-50%); /* Adjust for centering */
+  }
+  
+  .swiper-button-next {
+    right: 10px; /* Position from right */
+    top: 50%; /* Center vertically */
+    transform: translateY(-50%); /* Adjust for centering */
+  }
+  

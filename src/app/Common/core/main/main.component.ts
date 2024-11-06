@@ -7,9 +7,13 @@ import { DB_PRESETS } from 'src/app/pages/preset/preset.data';
   styleUrls: ['./main.component.css'],
 })
 export class MainComponent implements OnInit {
-  presets = DB_PRESETS;
+  presets: any = undefined;
 
   constructor() {}
 
-  ngOnInit(): void {}
+  ngOnInit(): void {
+    setTimeout(() => {
+      this.presets = [...DB_PRESETS, ...DB_PRESETS];
+    }, 1000);
+  }
 }

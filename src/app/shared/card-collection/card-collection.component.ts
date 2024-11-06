@@ -8,4 +8,11 @@ import { Preset } from 'src/app/common/Models/preset';
 })
 export class CardCollectionComponent {
   @Input() itemList: Preset[] | undefined;
+
+  @Input() title?: string = 'Explore Designs';
+  activeSlideIndex: number = 0;
+
+  onSlideChange(event: any): void {
+    this.activeSlideIndex = event.activeIndex;
+  }
 }

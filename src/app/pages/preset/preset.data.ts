@@ -18,7 +18,7 @@ export const DB_PRESETS: Preset[] = [
     type: PRESET_TYPE.BANNER,
   },
   {
-    imgsrc: 'src/assets/images/Front.jpg',
+    imgsrc: 'assets/visitingcard/visitingcard1.png',
     designer: 'Ananta Poudel',
     date: new Date(),
     title: 'Made for Leo club',
@@ -35,7 +35,7 @@ export const DB_PRESETS: Preset[] = [
     type: PRESET_TYPE.FLYER,
   },
   {
-    imgsrc: 'src/assets/images/Front.jpg',
+    imgsrc: 'assets/banner/banner1.jpg',
     designer: 'Ananta Poudel',
     date: new Date(),
     title: 'Made for Leo club',
