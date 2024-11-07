@@ -1,5 +1,6 @@
 import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
 import { ElementInner } from 'src/app/common/Models/element';
+import { ToastService } from 'src/app/common/services/toast-service';
 
 @Component({
   selector: 'gen-right-click-container',
@@ -23,7 +24,7 @@ export class RightClickContainerComponent implements OnInit {
   copiedElement: any;
   isElementCopied = false;
   selectedElementType!: number;
-  constructor() {}
+  constructor(private toastService: ToastService) {}
 
   ngOnInit(): void {}
   pasteElement() {
@@ -41,13 +42,13 @@ export class RightClickContainerComponent implements OnInit {
       copiedContent.position = tempContent.length + 1;
       tempContent.push(copiedContent);
       this.selectedElementId = selectedId;
+      this.toastService.showInfo('Element Pasted Successfully');
       this.callParentBack();
     }
   }
   pasteProperty() {
     // Copy property except: Top, Left, Position, Type, Id
     if (this.isElementCopied) {
-      console.log(this.copiedElement.type, this.selectedElementType);
       var tempContent = this.twoSides
         ? this.frontSideSelected
           ? this.cardFrontContent
@@ -79,6 +80,7 @@ export class RightClickContainerComponent implements OnInit {
           }
         }
       }
+      this.toastService.showInfo('Properties Pasted Successfully');
       this.callParentBack();
     }
   }
@@ -93,7 +95,11 @@ export class RightClickContainerComponent implements OnInit {
     var index = tempContent.findIndex((x) => x.id == this.selectedElementId);
     this.copiedElement = tempContent[index];
     this.isElementCopied = true;
-    console.log(this.selectedElementType);
+    if (type == 0) {
+      this.toastService.showInfo('Element Copied Successfully');
+    } else {
+      this.toastService.showInfo('Properties Copied Successfully');
+    }
     this.callParentBack();
   }
   sendElementBack() {
@@ -132,6 +138,7 @@ export class RightClickContainerComponent implements OnInit {
       : this.content;
     var index = tempContent.findIndex((x) => x.id == this.selectedElementId);
     tempContent.splice(index, 1);
+    this.toastService.showDelete('Element Deleted Successfully');
     this.callParentBack();
   }
 

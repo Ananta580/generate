@@ -2,6 +2,7 @@
 @tailwind components;
 @tailwind utilities;
 
+
 .swiper-button-prev,
 .swiper-button-next {
   color: #4B5563; /* Change this to any color you prefer */

@@ -1,127 +1,149 @@
-<form class="form-inline editor-tab">
+<form class="flex items-center justify-center bg-white h-12 shadow-md">
     <ng-container [ngSwitch]="selectedElementType">
         <!-- SVG -->
         <ng-container *ngSwitchCase="1">
             <!-- SVG Height Size selector, Increment, Decrement -->
-            <span class="mr-2 font-bold">Size</span>
-            <div class="btn-group mr-2 input-group-sm" style="height:70%">
-                <button class="btn btn-light editor-btn mr-1" (click)="setWidth(-1)"><i
-                        class="fas fa-minus"></i></button>
-                <input [style.width.px]="80" style="height:100%;" [(ngModel)]="selectedWidth"
-                    [ngModelOptions]="{standalone: true}" (input)="setWidth(0)" class="form-control">
-                <button class="btn btn-light editor-btn ml-1" (click)="setWidth(1)"><i class="fas fa-plus"></i></button>
+            <span class="mr-2 font-semibold">Size</span>
+            <div class="flex items-center mr-2 space-x-1">
+                <button class="btn-sm bg-gray-200 p-2 rounded" (click)="setWidth(-1)">
+                    <i class="fas fa-minus"></i>
+                </button>
+                <input class="w-20 h-full p-1 text-center border rounded" [(ngModel)]="selectedWidth"
+                    [ngModelOptions]="{standalone: true}" (input)="setWidth(0)">
+                <button class="btn-sm bg-gray-200 p-2 rounded" (click)="setWidth(1)">
+                    <i class="fas fa-plus"></i>
+                </button>
             </div>
             <!-- SVG Color and styles -->
-            <div class="svg-color" [(colorPicker)]="selectedSvgColor!" [cpPosition]="'bottom'"
-                (colorPickerChange)="setSvgColor()" [style.background]="selectedSvgColor">
+            <div class="h-9 w-9 rounded-full cursor-pointer border-4 shadow" [(colorPicker)]="selectedSvgColor!"
+                [cpPosition]="'bottom'" (colorPickerChange)="setSvgColor()" [style.background]="selectedSvgColor">
             </div>
         </ng-container>
+
         <!-- IMAGE -->
         <ng-container *ngSwitchCase="2">
-            <!-- IMAGE Height selector, Increment, Decrement -->
-            <span class="mr-2 font-bold">Width</span>
-            <div class="btn-group mr-2 input-group-sm" style="height:70%">
-                <button class="btn btn-light editor-btn mr-1" (click)="setWidth(-1)"><i
-                        class="fas fa-minus"></i></button>
-                <input [style.width.px]="80" style="height:100%;" [(ngModel)]="selectedWidth"
-                    [ngModelOptions]="{standalone: true}" (input)="setWidth(0)" class="form-control">
-                <button class="btn btn-light editor-btn ml-1" (click)="setWidth(1)"><i class="fas fa-plus"></i></button>
+            <!-- IMAGE Width selector -->
+            <span class="mr-2 font-semibold">Width</span>
+            <div class="flex items-center mr-2 space-x-1">
+                <button class="btn-sm bg-gray-200 p-2 rounded" (click)="setWidth(-1)">
+                    <i class="fas fa-minus"></i>
+                </button>
+                <input class="w-20 h-full p-1 text-center border rounded" [(ngModel)]="selectedWidth"
+                    [ngModelOptions]="{standalone: true}" (input)="setWidth(0)">
+                <button class="btn-sm bg-gray-200 p-2 rounded" (click)="setWidth(1)">
+                    <i class="fas fa-plus"></i>
+                </button>
             </div>
-            <!-- IMAGE Width selector, Increment, Decrement -->
-            <span class="mr-2 font-bold">Height</span>
-            <div class="btn-group mr-2 input-group-sm" style="height:70%">
-                <button class="btn btn-light editor-btn mr-1" (click)="setHeight(-1)"><i
-                        class="fas fa-minus"></i></button>
-                <input [style.width.px]="80" style="height:100%;" [(ngModel)]="selectedHeight"
-                    [ngModelOptions]="{standalone: true}" (input)="setHeight(0)" class="form-control">
-                <button class="btn btn-light editor-btn ml-1" (click)="setHeight(1)"><i
-                        class="fas fa-plus"></i></button>
+            <!-- IMAGE Height selector -->
+            <span class="mr-2 font-semibold">Height</span>
+            <div class="flex items-center mr-2 space-x-1">
+                <button class="btn-sm bg-gray-200 p-2 rounded" (click)="setHeight(-1)">
+                    <i class="fas fa-minus"></i>
+                </button>
+                <input class="w-20 h-full p-1 text-center border rounded" [(ngModel)]="selectedHeight"
+                    [ngModelOptions]="{standalone: true}" (input)="setHeight(0)">
+                <button class="btn-sm bg-gray-200 p-2 rounded" (click)="setHeight(1)">
+                    <i class="fas fa-plus"></i>
+                </button>
             </div>
             <!-- Changing Image -->
-            <input hidden type="file" id="actual-btn" (change)="selectFile($event,'')" />
-            <label style="background-image: Url('{{selectedImage}}');" class="btn text-white image-back"
-                for="actual-btn"></label>
+            <input hidden type="file" id="actual-btn" (change)="selectFile($event, '')" />
+            <label class="cursor-pointer h-9 w-9 bg-cover bg-center border rounded shadow"
+                [style.backgroundImage]="'url(' + selectedImage + ')'" for="actual-btn"></label>
         </ng-container>
+
         <!-- TEXT -->
         <ng-container *ngSwitchCase="3">
             <!-- Font Family Selector -->
-            <div class="mr-2" style="height:70%">
-                <ng-select [style.width.px]="150" [(ngModel)]="selectedFont" (change)="setFontFamily()"
+            <div class="mr-2">
+                <ng-select class="w-36" [(ngModel)]="selectedFont" (change)="setFontFamily()"
                     [ngModelOptions]="{standalone: true}" placeholder="Font Style">
-                    <ng-option *ngFor="let font of fonts" [value]="font.id"><span
-                            [style.fontFamily]="font.name">{{font.display}}</span></ng-option>
+                    <ng-option *ngFor="let font of fonts" [value]="font.id">
+                        <span [style.fontFamily]="font.name">{{ font.display }}</span>
+                    </ng-option>
                 </ng-select>
             </div>
-            <!-- Font Size selector, Increment, Decrement -->
-            <div class="btn-group mr-2 input-group-sm" style="height:70%">
-                <button class="btn btn-light editor-btn mr-1" (click)="setFontSize(-1)"><i
-                        class="fas fa-minus"></i></button>
-                <input [style.width.px]="80" style="height:100%;" [(ngModel)]="selectedSize"
-                    [ngModelOptions]="{standalone: true}" (input)="setFontSize(0)" class="form-control">
-                <button class="btn btn-light editor-btn ml-1" (click)="setFontSize(1)"><i
-                        class="fas fa-plus"></i></button>
+            <!-- Font Size selector -->
+            <div class="flex items-center mr-2 space-x-1">
+                <button class="btn-sm bg-gray-200 p-2 rounded" (click)="setFontSize(-1)">
+                    <i class="fas fa-minus"></i>
+                </button>
+                <input class="w-20 h-full p-1 text-center border rounded" [(ngModel)]="selectedSize"
+                    [ngModelOptions]="{standalone: true}" (input)="setFontSize(0)">
+                <button class="btn-sm bg-gray-200 p-2 rounded" (click)="setFontSize(1)">
+                    <i class="fas fa-plus"></i>
+                </button>
             </div>
             <!-- Font color and styles -->
-            <div class="btn-group mr-2" style="height:70%">
-                <button class="btn editor-btn" [(colorPicker)]="selectedFontColor!" [cpPosition]="'bottom'"
+            <div class="flex items-center space-x-2">
+                <button class="btn-sm p-2 rounded" [(colorPicker)]="selectedFontColor!" [cpPosition]="'bottom'"
                     (colorPickerChange)="setFontColor()">
-                    <i [style.borderBottom]="'5px solid'" [style.borderColor]="selectedFontColor"
-                        class="fas fa-font"></i></button>
-                <button class="btn fw-bolder" [ngClass]="isFontBold?'btn-selected':'editor-btn'"
+                    <i class="fas fa-font" [style.borderColor]="selectedFontColor"
+                        [style.borderBottom]="'5px solid'"></i>
+                </button>
+                <button class="btn-sm p-2 rounded" [ngClass]="isFontBold ? 'bg-gray-700 text-white' : 'bg-gray-200'"
                     (click)="setFontBold()">
-                    <i class="fas fa-bold"></i></button>
-                <button class="btn fst-italic" [ngClass]="isFontItalic?'btn-selected':'editor-btn'"
+                    <i class="fas fa-bold"></i>
+                </button>
+                <button class="btn-sm p-2 rounded" [ngClass]="isFontItalic ? 'bg-gray-700 text-white' : 'bg-gray-200'"
                     (click)="setFontItalic()">
-                    <i class="fas fa-italic"></i></button>
-                <button class="btn text-decoration-underline" [ngClass]="isFontUnderline?'btn-selected':'editor-btn'"
-                    (click)="setFontUnderline()">
-                    <i class="fas fa-underline"></i></button>
+                    <i class="fas fa-italic"></i>
+                </button>
+                <button class="btn-sm p-2 rounded"
+                    [ngClass]="isFontUnderline ? 'bg-gray-700 text-white' : 'bg-gray-200'" (click)="setFontUnderline()">
+                    <i class="fas fa-underline"></i>
+                </button>
             </div>
         </ng-container>
+
+        <!-- LINE -->
         <ng-container *ngSwitchCase="4">
-            <!-- Line Thickness Size selector, Increment, Decrement -->
-            <span class="mr-2 font-bold">Height</span>
-            <div class="btn-group mr-2 input-group-sm" style="height:70%">
-                <button class="btn btn-light editor-btn mr-1" (click)="setThickness(-1)"><i
-                        class="fas fa-minus"></i></button>
-                <input [style.width.px]="50" style="height:100%;" [(ngModel)]="selectedLineThickness"
-                    [ngModelOptions]="{standalone: true}" (input)="setThickness(0)" class="form-control">
-                <button class="btn btn-light editor-btn ml-1" (click)="setThickness(1)"><i
-                        class="fas fa-plus"></i></button>
+            <!-- Line Thickness selector -->
+            <span class="mr-2 font-semibold">Height</span>
+            <div class="flex items-center mr-2 space-x-1">
+                <button class="btn-sm bg-gray-200 p-2 rounded" (click)="setThickness(-1)">
+                    <i class="fas fa-minus"></i>
+                </button>
+                <input class="w-12 h-full p-1 text-center border rounded" [(ngModel)]="selectedLineThickness"
+                    [ngModelOptions]="{standalone: true}" (input)="setThickness(0)">
+                <button class="btn-sm bg-gray-200 p-2 rounded" (click)="setThickness(1)">
+                    <i class="fas fa-plus"></i>
+                </button>
             </div>
-            <!-- Line Thickness Size selector, Increment, Decrement -->
-            <span class="mr-2 font-bold">Width</span>
-            <div class="btn-group mr-2 input-group-sm" style="height:70%">
-                <button class="btn btn-light editor-btn mr-1" (click)="setLength(-1)"><i
-                        class="fas fa-minus"></i></button>
-                <input [style.width.px]="50" style="height:100%;" [(ngModel)]="selectedLineLength"
-                    [ngModelOptions]="{standalone: true}" (input)="setLength(0)" class="form-control">
-                <button class="btn btn-light editor-btn ml-1" (click)="setLength(1)"><i
-                        class="fas fa-plus"></i></button>
+            <!-- Line Width selector -->
+            <span class="mr-2 font-semibold">Width</span>
+            <div class="flex items-center mr-2 space-x-1">
+                <button class="btn-sm bg-gray-200 p-2 rounded" (click)="setLength(-1)">
+                    <i class="fas fa-minus"></i>
+                </button>
+                <input class="w-12 h-full p-1 text-center border rounded" [(ngModel)]="selectedLineLength"
+                    [ngModelOptions]="{standalone: true}" (input)="setLength(0)">
+                <button class="btn-sm bg-gray-200 p-2 rounded" (click)="setLength(1)">
+                    <i class="fas fa-plus"></i>
+                </button>
             </div>
-            <!-- Line Color and styles -->
-            <div class="line-color mx-2" [(colorPicker)]="selectedLineColor!" [cpPosition]="'bottom'"
-                (colorPickerChange)="setLineColor()" [style.background]="selectedLineColor">
+            <!-- Line Color and alignment -->
+            <div class="h-9 w-9 rounded-full cursor-pointer border-4 shadow" [(colorPicker)]="selectedLineColor!"
+                [cpPosition]="'bottom'" (colorPickerChange)="setLineColor()" [style.background]="selectedLineColor">
             </div>
-            <div class="btn-group mr-2 input-group-sm" style="height:70%">
-                <button class="btn btn-success ml-1" (click)="toogleLineAlignment()"><i
-                        class="fas fa-sync"></i></button>
-            </div>
+            <button class="btn-sm bg-green-500 p-2 rounded" (click)="toogleLineAlignment()">
+                <i class="fas fa-sync"></i>
+            </button>
             <!-- Line Style Selector -->
-            <div class="ml-2" style="height:70%">
-                <ng-select [style.width.px]="150" [(ngModel)]="selectedLineStyle" (change)="setLineStyle()"
+            <div class="w-36">
+                <ng-select [(ngModel)]="selectedLineStyle" (change)="setLineStyle()"
                     [ngModelOptions]="{standalone: true}" placeholder="Line Style">
-                    <ng-option class="display-nothing" *ngFor="let lStyle of lineStyles" [value]="lStyle">
-                        <div [style.border-bottom]="'5px '+ lStyle +' gray'" [style.border-color]="selectedLineColor">
-                            <span class="display-nothing">{{lStyle}}</span>
+                    <ng-option *ngFor="let lStyle of lineStyles" [value]="lStyle">
+                        <div [style.borderBottom]="'5px ' + lStyle + ' gray'" [style.borderColor]="selectedLineColor">
+                            <span class="sr-only">{{ lStyle }}</span>
                         </div>
                     </ng-option>
                 </ng-select>
             </div>
         </ng-container>
+
         <ng-container *ngSwitchDefault>
-            <h6 class="mb-0 text-uppercase empty-editor">Select anything to edit it.</h6>
+            <h6 class="text-sm font-semibold text-center text-gray-500">Select anything to edit it.</h6>
         </ng-container>
     </ng-container>
-
 </form>

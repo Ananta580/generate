@@ -5,7 +5,3 @@
 .bordering-fill {
     @apply outline-[0.1px] outline outline-indigo-700;
 }
-
-hr {
-    margin: 0px;
-}

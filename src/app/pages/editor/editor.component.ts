@@ -17,6 +17,7 @@ import * as $ from 'jquery';
 import 'jquery-ui-dist/jquery-ui';
 import { PRESET_TYPE } from 'src/app/common/Models/preset';
 import { ElementInner } from 'src/app/common/Models/element';
+import { CONTENT_ID_PRETAG } from 'src/app/common/Models/constant';
 
 @Component({
   selector: 'gen-editor',
@@ -44,13 +45,14 @@ export class EditorComponent {
   height = BANNERCONTENT.height;
   width = BANNERCONTENT.width;
 
+  contentPreTag = CONTENT_ID_PRETAG;
+
   constructor(
     private _route: ActivatedRoute,
     private session: SessionData,
     public toastService: ToastService
   ) {
     session.setMenuBar(false);
-    this.loadDrops();
   }
 
   ngOnInit(): void {
@@ -82,6 +84,7 @@ export class EditorComponent {
         break;
     }
     this.content.sort((x: ElementInner) => x.position);
+    this.loadDrops();
   }
   ngOnDestroy() {
     this.session.setMenuBar(true);
@@ -114,11 +117,12 @@ export class EditorComponent {
   loadDrops() {
     var attributeDetail: { Id: any; PositionY: any; PositionX: any };
     var content = this.content;
+
     $(() => {
       content.forEach((item: ElementInner) => {
-        $('#' + item.id).attr('contenteditable', 'true');
+        $('#' + this.contentPreTag + item.id).attr('contenteditable', 'true');
         //DRAG USING GRID
-        (<any>$('#' + item.id)).draggable({
+        (<any>$('#' + this.contentPreTag + item.id)).draggable({
           grid: [1, 1],
           drag: (event: any, ui: any) => {
             //this.dragMultipleItems(ui);
@@ -129,7 +133,7 @@ export class EditorComponent {
       (<any>$('#image-section')).droppable({
         drop: (event: any, ui: any) => {
           attributeDetail = {
-            Id: ui.draggable[0].id,
+            Id: ui.draggable[0].id.split(this.contentPreTag)[1],
             PositionX: ui.position.left,
             PositionY: ui.position.top,
           };
@@ -154,6 +158,7 @@ export class EditorComponent {
   detectMouseClick(mouseEvent: any) {
     var event = mouseEvent.event ? mouseEvent.event : mouseEvent;
     var id = mouseEvent.id ? mouseEvent.id : '';
+    // Right Click
     if (event.which == 3) {
       this.showRightClickPanel = 'block';
       this.selectedElementId = id != '' ? id : this.selectedElementId;
@@ -177,16 +182,10 @@ export class EditorComponent {
     this.editorComp.selectElement(this.selectedElementId);
   }
   showSuccess(message: string) {
-    this.toastService.show(message, {
-      classname: 'border border-success',
-      delay: 1000,
-    });
+    this.toastService.showSuccess(message, 5000);
   }
   showError(message: string) {
-    this.toastService.show(message, {
-      classname: 'border border-danger',
-      delay: 1000,
-    });
+    this.toastService.showError(message, 5000);
   }
 
   callBackFromChild(Id: number) {
@@ -195,20 +194,19 @@ export class EditorComponent {
     this.loadDrops();
     this.selectElement(this.selectedElementId);
   }
+
   callBackFromChildRightClick(Id: number) {
     this.loadDrops();
     this.selectedElementId = Id;
-    this.showSuccess('Right Click Detected');
     this.closeContextMenu();
     this.selectElement(this.selectedElementId);
   }
 
   containerClicked(event: MouseEvent) {
-    // Check if the clicked element is inside any item within the gen-element-container
     const target = event.target as HTMLElement;
-    const isContent = target.id.startsWith('content');
+    const isContent = target.id.startsWith(this.contentPreTag);
     if (!isContent) {
-      this.selectedElementId = 0; // Deselect if the click is outside and id of selected element starts with 'content'
+      this.selectedElementId = 0;
     }
   }
 }

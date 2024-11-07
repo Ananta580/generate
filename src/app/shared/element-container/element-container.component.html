@@ -1,34 +1,40 @@
-
 <ng-container *ngFor="let content of cardContent">
-    {{content.type}}
     <!-- For Svg -->
-    <div *ngIf="content.type==1" id="content-{{content.id}}" class="absolute cursor-pointer"
-        (mouseup)="detectMouseClick($event,content.id)" [style.left.px]="content.left" [style.top.px]="content.top"
-        [style.width.px]="content.width" [ngClass]="selectedElementId==content.id?'bordering':''">
+    <div *ngIf="content.type == 1" id="{{ contentPreTag + content.id }}" class="absolute cursor-pointer"
+        (mouseup)="detectMouseClick($event, content.id)" [style.left.px]="content.left" [style.top.px]="content.top"
+        [style.width.px]="content.width" [ngClass]="selectedElementId == content.id ? 'bordering' : 'outline-none'">
         <svg [attr.fill]="content.svgFillColor" [attr.viewBox]="content.svgViewBox">
             <path [attr.d]="content.svgPath" />
         </svg>
     </div>
     <!-- For Image -->
-    <img *ngIf="content.type==2" id="content-{{content.id}}" class="absolute cursor-pointer"
-        (mouseup)="detectMouseClick($event,content.id);" [style.left.px]="content.left" [style.top.px]="content.top"
-        [style.width.px]="content.width" [ngClass]="selectedElementId==content.id?'bordering':''"
-        [style.height.px]="content.height" src="{{content.src}}" />
+    <img *ngIf="content.type == 2" id="{{ contentPreTag + content.id }}" class="absolute cursor-pointer"
+        (mouseup)="detectMouseClick($event, content.id)" [style.left.px]="content.left" [style.top.px]="content.top"
+        [style.width.px]="content.width" [ngClass]="selectedElementId == content.id ? 'bordering' : 'outline-none'"
+        [style.height.px]="content.height" src="{{ content.src }}" />
     <!-- For Text -->
-    <div *ngIf="content.type==3" id="content-{{content.id}}" class="absolute leading-none"
-        (mouseup)="detectMouseClick($event,content.id)" [ngClass]="selectedElementId==content.id?'bordering':''"
-        [style.left.px]="content.left" [style.top.px]="content.top" [style.fontSize.px]="content.fontSize"
-        [style.fontWeight]="content.bold?'bold':'normal'" [style.fontStyle]="content.italic?'italic':'normal'"
-        [style.textDecoration]="content.underline?'underline':'none'"
-        [style.fontFamily]="content.fontFamily?fonts[content.fontFamily-1]:''" [style.color]="content.fontColor">
-        {{content.text}}
+    <div *ngIf="content.type == 3" id="{{ contentPreTag + content.id }}" class="absolute leading-none"
+        (mouseup)="detectMouseClick($event, content.id)"
+        [ngClass]="selectedElementId == content.id ? 'bordering' : 'outline-none'" [style.left.px]="content.left"
+        [style.top.px]="content.top" [style.fontSize.px]="content.fontSize"
+        [style.fontWeight]="content.bold ? 'bold' : 'normal'" [style.fontStyle]="content.italic ? 'italic' : 'normal'"
+        [style.textDecoration]="content.underline ? 'underline' : 'none'"
+        [style.fontFamily]="content.fontFamily ? fonts[content.fontFamily - 1] : ''" [style.color]="content.fontColor">
+        {{ content.text }}
     </div>
     <!-- For Line -->
-    <hr *ngIf="content.type==4" id="content-{{content.id}}" (mouseup)="detectMouseClick($event,content.id)"
-        [ngClass]="selectedElementId==content.id?'bordering-fill':''"
-        class="absolute cursor-pointer opacity-100 bg-transparent"
-        [style.left.px]="content.left" [style.top.px]="content.top" [style.color]="content.lineColor"
-        [style.width.px]="content.length" [style.height.px]="content.thickness" [style.border]="'none'"
-        [style.border-top]="content.length!>content.thickness!?content.thickness!+'px '+content.lineStyle!:'0px'"
-        [style.border-left]="content.thickness!>content.length!?content.length!+'px '+content.lineStyle!:'0px'">
+    <hr *ngIf="content.type == 4" id="{{ contentPreTag + content.id }}" (mouseup)="detectMouseClick($event, content.id)"
+        [ngClass]="
+      selectedElementId == content.id ? 'bordering-fill' : 'outline-none'
+    " class="absolute m-0 cursor-pointer opacity-100 bg-transparent" [style.left.px]="content.left"
+        [style.top.px]="content.top" [style.color]="content.lineColor" [style.width.px]="content.length"
+        [style.height.px]="content.thickness" [style.border]="'none'" [style.border-top]="
+      content.length! > content.thickness!
+        ? content.thickness! + 'px ' + content.lineStyle!
+        : '0px'
+    " [style.border-left]="
+      content.thickness! > content.length!
+        ? content.length! + 'px ' + content.lineStyle!
+        : '0px'
+    " />
 </ng-container>

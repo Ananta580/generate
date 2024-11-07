@@ -1,18 +1,18 @@
 <!-- Navigation Menu -->
-<ul class="navigation-menu">
-  <li (click)="goback()" class="navigation-menu-item backto">
+<ul class="fixed top-12 flex flex-col h-screen bg-white shadow-xl">
+  <li (click)="goback()" class="flex items-center p-3 cursor-pointer transition-colors hover:bg-yellow-200 bg-gray-100">
     <i class="mr-3 fas fa-arrow-left"></i>Back to List
   </li>
-  <li class="navigation-menu-item" (click)="open(content, 3)">
+  <li class="flex items-center p-3 cursor-pointer transition-colors hover:bg-yellow-200" (click)="open(content, 3)">
     <i class="mr-3 fas fa-font"></i>Text
   </li>
-  <li class="navigation-menu-item" (click)="open(content, 2)">
+  <li class="flex items-center p-3 cursor-pointer transition-colors hover:bg-yellow-200" (click)="open(content, 2)">
     <i class="mr-3 fas fa-image"></i>Image
   </li>
-  <li class="navigation-menu-item" (click)="open(content, 1)">
+  <li class="flex items-center p-3 cursor-pointer transition-colors hover:bg-yellow-200" (click)="open(content, 1)">
     <i class="mr-3 fas fa-shapes"></i>Shape
   </li>
-  <li class="navigation-menu-item" (click)="open(content, 4)">
+  <li class="flex items-center p-3 cursor-pointer transition-colors hover:bg-yellow-200" (click)="open(content, 4)">
     <i class="mr-3 fas fa-vector-square"></i>Line
   </li>
 </ul>
@@ -20,88 +20,64 @@
 
 <!-- Off Canvas -->
 <ng-template #content let-offcanvas>
-  <div class="offcanvas-header">
-    <h4
-      class="offcanvas-title"
-      id="offcanvas-basic-title"
-      [ngSwitch]="addElementType"
-    >
-      <span *ngSwitchCase="1"> Choose Svg </span>
-      <span *ngSwitchCase="2"> Upload Image </span>
-      <span *ngSwitchCase="3"> Choose Text </span>
-      <span *ngSwitchCase="4"> Choose Line </span>
+  <div class="shadow-md flex justify-between p-4">
+    <h4 class="font-dancing text-lg" [ngSwitch]="addElementType">
+      <span *ngSwitchCase="1">Choose Svg</span>
+      <span *ngSwitchCase="2">Upload Image</span>
+      <span *ngSwitchCase="3">Choose Text</span>
+      <span *ngSwitchCase="4">Choose Line</span>
     </h4>
-    <button
-      type="button"
-      class="btn-close"
-      aria-label="Close"
-      (click)="offcanvas.dismiss('Cross click')"
-    ></button>
+    <button class="text-gray-500" (click)="offcanvas.dismiss('Cross click')">
+      <i class="fas fa-times"></i>
+    </button>
   </div>
-  <div class="offcanvas-body" [ngSwitch]="addElementType">
+
+  <div class="p-4" [ngSwitch]="addElementType">
     <form *ngSwitchCase="1">
-      <div class="svg-templates">
-        <div
-          class="svg-template-item"
-          *ngFor="let svg of svgTemplates; let i = index"
-          [style.width.px]="svg.width"
-          (click)="addSvg(i)"
-        >
+      <div class="flex flex-wrap">
+        <div class="p-2 border border-gray-200 shadow-sm cursor-pointer rounded-md m-1"
+          *ngFor="let svg of svgTemplates; let i = index" [style.width.px]="svg.width" (click)="addSvg(i)">
           <svg [attr.fill]="svg.svgFillColor" [attr.viewBox]="svg.svgViewBox">
             <path [attr.d]="svg.svgPath" />
           </svg>
         </div>
       </div>
     </form>
+
     <form *ngSwitchCase="2">
-      <div
-        class="image-template-card cursor-pointer"
-        *ngFor="let image of imageTemplates; let i = index"
-        for="image-template-btn"
-        (click)="addImage(i)"
-      >
+      <div class="flex shadow-sm p-2 rounded-md mb-2 cursor-pointer" *ngFor="let image of imageTemplates; let i = index"
+        for="image-template-btn" (click)="addImage(i)">
         <input hidden type="file" id="image-template-btn" />
-        <img class="image-template-src" [src]="image.src" />
-        <div class="image-template-property">
-          <pre class="mb-2 overflow-hidden">Height: {{ image.height }}</pre>
-          <pre class="overflow-hidden">Width:  {{ image.width }}</pre>
+        <img class="w-1/2 bg-cover rounded-md" [src]="image.src" />
+        <div class="pl-4">
+          <pre class="mb-2 text-sm text-gray-500">Height: {{ image.height }}</pre>
+          <pre class="text-sm text-gray-500">Width: {{ image.width }}</pre>
         </div>
       </div>
     </form>
+
     <form *ngSwitchCase="3">
-      <div
-        class="text-element cursor-pointer"
-        *ngFor="let text of textTemplates; let i = index"
-        (click)="addText(i)"
-      >
-        <p
-          [style.fontSize.px]="text.fontSize"
-          [style.fontWeight]="text.bold ? 'bold' : 'normal'"
+      <div class="border-b border-gray-200 p-4 cursor-pointer" *ngFor="let text of textTemplates; let i = index"
+        (click)="addText(i)">
+        <p [style.fontSize.px]="text.fontSize" [style.fontWeight]="text.bold ? 'bold' : 'normal'"
           [style.fontStyle]="text.italic ? 'italic' : 'normal'"
           [style.textDecoration]="text.underline ? 'underline' : 'none'"
-          [style.fontFamily]="text.fontFamily ? fonts[text.fontFamily - 1] : ''"
-          [style.color]="text.fontColor"
-        >
+          [style.fontFamily]="text.fontFamily ? fonts[text.fontFamily - 1] : ''" [style.color]="text.fontColor">
           {{ text.text }}
         </p>
       </div>
     </form>
+
     <form *ngSwitchCase="4">
-      <div
-        *ngFor="let line of lineTemplates; let i = index"
-        class="d-flex line-card mb-2"
-      >
-        <div
-          [style.width.px]="line.length"
-          [style.border-bottom]="
-            line.thickness + 'px ' + line.lineColor + ' ' + line.lineStyle
-          "
-        ></div>
-        <div class="btn-group">
-          <button class="btn btn-warning btn-sm mr-2" (click)="addLine('h', i)">
+      <div *ngFor="let line of lineTemplates; let i = index"
+        class="flex items-center justify-between p-2 mb-2 shadow-sm rounded-md">
+        <div [style.width.px]="line.length"
+          [style.borderBottom]="line.thickness + 'px ' + line.lineColor + ' ' + line.lineStyle"></div>
+        <div class="flex space-x-2">
+          <button class="bg-yellow-500 text-white p-1 rounded-md text-sm" (click)="addLine('h', i)">
             <i class="fas fa-grip-lines"></i>
           </button>
-          <button class="btn btn-primary btn-sm" (click)="addLine('v', i)">
+          <button class="bg-blue-500 text-white p-1 rounded-md text-sm" (click)="addLine('v', i)">
             <i class="fas fa-grip-lines-vertical"></i>
           </button>
         </div>

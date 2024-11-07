@@ -1,13 +1,13 @@
 import {
   Component,
   Input,
-  OnInit,
   OnChanges,
+  OnInit,
   SimpleChanges,
 } from '@angular/core';
-import { Preset } from 'src/app/common/Models/preset';
 import { Subject } from 'rxjs';
 import { debounceTime } from 'rxjs/operators';
+import { Preset } from 'src/app/common/Models/preset';
 
 @Component({
   selector: 'gen-card-collection',

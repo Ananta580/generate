@@ -9,7 +9,6 @@ import { SidenavComponent } from './sidenav/sidenav.component';
 import { NgSelectModule } from '@ng-select/ng-select';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { ColorPickerModule } from 'ngx-color-picker';
-import { NgxMasonryModule } from 'ngx-masonry';
 import { register } from 'swiper/element/bundle';
 register();
 
@@ -28,7 +27,6 @@ register();
     FormsModule,
     ReactiveFormsModule,
     ColorPickerModule,
-    NgxMasonryModule,
   ],
   exports: [
     CardCollectionComponent,

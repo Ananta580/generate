@@ -1,25 +1,44 @@
-<!-- New RightClickPanel-->
-<div class="right-container" [style.display]="showRightClickPanel" [style.top.px]=rightClickPanelY
-    [style.left.px]=rightClickPanelX>
-    <div class="context-sub-menu-top">
-        <p [style.opacity]="copiedElement==undefined?'0.5':'1'" (click)="pasteElement()"><i
-                class="fas fa-paste mr-2 pb-3"></i>Paste</p>
-        <p [style.opacity]="copiedElement==undefined?'0.5':'1'" (click)="pasteProperty()"><i
-                class="fas fa-paste mr-2"></i>Paste Properties</p>
-    </div>
-    <ul *ngIf="selectedElementId!=0" class="context-menu">
-        <li class="context-menu-item" (click)="copyElementOrProperty(0)"><span class="context-menu-item-text"><i
-                    class="fas fa-copy mr-2"></i>Copy</span>
-        </li>
-        <li class="context-menu-item" (click)="copyElementOrProperty(1)"><span class="context-menu-item-text"><i
-                    class="fas fa-clone mr-2"></i>Copy
-                Properties</span></li>
-        <li class="context-menu-item" (click)="sendElementBack()"><span class="context-menu-item-text"><i
-                    class="fas fa-angle-double-left mr-2"></i>Send to Back</span></li>
-        <li class="context-menu-item" (click)="bringElementForward()"><span class="context-menu-item-text"><i
-                    class="fas fa-angle-double-right mr-2"></i>Bring to Front</span></li>
-    </ul>
-    <p [style.opacity]="selectedElementId==0?'0.5':'1'" class="context-sub-menu-bottom" (click)="deleteElement()"><i
-            class="fas fa-trash-alt mr-2"></i>Delete</p>
+<!-- New RightClickPanel -->
+<div class="fixed flex flex-col bg-white rounded-md w-48 shadow-lg z-50" [style.display]="showRightClickPanel"
+        [style.top.px]="rightClickPanelY" [style.left.px]="rightClickPanelX">
+
+        <!-- Top Context Menu Section -->
+        <div class="text-primary px-4 py-3 border-b border-gray-300 cursor-pointer">
+                <p [style.opacity]="copiedElement == undefined ? '0.5' : '1'" (click)="pasteElement()"
+                        class="flex items-center">
+                        <i class="fas fa-paste mr-2"></i>Paste
+                </p>
+                <p [style.opacity]="copiedElement == undefined ? '0.5' : '1'" (click)="pasteProperty()"
+                        class="flex items-center">
+                        <i class="fas fa-paste mr-2"></i>Paste Properties
+                </p>
+        </div>
+
+        <!-- Middle Context Menu Section -->
+        <ul *ngIf="selectedElementId != 0" class="bg-white text-gray-600 px-4">
+                <li class="py-2 flex items-center cursor-pointer transition-colors hover:text-blue-900"
+                        (click)="copyElementOrProperty(0)">
+                        <i class="fas fa-copy mr-2"></i>Copy
+                </li>
+                <li class="py-2 flex items-center cursor-pointer transition-colors hover:text-blue-900"
+                        (click)="copyElementOrProperty(1)">
+                        <i class="fas fa-clone mr-2"></i>Copy Properties
+                </li>
+                <li class="py-2 flex items-center cursor-pointer transition-colors hover:text-blue-900"
+                        (click)="sendElementBack()">
+                        <i class="fas fa-angle-double-left mr-2"></i>Send to Back
+                </li>
+                <li class="py-2 flex items-center cursor-pointer transition-colors hover:text-blue-900"
+                        (click)="bringElementForward()">
+                        <i class="fas fa-angle-double-right mr-2"></i>Bring to Front
+                </li>
+        </ul>
+
+        <!-- Bottom Context Menu Section -->
+        <p [style.opacity]="selectedElementId == 0 ? '0.5' : '1'"
+                class="text-danger px-4 py-3 border-t border-gray-300 cursor-pointer flex items-center"
+                (click)="deleteElement()">
+                <i class="fas fa-trash-alt mr-2"></i>Delete
+        </p>
 </div>
 <!-- End RightClickPanel -->

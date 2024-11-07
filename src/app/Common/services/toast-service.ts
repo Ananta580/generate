@@ -1,33 +1,22 @@
 import { Injectable, TemplateRef } from '@angular/core';
 
+export interface Toast {
+  textOrTpl: TemplateRef<any>;
+  classname?: string;
+  delay?: number;
+  type: string;
+}
+
 @Injectable({ providedIn: 'root' })
 export class ToastService {
-  toasts: any[] = [];
+  toasts: Toast[] = [];
 
   show(textOrTpl: string | TemplateRef<any>, options: any = {}) {
     this.toasts.push({ textOrTpl, ...options });
   }
   showToast(message: string, type: string = 'default', delay: number = 1000) {
-    var className = '';
-    switch (type) {
-      case 'success':
-        className = 'border border-success';
-        break;
-      case 'danger':
-        className = 'border border-danger';
-        break;
-      case 'info':
-        className = 'border border-info';
-        break;
-      case 'warning':
-        className = 'border border-warning';
-        break;
-      default:
-        className = 'border border-default';
-        break;
-    }
     this.show(message, {
-      classname: className,
+      classname: type,
       delay: delay,
     });
   }
@@ -40,6 +29,11 @@ export class ToastService {
   showInfo(message: string, delay: number = 1000) {
     this.showToast(message, 'info', delay);
   }
+
+  showDelete(message: string, delay: number = 1000) {
+    this.showToast(message, 'delete', delay);
+  }
+
   showWarning(message: string, delay: number = 1000) {
     this.showToast(message, 'warning', delay);
   }
