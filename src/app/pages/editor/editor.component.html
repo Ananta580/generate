@@ -1,36 +1,67 @@
-<!-- Side Navigation -->
-<gen-sidenav [content]="content" (loadDrops)="callBackFromChild($event)" (downloadJpg)="downloadJpg()"
-  (downloadSvg)="downloadSvg()"></gen-sidenav>
-<!-- End Side Navigation -->
+<div class="max-xl:flex relative hidden h-screen w-screen flex-col justify-center items-center bg-gray-100">
+  <!-- Icon -->
+  <div class="flex justify-center items-center mb-4">
+    <svg xmlns="http://www.w3.org/2000/svg" class="h-12 w-12 text-indigo-600" fill="none" viewBox="0 0 24 24"
+      stroke="currentColor">
+      <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+        d="M13 16h-1v-4h-1m1-4h.01M12 18c4.418 0 8-3.582 8-8s-3.582-8-8-8-8 3.582-8 8 3.582 8 8 8z" />
+    </svg>
+  </div>
 
-<!-- Element Editor tab -->
-<gen-editor-tab [content]="content" [selectedElementId]="selectedElementId"></gen-editor-tab>
-<!-- End Editor tab -->
+  <!-- Main Message -->
+  <p class="text-center text-lg font-semibold text-gray-600">Feature Unavailable on Mobile</p>
 
-<!-- Container Main Editor -->
-<div class="flex flex-col justify-center w-full bg-gray-200 items-center min-h-[calc(100vh-64px)]"
-  oncontextmenu="return false;" (click)="closeContextMenu($event)">
-  <div class="flex justify-center">
-    <div class="w-full max-w-5xl">
-      <div class="flex flex-col md:flex-row">
-        <div>
-          <div class="relative bg-white overflow-hidden" id="image-section" [style.height.px]="height"
-            [style.width.px]="width" (mouseup)="detectMouseClick($event)">
-            <gen-element-container [cardContent]="content" [selectedElementId]="selectedElementId"
-              (elementSelectorFunction)="detectMouseClick($event)">
-            </gen-element-container>
+  <!-- Subtitle -->
+  <p class="text-center text-sm text-gray-500 mt-2">
+    This feature is only accessible on larger screens. Please switch to a desktop or tablet for the best experience.
+  </p>
+
+  <div
+    class="rounded-full w-96 h-96 absolute -right-20 opacity-45 -top-20 bg-gradient-to-tr from-purple-600 via-indigo-600 to-red-600 blur-2xl">
+  </div>
+
+  <div
+    class="rounded-full w-96 h-96 absolute -left-20 opacity-45 -bottom-20 bg-gradient-to-bl from-purple-600 via-indigo-600 to-red-600 blur-2xl">
+  </div>
+
+</div>
+
+
+<div class="max-xl:hidden">
+  <!-- Side Navigation -->
+  <gen-sidenav [content]="content" (loadDrops)="callBackFromChild($event)" (downloadJpg)="downloadJpg()"
+    (downloadSvg)="downloadSvg()"></gen-sidenav>
+  <!-- End Side Navigation -->
+
+  <!-- Element Editor tab -->
+  <gen-editor-tab [content]="content" [selectedElementId]="selectedElementId"></gen-editor-tab>
+  <!-- End Editor tab -->
+
+  <!-- Container Main Editor -->
+  <div class="flex flex-col justify-center w-full bg-gray-200 items-center min-h-[calc(100vh-64px)]"
+    oncontextmenu="return false;" (click)="closeContextMenu($event)">
+    <div class="flex justify-center">
+      <div class="w-full max-w-5xl">
+        <div class="flex flex-col md:flex-row">
+          <div>
+            <div class="relative bg-white overflow-hidden" id="image-section" [style.height.px]="height"
+              [style.width.px]="width" (mouseup)="detectMouseClick($event)">
+              <gen-element-container [cardContent]="content" [selectedElementId]="selectedElementId"
+                (elementSelectorFunction)="detectMouseClick($event)">
+              </gen-element-container>
+            </div>
+
           </div>
-
         </div>
       </div>
     </div>
   </div>
-</div>
-<!-- End Main Editor -->
+  <!-- End Main Editor -->
 
-<!-- New RightClickPanel -->
-<gen-right-click-container [content]="content" [showRightClickPanel]="showRightClickPanel"
-  [rightClickPanelY]="rightClickPanelY" [rightClickPanelX]="rightClickPanelX" [positionX]="positionX"
-  [positionY]="positionY" [selectedElementId]="selectedElementId" (loadDrops)="callBackFromChildRightClick($event)">
-</gen-right-click-container>
-<!-- End RightClickPanel -->
+  <!-- New RightClickPanel -->
+  <gen-right-click-container [content]="content" [showRightClickPanel]="showRightClickPanel"
+    [rightClickPanelY]="rightClickPanelY" [rightClickPanelX]="rightClickPanelX" [positionX]="positionX"
+    [positionY]="positionY" [selectedElementId]="selectedElementId" (loadDrops)="callBackFromChildRightClick($event)">
+  </gen-right-click-container>
+  <!-- End RightClickPanel -->
+</div>
