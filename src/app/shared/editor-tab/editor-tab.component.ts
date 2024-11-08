@@ -176,10 +176,10 @@ export class EditorTabComponent implements OnInit {
       : this.content;
     var index = tempContent.findIndex((x) => x.id == this.selectedElementId);
     type == 0
-      ? (tempContent[index].width = this.selectedHeight)
+      ? (tempContent[index].height = this.selectedHeight)
       : type == 1
-      ? tempContent[index].width!++
-      : tempContent[index].width!--;
+      ? tempContent[index].height!++
+      : tempContent[index].height!--;
     this.selectElement(this.selectedElementId);
   }
   setSvgColor() {

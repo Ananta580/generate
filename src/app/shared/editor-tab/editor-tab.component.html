@@ -45,28 +45,30 @@
                     </button>
                 </div>
                 <input hidden type="file" id="actual-btn" (change)="selectFile($event, '')" />
-                <div class="!ml-10 relative cursor-pointer h-16 w-20 !bg-opacity-20 bg-white bg-contain bg-no-repeat bg-center border"
+                <label
+                    class="!ml-10 relative cursor-pointer h-14 w-20 !bg-opacity-20 bg-white bg-contain bg-no-repeat bg-center border"
                     [style.backgroundImage]="'url(' + selectedImage + ')'" for="actual-btn">
-                    <span class="absolute bottom-2 right-2">
+                    <span
+                        class="absolute flex justify-center text-xs opacity-50 items-center h-8 w-8 top-1 right-1 bg-black rounded-full">
                         <i class="fas fa-upload text-white"></i>
                     </span>
-                </div>
+                </label>
 
             </ng-container>
 
             <!-- Text Editing Options -->
             <ng-container *ngSwitchCase="3">
-                <div class="flex items-center mr-4">
-                    <span class="text-sm font-semibold text-white mr-2">Font</span>
+                <div class="flex items-center mr-8">
+                    <span class="text-sm text-white mr-4">FONT : </span>
                     <ng-select class="w-36" [(ngModel)]="selectedFont" (change)="setFontFamily()"
-                        [ngModelOptions]="{standalone: true}" placeholder="Font Style">
+                        [ngModelOptions]="{standalone: true}" [clearable]="false" placeholder="Font Style">
                         <ng-option *ngFor="let font of fonts" [value]="font.id">
                             <span [style.fontFamily]="font.name">{{ font.display }}</span>
                         </ng-option>
                     </ng-select>
                 </div>
-                <span class="mr-2 text-sm font-semibold text-white">Size</span>
-                <div class="flex items-center mr-4 space-x-2">
+                <span class="mr-4 text-sm text-white">SIZE : </span>
+                <div class="flex items-center !mr-8 space-x-2">
                     <button class="bg-gray-200 hover:bg-gray-400 h-8 w-8 rounded-full" (click)="setFontSize(-1)">
                         <i class="fas fa-minus"></i>
                     </button>
@@ -76,21 +78,24 @@
                         <i class="fas fa-plus"></i>
                     </button>
                 </div>
-                <div class="flex items-center space-x-2">
-                    <button class="p-2 rounded" [(colorPicker)]="selectedFontColor!" [cpPosition]="'bottom'"
-                        (colorPickerChange)="setFontColor()">
-                        <i class="fas fa-font" [style.borderColor]="selectedFontColor"
-                            [style.borderBottom]="'3px solid'"></i>
+                <div class="flex items-center">
+                    <button class="h-10 items-center flex px-4 mr-3 border-1 border-gray-100 text-white rounded"
+                        [style.backgroundColor]="selectedFontColor" [(colorPicker)]="selectedFontColor!"
+                        [cpPosition]="'bottom'" (colorPickerChange)="setFontColor()">
+                        <i class="fas text-[10px] fa-font"></i>
                     </button>
-                    <button class="p-2 rounded" [ngClass]="isFontBold ? 'bg-gray-700 text-white' : 'bg-gray-200'"
+                    <button class="h-10 w-10 mr-3 rounded"
+                        [ngClass]="isFontBold ? 'bg-indigo-500 text-white' : 'bg-opacity-10 bg-gray-200 text-gray-300'"
                         (click)="setFontBold()">
                         <i class="fas fa-bold"></i>
                     </button>
-                    <button class="p-2 rounded" [ngClass]="isFontItalic ? 'bg-gray-700 text-white' : 'bg-gray-200'"
+                    <button class="h-10 w-10 mr-3 rounded"
+                        [ngClass]="isFontItalic ? 'bg-indigo-500 text-white' : 'bg-opacity-10 bg-gray-200 text-gray-300'"
                         (click)="setFontItalic()">
                         <i class="fas fa-italic"></i>
                     </button>
-                    <button class="p-2 rounded" [ngClass]="isFontUnderline ? 'bg-gray-700 text-white' : 'bg-gray-200'"
+                    <button class="h-10 w-10 rounded"
+                        [ngClass]="isFontUnderline ? 'bg-indigo-500 text-white' : 'bg-opacity-10 bg-gray-200 text-gray-300'"
                         (click)="setFontUnderline()">
                         <i class="fas fa-underline"></i>
                     </button>
@@ -148,7 +153,7 @@
 </form>
 
 <ng-template #empty>
-    <div class="flex w-full items-center justify-center space-x-4 !bg-opacity-15 bg-gradient-to-l from-indigo-950">
+    <div class="flex w-full items-center justify-center space-x-4">
         <i class="fas fa-info-circle text-gray-100 text-xl"></i>
         <h6 class="text-sm font-medium text-gray-300">Select an item to edit its details.</h6>
     </div>
