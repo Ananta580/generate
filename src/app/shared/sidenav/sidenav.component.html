@@ -1,41 +1,68 @@
 <!-- Navigation Menu -->
-<ul class="fixed top-12 flex flex-col h-screen bg-white shadow-xl">
-  <li (click)="goback()" class="flex items-center p-3 cursor-pointer transition-colors hover:bg-yellow-200 bg-gray-100">
-    <i class="mr-3 fas fa-arrow-left"></i>Back to List
-  </li>
-  <li class="flex items-center p-3 cursor-pointer transition-colors hover:bg-yellow-200" (click)="open(content, 3)">
-    <i class="mr-3 fas fa-font"></i>Text
-  </li>
-  <li class="flex items-center p-3 cursor-pointer transition-colors hover:bg-yellow-200" (click)="open(content, 2)">
-    <i class="mr-3 fas fa-image"></i>Image
-  </li>
-  <li class="flex items-center p-3 cursor-pointer transition-colors hover:bg-yellow-200" (click)="open(content, 1)">
-    <i class="mr-3 fas fa-shapes"></i>Shape
-  </li>
-  <li class="flex items-center p-3 cursor-pointer transition-colors hover:bg-yellow-200" (click)="open(content, 4)">
-    <i class="mr-3 fas fa-vector-square"></i>Line
-  </li>
-</ul>
+<div class="fixed top-16 w-60 flex flex-col h-screen bg-gradient-to-b from-zinc-950 bg-zinc-800">
+  <ul>
+    <li (click)="goback()" class="flex items-center p-3 cursor-pointer bg-indigo-950 font-semibold text-white">
+      <i class="mr-3 fas fa-arrow-left"></i>Back to List
+    </li>
+    <li class="flex items-center p-3 cursor-pointer transition-colors hover:bg-indigo-600 text-gray-100 duration-200"
+      (click)="open(content, 3)">
+      <i class="mr-3 fas fa-font"></i>Text
+    </li>
+    <li class="flex items-center p-3 cursor-pointer transition-colors hover:bg-indigo-600 text-gray-100 duration-200"
+      (click)="open(content, 2)">
+      <i class="mr-3 fas fa-image"></i>Image
+    </li>
+    <li class="flex items-center p-3 cursor-pointer transition-colors hover:bg-indigo-600 text-gray-100 duration-200"
+      (click)="open(content, 1)">
+      <i class="mr-3 fas fa-shapes"></i>Shape
+    </li>
+    <li class="flex items-center p-3 cursor-pointer transition-colors hover:bg-indigo-600 text-gray-100 duration-200"
+      (click)="open(content, 4)">
+      <i class="mr-3 fas fa-vector-square"></i>Line
+    </li>
+  </ul>
+
+  <!-- Spacer to push buttons to the bottom -->
+  <div class="mt-auto p-3 mb-16">
+    <div class="flex flex-col gap-3 items-end">
+      <button
+        class="w-full rounded-full font-medium h-10 text-xs hover:bg-amber-600 transition-all duration-300 bg-gray-600 text-white py-2"
+        (click)="downloadJpg.emit()">
+        <i class="fas fa-download mr-2"></i> DOWNLOAD JPEG
+      </button>
+      <div class="flex items-center justify-end w-full gap-3 text-gray-300">
+        or
+        <button
+          class="w-1/2 rounded-full font-semibold h-8 text-xs hover:bg-amber-500 transition-all duration-300 bg-gray-300 text-black py-1"
+          (click)="downloadSvg.emit()">
+          <i class="fas fa-download mr-2"></i> SVG
+        </button>
+      </div>
+    </div>
+  </div>
+</div>
+
 <!-- End Navigation menu -->
 
 <!-- Off Canvas -->
 <ng-template #content let-offcanvas>
-  <div class="shadow-md flex justify-between p-4">
+  <div class="shadow-md flex text-white justify-between p-4 py-3 bg-gradient-to-r from-indigo-900 to-black">
     <h4 class="font-dancing text-lg" [ngSwitch]="addElementType">
-      <span *ngSwitchCase="1">Choose Svg</span>
-      <span *ngSwitchCase="2">Upload Image</span>
-      <span *ngSwitchCase="3">Choose Text</span>
-      <span *ngSwitchCase="4">Choose Line</span>
+      <span *ngSwitchCase="1">Pick a Fun Shape</span>
+      <span *ngSwitchCase="2">Upload a Cool Image</span>
+      <span *ngSwitchCase="3">Select Awesome Text</span>
+      <span *ngSwitchCase="4">Draw a Stylish Line</span>
     </h4>
-    <button class="text-gray-500" (click)="offcanvas.dismiss('Cross click')">
+    <a class="text-white cursor-pointer" (click)="offcanvas.dismiss('Cross click')">
       <i class="fas fa-times"></i>
-    </button>
+    </a>
   </div>
 
-  <div class="p-4" [ngSwitch]="addElementType">
+  <div class="" [ngSwitch]="addElementType">
     <form *ngSwitchCase="1">
-      <div class="flex flex-wrap">
-        <div class="p-2 border border-gray-200 shadow-sm cursor-pointer rounded-md m-1"
+      <div class="flex flex-wrap p-4 gap-2">
+        <div
+          class="p-2 border !border-gray-10  hover:shadow-md transition-all duration-300 cursor-pointer rounded-md m-1"
           *ngFor="let svg of svgTemplates; let i = index" [style.width.px]="svg.width" (click)="addSvg(i)">
           <svg [attr.fill]="svg.svgFillColor" [attr.viewBox]="svg.svgViewBox">
             <path [attr.d]="svg.svgPath" />
@@ -45,21 +72,24 @@
     </form>
 
     <form *ngSwitchCase="2">
-      <div class="flex shadow-sm p-2 rounded-md mb-2 cursor-pointer" *ngFor="let image of imageTemplates; let i = index"
-        for="image-template-btn" (click)="addImage(i)">
-        <input hidden type="file" id="image-template-btn" />
-        <img class="w-1/2 bg-cover rounded-md" [src]="image.src" />
-        <div class="pl-4">
-          <pre class="mb-2 text-sm text-gray-500">Height: {{ image.height }}</pre>
-          <pre class="text-sm text-gray-500">Width: {{ image.width }}</pre>
+      <div class="p-4">
+        <div class="flex hover:shadow-md transition-all duration-300 rounded-md mb-4 cursor-pointer"
+          *ngFor="let image of imageTemplates; let i = index" for="image-template-btn" (click)="addImage(i)">
+          <input hidden type="file" id="image-template-btn" />
+          <img class="w-1/2 bg-cover rounded-l-lg" [src]="image.src" />
+          <div class="p-4 !pl-6 border !border-gray-100 w-full rounded-r-md">
+            <pre class="mb-2 text-sm text-gray-500">Height: {{ image.height }}</pre>
+            <pre class="text-sm text-gray-500">Width: {{ image.width }}</pre>
+          </div>
         </div>
       </div>
+
     </form>
 
     <form *ngSwitchCase="3">
-      <div class="border-b border-gray-200 p-4 cursor-pointer" *ngFor="let text of textTemplates; let i = index"
-        (click)="addText(i)">
-        <p [style.fontSize.px]="text.fontSize" [style.fontWeight]="text.bold ? 'bold' : 'normal'"
+      <div class="border-b hover:shadow-md transition-all duration-300 border-gray-100 p-4 py-3  cursor-pointer"
+        *ngFor="let text of textTemplates; let i = index" (click)="addText(i)">
+        <p class="leading-0" [style.fontSize.px]="text.fontSize" [style.fontWeight]="text.bold ? 'bold' : 'normal'"
           [style.fontStyle]="text.italic ? 'italic' : 'normal'"
           [style.textDecoration]="text.underline ? 'underline' : 'none'"
           [style.fontFamily]="text.fontFamily ? fonts[text.fontFamily - 1] : ''" [style.color]="text.fontColor">
@@ -68,18 +98,19 @@
       </div>
     </form>
 
-    <form *ngSwitchCase="4">
+    <form class="p-4" *ngSwitchCase="4">
       <div *ngFor="let line of lineTemplates; let i = index"
-        class="flex items-center justify-between p-2 mb-2 shadow-sm rounded-md">
-        <div [style.width.px]="line.length"
-          [style.borderBottom]="line.thickness + 'px ' + line.lineColor + ' ' + line.lineStyle"></div>
+        class="flex w-full flex-col gap-3 justify-between p-3 mb-4 border !border-gray-200 transition-all duration-200 hover:shadow-md rounded-md">
+        <div [style.borderBottom]="line.thickness + 'px ' + line.lineColor + ' ' + line.lineStyle"></div>
         <div class="flex space-x-2">
-          <button class="bg-yellow-500 text-white p-1 rounded-md text-sm" (click)="addLine('h', i)">
-            <i class="fas fa-grip-lines"></i>
-          </button>
-          <button class="bg-blue-500 text-white p-1 rounded-md text-sm" (click)="addLine('v', i)">
-            <i class="fas fa-grip-lines-vertical"></i>
-          </button>
+          <a class="bg-amber-500 cursor-pointer text-white p-2 rounded-md text-sm" (click)="addLine('h', i)">
+            <i class="fas fa-grip-lines mr-3"></i>
+            Horizontal
+          </a>
+          <a class="bg-indigo-500 cursor-pointer text-white p-2 rounded-md text-sm" (click)="addLine('v', i)">
+            <i class="fas fa-grip-lines-vertical mr-3"></i>
+            Vertical
+          </a>
         </div>
       </div>
     </form>

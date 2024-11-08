@@ -26,6 +26,10 @@ export class SidenavComponent implements OnInit {
 
   selectedElementId!: number;
 
+  @Output() downloadJpg = new EventEmitter<any>();
+
+  @Output() downloadSvg = new EventEmitter<any>();
+
   constructor(
     private offcanvasService: NgbOffcanvas,
     private location: Location
