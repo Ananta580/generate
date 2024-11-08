@@ -1,4 +1,5 @@
-<div class="max-xl:flex relative hidden h-screen w-screen flex-col justify-center items-center bg-gray-100">
+<div
+  class="max-xl:flex relative hidden h-screen w-screen flex-col justify-center items-center bg-gray-100 overflow-hidden">
   <!-- Icon -->
   <div class="flex justify-center items-center mb-4">
     <svg xmlns="http://www.w3.org/2000/svg" class="h-12 w-12 text-indigo-600" fill="none" viewBox="0 0 24 24"
@@ -12,19 +13,20 @@
   <p class="text-center text-lg font-semibold text-gray-600">Feature Unavailable on Mobile</p>
 
   <!-- Subtitle -->
-  <p class="text-center text-sm text-gray-500 mt-2">
+  <p class="text-center text-sm text-gray-500 mt-2 px-3">
     This feature is only accessible on larger screens. Please switch to a desktop or tablet for the best experience.
   </p>
 
+  <!-- Gradient Blurs -->
   <div
-    class="rounded-full overflow-clip w-96 h-96 absolute -right-20 opacity-45 -top-20 bg-gradient-to-tr from-purple-600 via-indigo-600 to-red-600 blur-2xl">
+    class="rounded-full w-[400px] h-[400px] absolute -right-32 -top-32 opacity-40 bg-gradient-to-tr from-purple-600 via-indigo-600 to-red-600 blur-3xl">
   </div>
 
   <div
-    class="rounded-full overflow-clip w-96 h-96 absolute -left-20 opacity-45 -bottom-20 bg-gradient-to-bl from-purple-600 via-indigo-600 to-red-600 blur-2xl">
+    class="rounded-full w-[400px] h-[400px] absolute -left-32 -bottom-32 opacity-40 bg-gradient-to-bl from-purple-600 via-indigo-600 to-red-600 blur-3xl">
   </div>
-
 </div>
+
 
 
 <div class="max-xl:hidden">
