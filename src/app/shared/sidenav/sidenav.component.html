@@ -1,5 +1,6 @@
 <!-- Navigation Menu -->
-<div class="fixed top-16 w-60 flex flex-col h-screen bg-gradient-to-b from-zinc-950 bg-zinc-800">
+<div
+  class="fixed top-16 w-60 flex flex-col h-screen overflow-auto bg-gradient-to-b from-zinc-950 bg-zinc-800 overflow-y-auto">
   <ul>
     <li (click)="goback()" class="flex items-center p-3 cursor-pointer bg-indigo-950 font-semibold text-white">
       <i class="mr-3 fas fa-arrow-left"></i>Back to List
@@ -58,7 +59,7 @@
     </a>
   </div>
 
-  <div class="" [ngSwitch]="addElementType">
+  <div class="overflow-y-scroll" [ngSwitch]="addElementType">
     <form *ngSwitchCase="1">
       <div class="flex flex-wrap p-4 gap-2">
         <div
