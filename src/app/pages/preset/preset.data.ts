@@ -2,6 +2,7 @@ import { Preset, PRESET_TYPE } from 'src/app/common/Models/preset';
 
 export const DB_PRESETS: Preset[] = [
   {
+    contentId: 1,
     imgsrc: 'assets/visitingcard/visitingcard1.png',
     designer: 'Ananta Poudel',
     date: new Date(),
@@ -10,6 +11,7 @@ export const DB_PRESETS: Preset[] = [
     type: PRESET_TYPE.VISTING_CARD,
   },
   {
+    contentId: 2,
     imgsrc: 'assets/banner/banner1.jpg',
     designer: 'Ananta Poudel',
     date: new Date(),
@@ -18,6 +20,7 @@ export const DB_PRESETS: Preset[] = [
     type: PRESET_TYPE.BANNER,
   },
   {
+    contentId: 3,
     imgsrc: 'assets/visitingcard/visitingcard1.png',
     designer: 'Ananta Poudel',
     date: new Date(),
@@ -26,6 +29,7 @@ export const DB_PRESETS: Preset[] = [
     type: PRESET_TYPE.LOGO,
   },
   {
+    contentId: 4,
     imgsrc: 'assets/flyer/flyer1.png',
     designer: 'Ananta Poudel',
     date: new Date(),
@@ -35,6 +39,7 @@ export const DB_PRESETS: Preset[] = [
     type: PRESET_TYPE.FLYER,
   },
   {
+    contentId: 5,
     imgsrc: 'assets/banner/banner1.jpg',
     designer: 'Ananta Poudel',
     date: new Date(),

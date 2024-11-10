@@ -1,23 +1,16 @@
-import { Component, HostListener, ViewChild } from '@angular/core';
+import { Component, ViewChild } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { SharedModule } from 'src/app/shared/shared.module';
 import { ActivatedRoute } from '@angular/router';
 import { SessionData } from 'src/app/common/Data/Session';
-import {
-  BANNERCONTENT,
-  FLYERCONTENT,
-  FRONTCONTENT,
-  LOGOCONTENT,
-} from 'src/app/common/Models/content';
-import { FONTSCOLLECTION } from 'src/app/common/Models/font';
 import { ToastService } from 'src/app/common/services/toast-service';
 import { EditorTabComponent } from 'src/app/shared/editor-tab/editor-tab.component';
 import * as htmlToImage from 'html-to-image';
 import * as $ from 'jquery';
 import 'jquery-ui-dist/jquery-ui';
-import { PRESET_TYPE } from 'src/app/common/Models/preset';
 import { ElementInner } from 'src/app/common/Models/element';
 import { CONTENT_ID_PRETAG } from 'src/app/common/Models/constant';
+import { DatabaseService } from 'src/app/common/services/database.service';
 
 @Component({
   selector: 'gen-editor',
@@ -40,52 +33,46 @@ export class EditorComponent {
   positionX = 0;
   positionY = 0;
 
-  fonts = FONTSCOLLECTION;
-  content = BANNERCONTENT.content;
-  height = BANNERCONTENT.height;
-  width = BANNERCONTENT.width;
+  contentId: number = 0;
+  content: any[] = [];
+  height = 0;
+  width = 0;
 
   contentPreTag = CONTENT_ID_PRETAG;
 
   constructor(
     private _route: ActivatedRoute,
     private session: SessionData,
-    public toastService: ToastService
+    public toastService: ToastService,
+    private databaseService: DatabaseService
   ) {
     session.setMenuBar(false);
   }
 
   ngOnInit(): void {
-    const type = this._route.snapshot.paramMap.get('type');
-    const id = this._route.snapshot.paramMap.get('id');
-    switch (type) {
-      case PRESET_TYPE.VISTING_CARD:
-        this.content = FRONTCONTENT.content;
-        this.width = FRONTCONTENT.width;
-        this.height = FRONTCONTENT.height;
-        break;
-      case PRESET_TYPE.BANNER:
-        this.content = BANNERCONTENT.content;
-        this.width = BANNERCONTENT.width;
-        this.height = BANNERCONTENT.height;
-
-        break;
-      case PRESET_TYPE.FLYER:
-        this.content = FLYERCONTENT.content;
-        this.width = FLYERCONTENT.width;
-        this.height = FLYERCONTENT.height;
-
-        break;
-      case PRESET_TYPE.LOGO:
-        this.content = LOGOCONTENT.content;
-        this.width = LOGOCONTENT.width;
-        this.height = LOGOCONTENT.height;
-
-        break;
+    const contentId = this._route.snapshot.paramMap.get('id');
+    this.contentId = Number(contentId);
+    if (contentId) {
+      this.loadContent(this.contentId);
     }
+
     this.content.sort((x: ElementInner) => x.position);
     this.loadDrops();
   }
+
+  loadContent(contentId: number) {
+    this.databaseService.getAllContents().subscribe((data) => {
+      const internalContent = data.ALL_CONTENTS.find(
+        (x: any) => x.contentId == contentId
+      );
+      this.content = internalContent.content;
+      this.width = internalContent.width;
+      this.height = internalContent.height;
+      this.content.sort((x: ElementInner) => x.position);
+      this.loadDrops();
+    });
+  }
+
   ngOnDestroy() {
     this.session.setMenuBar(true);
   }
@@ -208,5 +195,18 @@ export class EditorComponent {
     if (!isContent) {
       this.selectedElementId = 0;
     }
+  }
+
+  addNewContent() {
+    this.databaseService
+      .addContent({
+        contentId: this.contentId,
+        content: this.content,
+        width: this.width,
+        height: this.height,
+      })
+      .subscribe(() => {
+        this.showSuccess('Content saved successfully');
+      });
   }
 }

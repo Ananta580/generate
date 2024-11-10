@@ -11,6 +11,7 @@ import { AppComponent } from './app.component';
 import { CoreModule } from './common/core/core.module';
 import { ToastsContainer } from './common/global/toasts-container.component';
 import { ToastService } from './common/services/toast-service';
+import { HttpClientModule } from '@angular/common/http';
 
 @NgModule({
   declarations: [AppComponent, ToastsContainer],
@@ -19,6 +20,7 @@ import { ToastService } from './common/services/toast-service';
     CommonModule,
     ColorPickerModule,
     FormsModule,
+    HttpClientModule,
     AppRoutingModule,
     CoreModule,
     BrowserAnimationsModule,

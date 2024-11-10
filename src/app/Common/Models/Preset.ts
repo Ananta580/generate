@@ -1,5 +1,6 @@
 export interface Preset {
   imgsrc: string;
+  contentId?: number;
   title: string;
   subtitle: string;
   designer: string;
