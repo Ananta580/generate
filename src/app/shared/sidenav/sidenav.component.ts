@@ -30,6 +30,10 @@ export class SidenavComponent implements OnInit {
 
   @Output() downloadSvg = new EventEmitter<any>();
 
+  @Output() addNewContent = new EventEmitter<any>();
+
+  @Output() updateExistingContent = new EventEmitter<any>();
+
   constructor(
     private offcanvasService: NgbOffcanvas,
     private location: Location

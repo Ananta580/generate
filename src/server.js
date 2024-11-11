@@ -4,9 +4,16 @@ const path = require("path");
 
 const app = express();
 const PORT = 3000;
-const DATA_FILE = path.join(__dirname, "data.json");
+const DATA_FILE = path.join(__dirname, "assets/database/db.json");
 
 app.use(express.json());
+
+app.use((req, res, next) => {
+  res.header("Access-Control-Allow-Origin", "*");
+  res.header("Access-Control-Allow-Methods", "GET,POST,PUT,DELETE");
+  res.header("Access-Control-Allow-Headers", "Content-Type");
+  next();
+});
 
 const readData = () => {
   try {

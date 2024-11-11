@@ -62,9 +62,7 @@ export class EditorComponent {
 
   loadContent(contentId: number) {
     this.databaseService.getAllContents().subscribe((data) => {
-      const internalContent = data.ALL_CONTENTS.find(
-        (x: any) => x.contentId == contentId
-      );
+      const internalContent = data.find((x: any) => x.contentId == contentId);
       this.content = internalContent.content;
       this.width = internalContent.width;
       this.height = internalContent.height;
@@ -207,6 +205,18 @@ export class EditorComponent {
       })
       .subscribe(() => {
         this.showSuccess('Content saved successfully');
+      });
+  }
+  updateExistingContent() {
+    this.databaseService
+      .updateContent({
+        contentId: this.contentId,
+        content: this.content,
+        width: this.width,
+        height: this.height,
+      })
+      .subscribe(() => {
+        this.showSuccess('Content updated successfully');
       });
   }
 }

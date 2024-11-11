@@ -32,7 +32,8 @@
 <div class="max-xl:hidden">
   <!-- Side Navigation -->
   <gen-sidenav [content]="content" (loadDrops)="callBackFromChild($event)" (downloadJpg)="downloadJpg()"
-    (downloadSvg)="downloadSvg()"></gen-sidenav>
+    (downloadSvg)="downloadSvg()" (addNewContent)="addNewContent()"
+    (updateExistingContent)="updateExistingContent()"></gen-sidenav>
   <!-- End Side Navigation -->
 
   <!-- Element Editor tab -->
