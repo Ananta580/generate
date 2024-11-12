@@ -25,6 +25,7 @@ export class SelectComponent<T> implements ControlValueAccessor {
   @Input() bindValue: string = '';
   @Input() placeholder: string = 'Select an item';
   @Input() className: string = '';
+  @Input() showWhenNotExist: string = '';
   @Input() clearable: boolean = false;
   @Input() required: boolean = true;
   @Input() loading: boolean = false;

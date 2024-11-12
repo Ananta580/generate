@@ -9,13 +9,22 @@ import { DB_PRESETS } from 'src/app/pages/preset/preset.data';
 export class MainComponent implements OnInit {
   presets: any = undefined;
 
-  items = ['I 1', 'I 2', 'I 3', 'O'];
+  renameValues = ['BAD', 'GOOD'];
+  leadOptions = ['Any', 'LD1', 'LD2'];
+
+  renameOtherValue = {
+    label: 'Others',
+    key: 'Others',
+  };
+
+  renameWithOtherValues = [...this.renameValues, 'Others'];
 
   blocks = [
     {
       id: 1,
+      newName: 'New',
       name: 'Something else',
-      items: ['I 1'],
+      leadOptions: ['Any'],
     },
   ];
 
@@ -27,7 +36,12 @@ export class MainComponent implements OnInit {
     }, 500);
   }
 
-  changed(event: any) {
+  changed(block: any, event: any) {
+    if (event === 'Others') {
+      block.newName = '';
+      return;
+    }
+    block.newName = event;
     console.log('changed', event);
   }
 }

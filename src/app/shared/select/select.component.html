@@ -36,6 +36,6 @@
 
     <!-- Default label template for single select mode -->
     <ng-template *ngIf="!multiple" ng-label-tmp let-item="item">
-        {{ item }}
+        {{ items.includes(item)? item : showWhenNotExist }}
     </ng-template>
 </ng-select>
