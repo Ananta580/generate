@@ -86,6 +86,7 @@ export class EditorComponent {
       link.click();
     });
   }
+
   downloadSvg() {
     this.selectedElementId = 0;
     var node: any = document.getElementById('image-section');
@@ -208,15 +209,31 @@ export class EditorComponent {
       });
   }
   updateExistingContent() {
-    this.databaseService
-      .updateContent({
-        contentId: this.contentId,
-        content: this.content,
-        width: this.width,
-        height: this.height,
-      })
-      .subscribe(() => {
-        this.showSuccess('Content updated successfully');
-      });
+    var node: any = document.getElementById('image-section');
+    htmlToImage.toBlob(node).then(async (blob) => {
+      if (blob) {
+        const file = new File([blob], `content-${this.contentId}.jpg`, {
+          type: 'image/jpeg',
+        });
+        this.databaseService
+          .updateContent(
+            {
+              contentId: this.contentId,
+              content: this.content,
+              width: this.width,
+              height: this.height,
+            },
+            file
+          )
+          .subscribe({
+            next: () => {
+              this.showSuccess('Content updated successfully');
+            },
+            error: (err) => {
+              this.showError('Failed to update content');
+            },
+          });
+      }
+    });
   }
 }

@@ -3,7 +3,7 @@ import { Preset, PRESET_TYPE } from 'src/app/common/Models/preset';
 export const DB_PRESETS: Preset[] = [
   {
     contentId: 1,
-    imgsrc: 'assets/visitingcard/visitingcard1.png',
+    imgsrc: 'assets/images/content-1.jpg',
     designer: 'Ananta Poudel',
     date: new Date(),
     title: 'Dummy Visiting card for Adidas',
@@ -12,7 +12,7 @@ export const DB_PRESETS: Preset[] = [
   },
   {
     contentId: 2,
-    imgsrc: 'assets/banner/banner1.jpg',
+    imgsrc: 'assets/images/content-2.jpg',
     designer: 'Ananta Poudel',
     date: new Date(),
     title: 'Made for Leo club',
@@ -21,7 +21,7 @@ export const DB_PRESETS: Preset[] = [
   },
   {
     contentId: 3,
-    imgsrc: 'assets/visitingcard/visitingcard1.png',
+    imgsrc: 'assets/images/content-3.jpg',
     designer: 'Ananta Poudel',
     date: new Date(),
     title: 'Made for Leo club',
@@ -30,7 +30,7 @@ export const DB_PRESETS: Preset[] = [
   },
   {
     contentId: 4,
-    imgsrc: 'assets/flyer/flyer1.png',
+    imgsrc: 'assets/images/content-4.jpg',
     designer: 'Ananta Poudel',
     date: new Date(),
     title: 'Royal Real Estate Flyer',
@@ -40,7 +40,7 @@ export const DB_PRESETS: Preset[] = [
   },
   {
     contentId: 5,
-    imgsrc: 'assets/banner/banner1.jpg',
+    imgsrc: 'assets/images/content-5.jpg',
     designer: 'Ananta Poudel',
     date: new Date(),
     title: 'Made for Leo club',

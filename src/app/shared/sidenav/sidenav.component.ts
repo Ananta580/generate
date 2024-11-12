@@ -33,6 +33,9 @@ export class SidenavComponent implements OnInit {
   @Output() addNewContent = new EventEmitter<any>();
 
   @Output() updateExistingContent = new EventEmitter<any>();
+  isAdminLoggedIn = JSON.parse(
+    localStorage.getItem('isAdminLoggedIn') || 'false'
+  );
 
   constructor(
     private offcanvasService: NgbOffcanvas,

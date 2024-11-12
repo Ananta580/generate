@@ -1,12 +1,14 @@
 const express = require("express");
 const fs = require("fs");
 const path = require("path");
+const fileUpload = require("express-fileupload");
 
 const app = express();
 const PORT = 3000;
 const DATA_FILE = path.join(__dirname, "assets/database/db.json");
 
 app.use(express.json());
+app.use(fileUpload());
 
 app.use((req, res, next) => {
   res.header("Access-Control-Allow-Origin", "*");
@@ -62,7 +64,7 @@ app.post("/api/content", (req, res) => {
 
 app.put("/api/content/:contentId", (req, res) => {
   const { contentId } = req.params;
-  const updatedContent = req.body;
+  const updatedContent = JSON.parse(req.body.data);
   const data = readData();
 
   const index = data.findIndex(
@@ -72,6 +74,15 @@ app.put("/api/content/:contentId", (req, res) => {
     data[index] = { ...data[index], ...updatedContent };
     writeData(data);
     res.json(data[index]);
+    if (req.files && req.files.file) {
+      const file = req.files.file;
+      const uploadPath = path.join(__dirname, "assets/images", file.name);
+      file.mv(uploadPath, (err) => {
+        if (err) {
+          console.error("Error uploading file:", err);
+        }
+      });
+    }
   } else {
     res.status(404).json({ message: "Content not found" });
   }

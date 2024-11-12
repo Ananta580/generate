@@ -19,7 +19,14 @@ export class DatabaseService {
   addContent(content: ElementOuter): Observable<any> {
     return this.http.post<any>(`${this.apiUrl}`, content);
   }
-  updateContent(content: ElementOuter): Observable<any> {
-    return this.http.put<any>(`${this.apiUrl}/${content.contentId}`, content);
+
+  updateContent(content: ElementOuter, file?: File): Observable<any> {
+    const formData = new FormData();
+    formData.append('data', JSON.stringify(content));
+
+    if (file) {
+      formData.append('file', file);
+    }
+    return this.http.put<any>(`${this.apiUrl}/${content.contentId}`, formData);
   }
 }

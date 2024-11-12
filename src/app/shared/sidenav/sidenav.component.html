@@ -22,17 +22,19 @@
       <i class="mr-3 fas fa-vector-square"></i>Line
     </li>
 
-    <li
-      class="flex items-center text-sm p-2 px-3 bg-emerald-900 cursor-pointer transition-colors hover:bg-indigo-900 text-gray-100 duration-200"
-      (click)="addNewContent.emit()">
-      <i class="mr-3 fas fa-plus"></i> Add as New
-    </li>
+    <ng-container *ngIf="isAdminLoggedIn">
+      <li
+        class="flex items-center text-sm p-2 px-3 bg-emerald-900 cursor-pointer transition-colors hover:bg-indigo-900 text-gray-100 duration-200"
+        (click)="addNewContent.emit()">
+        <i class="mr-3 fas fa-plus"></i> Add as New
+      </li>
 
-    <li
-      class="flex items-center text-sm p-2 px-3 bg-amber-900 cursor-pointer transition-colors hover:bg-indigo-900 text-gray-100 duration-200"
-      (click)="updateExistingContent.emit()">
-      <i class="mr-3 fas fa-save"></i> Update Existing
-    </li>
+      <li
+        class="flex items-center text-sm p-2 px-3 bg-amber-900 cursor-pointer transition-colors hover:bg-indigo-900 text-gray-100 duration-200"
+        (click)="updateExistingContent.emit()">
+        <i class="mr-3 fas fa-save"></i> Update Existing
+      </li>
+    </ng-container>
   </ul>
 
   <!-- Spacer to push buttons to the bottom -->

@@ -5,4 +5,5 @@ export interface ElementOuter {
   width: number;
   height: number;
   content: ElementInner[];
+  file?: File;
 }
