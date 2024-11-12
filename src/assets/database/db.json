@@ -1,6 +1,11 @@
 [
   {
     "contentId": 1,
+    "type": "visiting-card",
+    "title": "Visiting Card",
+    "subtitle": "Dummy Visiting Card",
+    "designer": "Ananta Poudel",
+    "date": "2021-09-01",
     "content": [
       {
         "id": 1,
@@ -32,11 +37,11 @@
         "position": 3,
         "height": 299.6706,
         "width": 237.6155,
-        "top": 0,
-        "left": 291.5258,
+        "top": -1,
+        "left": 289.5234375,
         "svgPath": "M11.1,142.36l-8.91-7.9a6.52,6.52,0,0,1-.91-8.75L92.6,2.63A6.5,6.5,0,0,1,97.82,0h14.41V144H15.42A6.49,6.49,0,0,1,11.1,142.36Z",
         "svgViewBox": "0 0 112.23 144",
-        "svgFillColor": "black"
+        "svgFillColor": "#170452"
       },
       {
         "id": 4,
@@ -44,8 +49,8 @@
         "position": 4,
         "height": 125.9311,
         "width": 129.4922,
-        "top": 13,
-        "left": 24,
+        "top": 88,
+        "left": 40,
         "src": "./assets/visitingcard1/logo.png"
       }
     ],
@@ -54,15 +59,20 @@
   },
   {
     "contentId": 2,
+    "type": "banner",
+    "title": "Banner Card",
+    "subtitle": "Dummy Banner Card",
+    "designer": "Ananta Poudel",
+    "date": "2021-09-01",
     "content": [
       {
         "id": 1,
         "type": 2,
         "position": 1,
         "height": 117,
-        "width": 951,
-        "top": -27,
-        "left": 1,
+        "width": 999,
+        "top": -24,
+        "left": 0,
         "src": "./assets/banner1/top.png"
       },
       {
@@ -123,7 +133,7 @@
         "left": 280,
         "text": "LEO CLUB OF KATHMANDU",
         "fontColor": "#CE3C3F",
-        "fontFamily": 9,
+        "fontFamily": 5,
         "fontSize": 28.42,
         "fontWeight": "bold",
         "bold": true,
@@ -138,7 +148,7 @@
         "left": 399,
         "text": "RESUNGA",
         "fontColor": "#CE3C3F",
-        "fontFamily": 9,
+        "fontFamily": 5,
         "fontSize": 28.42,
         "fontWeight": "bold",
         "bold": true,
@@ -149,8 +159,8 @@
         "id": 9,
         "type": 3,
         "position": 9,
-        "top": 386,
-        "left": 366,
+        "top": 381,
+        "left": 365,
         "text": "Produdly presents",
         "fontColor": "black",
         "fontFamily": 10,
@@ -224,7 +234,7 @@
         "id": 14,
         "type": 3,
         "position": 14,
-        "top": 440,
+        "top": 437,
         "left": 390,
         "text": "L. Y. 2022/2023",
         "fontColor": "#2657A0",
@@ -255,7 +265,7 @@
         "type": 3,
         "position": 16,
         "top": 503,
-        "left": 315,
+        "left": 320,
         "text": "Leo District Council 325 M, Nepal",
         "fontColor": "#D25E46",
         "fontFamily": 2,
@@ -270,10 +280,10 @@
         "type": 3,
         "position": 17,
         "top": 532,
-        "left": 298,
+        "left": 299,
         "text": "100%  YES VOTE",
         "fontColor": "#2657A0",
-        "fontFamily": 9,
+        "fontFamily": 1,
         "fontSize": 38,
         "fontWeight": "bold",
         "bold": true,
@@ -286,6 +296,11 @@
   },
   {
     "contentId": 3,
+    "type": "logo",
+    "title": "Logo Card",
+    "subtitle": "Dummy Logo Card",
+    "designer": "Ananta Poudel",
+    "date": "2021-09-01",
     "content": [
       {
         "id": 1,
@@ -339,6 +354,11 @@
   },
   {
     "contentId": 4,
+    "type": "flyer",
+    "title": "Flyer Card",
+    "subtitle": "Dummy Flyer Card",
+    "designer": "Ananta Poudel",
+    "date": "2021-09-01",
     "content": [
       {
         "id": 1,
@@ -810,6 +830,11 @@
   },
   {
     "contentId": 5,
+    "type": "post",
+    "title": "Post Card",
+    "subtitle": "Dummy Post Card",
+    "designer": "Ananta Poudel",
+    "date": "2021-09-01",
     "content": [
       {
         "id": 1,
@@ -1025,11 +1050,11 @@
         "id": 17,
         "type": 3,
         "position": 17,
-        "top": 539,
-        "left": 315,
+        "top": 536,
+        "left": 308,
         "text": "100%  YES VOTE",
         "fontColor": "#2657A0",
-        "fontFamily": 9,
+        "fontFamily": 7,
         "fontSize": 38,
         "fontWeight": "bold",
         "bold": true,

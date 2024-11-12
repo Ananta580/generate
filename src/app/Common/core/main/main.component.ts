@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
-import { DB_PRESETS } from 'src/app/pages/preset/preset.data';
+import { Preset } from '../../Models/preset';
+import { DatabaseService } from '../../services/database.service';
 
 @Component({
   selector: 'gen-main',
@@ -7,7 +8,7 @@ import { DB_PRESETS } from 'src/app/pages/preset/preset.data';
   styleUrls: ['./main.component.css'],
 })
 export class MainComponent implements OnInit {
-  presets: any = undefined;
+  presets?: Preset[];
 
   renameValues = ['BAD', 'GOOD'];
   leadOptions = ['Any', 'LD1', 'LD2'];
@@ -28,12 +29,20 @@ export class MainComponent implements OnInit {
     },
   ];
 
-  constructor() {}
+  constructor(private db: DatabaseService) {}
 
   ngOnInit(): void {
     setTimeout(() => {
-      this.presets = [...DB_PRESETS, ...DB_PRESETS];
+      this.loadAllContents();
     }, 500);
+  }
+
+  loadAllContents() {
+    this.db.getAllForHome().subscribe({
+      next: (data) => {
+        this.presets = data;
+      },
+    });
   }
 
   changed(block: any, event: any) {

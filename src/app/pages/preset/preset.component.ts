@@ -1,9 +1,9 @@
-import { Component } from '@angular/core';
 import { CommonModule } from '@angular/common';
-import { PRESET_TYPE, Preset } from 'src/app/common/Models/preset';
-import { SharedModule } from 'src/app/shared/shared.module';
+import { Component } from '@angular/core';
 import { ActivatedRoute, Params } from '@angular/router';
-import { DB_PRESETS } from './preset.data';
+import { PRESET_TYPE, Preset } from 'src/app/common/Models/preset';
+import { DatabaseService } from 'src/app/common/services/database.service';
+import { SharedModule } from 'src/app/shared/shared.module';
 
 @Component({
   selector: 'gen-preset',
@@ -14,11 +14,8 @@ import { DB_PRESETS } from './preset.data';
 export class PresetComponent {
   presets?: Preset[];
 
-  dbPresets: Preset[] = DB_PRESETS;
-
   presetType?: PRESET_TYPE;
-
-  constructor(private _route: ActivatedRoute) {
+  constructor(private _route: ActivatedRoute, private db: DatabaseService) {
     this._route.params.subscribe({
       next: (params: Params) => {
         const { type } = params;
@@ -26,11 +23,17 @@ export class PresetComponent {
         this.presets = undefined;
         if (type != undefined) {
           setTimeout(() => {
-            this.presets = this.dbPresets.filter(
-              (x) => x.type?.toString() === type
-            );
+            this.loadPresets();
           }, 500);
         }
+      },
+    });
+  }
+
+  loadPresets() {
+    this.db.getAllContentsByType(this.presetType).subscribe({
+      next: (data) => {
+        this.presets = data;
       },
     });
   }

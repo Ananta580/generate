@@ -38,6 +38,12 @@ export class EditorComponent {
   height = 0;
   width = 0;
 
+  title = '';
+  subtitle = '';
+  type = '';
+  date = '';
+  designer = '';
+
   contentPreTag = CONTENT_ID_PRETAG;
 
   constructor(
@@ -66,6 +72,11 @@ export class EditorComponent {
       this.content = internalContent.content;
       this.width = internalContent.width;
       this.height = internalContent.height;
+      this.title = internalContent.title;
+      this.subtitle = internalContent.subtitle;
+      this.type = internalContent.type;
+      this.date = internalContent.date;
+      this.designer = internalContent.designer;
       this.content.sort((x: ElementInner) => x.position);
       this.loadDrops();
     });
@@ -203,11 +214,17 @@ export class EditorComponent {
         content: this.content,
         width: this.width,
         height: this.height,
+        title: this.title,
+        subtitle: this.subtitle,
+        type: this.type,
+        date: this.date,
+        designer: this.designer,
       })
       .subscribe(() => {
         this.showSuccess('Content saved successfully');
       });
   }
+
   updateExistingContent() {
     var node: any = document.getElementById('image-section');
     htmlToImage.toBlob(node).then(async (blob) => {
@@ -219,6 +236,11 @@ export class EditorComponent {
           .updateContent(
             {
               contentId: this.contentId,
+              title: this.title,
+              subtitle: this.subtitle,
+              type: this.type,
+              date: this.date,
+              designer: this.designer,
               content: this.content,
               width: this.width,
               height: this.height,
