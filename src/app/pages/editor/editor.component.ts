@@ -227,7 +227,7 @@ export class EditorComponent {
 
   updateExistingContent() {
     var node: any = document.getElementById('image-section');
-    htmlToImage.toBlob(node).then(async (blob) => {
+    htmlToImage.toBlob(node, { quality: 5 }).then(async (blob) => {
       if (blob) {
         const file = new File([blob], `content-${this.contentId}.jpg`, {
           type: 'image/jpeg',

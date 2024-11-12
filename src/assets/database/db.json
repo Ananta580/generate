@@ -37,11 +37,11 @@
         "position": 3,
         "height": 299.6706,
         "width": 237.6155,
-        "top": -1,
-        "left": 289.5234375,
+        "top": 0,
+        "left": 290.5234375,
         "svgPath": "M11.1,142.36l-8.91-7.9a6.52,6.52,0,0,1-.91-8.75L92.6,2.63A6.5,6.5,0,0,1,97.82,0h14.41V144H15.42A6.49,6.49,0,0,1,11.1,142.36Z",
         "svgViewBox": "0 0 112.23 144",
-        "svgFillColor": "#170452"
+        "svgFillColor": "#110049"
       },
       {
         "id": 4,
@@ -49,8 +49,8 @@
         "position": 4,
         "height": 125.9311,
         "width": 129.4922,
-        "top": 88,
-        "left": 40,
+        "top": 34,
+        "left": 29,
         "src": "./assets/visitingcard1/logo.png"
       }
     ],
@@ -342,11 +342,28 @@
         "id": 4,
         "type": 2,
         "position": 4,
-        "height": 125.9311,
-        "width": 129.4922,
-        "top": 87,
-        "left": 61,
+        "height": "100",
+        "width": "100",
+        "top": 38,
+        "left": 31,
         "src": "./assets/visitingcard1/logo.png"
+      },
+      {
+        "text": "Creative Content",
+        "fontColor": "#2b1f1f",
+        "fontFamily": 1,
+        "fontSize": 22,
+        "fontWeight": "light",
+        "bold": true,
+        "italic": false,
+        "underline": false,
+        "length": 0,
+        "thickness": 0,
+        "id": 5,
+        "type": 3,
+        "left": 26,
+        "top": 257,
+        "position": 5
       }
     ],
     "width": 525,
