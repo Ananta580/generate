@@ -1,0 +1,129 @@
+$primary-color: var(--primary);
+$danger-color: var(--danger);
+$gray-color: var(--gray);
+$light-gray-color: #ced4da;
+$hover-color: #00839125;
+$white-color: #fff;
+$black-color: #333;
+$gray-color: gray;
+
+::ng-deep .ng-select {
+    border: none;
+    border-radius: 0;
+    padding: 0;
+    height: 30px;
+    width: 100%;
+    max-width: 200px;
+}
+
+::ng-deep .ng-select.ng-select-single .ng-select-container,
+::ng-deep .ng-select .ng-select-container {
+    height: 30px !important;
+    border: 1px solid $light-gray-color;
+    border-radius: 0;
+    padding: 0 .25rem;
+    background-color: transparent;
+    min-height: 30px;
+}
+
+::ng-deep .error.ng-select .ng-select-container {
+    border: 1px solid $danger-color !important;
+}
+
+::ng-deep .ng-select .ng-select__selection {
+    padding: 0 .25rem;
+    line-height: 1.5;
+    background-color: transparent;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+
+::ng-deep .ng-select .ng-select-container:focus {
+    outline: none !important;
+    box-shadow: none !important;
+}
+
+::ng-deep .ng-dropdown-panel.ng-select-bottom {
+    margin-top: 0;
+}
+
+::ng-deep .ng-select.ng-select-opened.ng-select-bottom > .ng-select-container,
+::ng-deep .ng-select.ng-select-focused:not(.ng-select-opened) > .ng-select-container {
+    border-color: $primary-color !important;
+    background-color: transparent !important;
+}
+
+::ng-deep .ng-select .ng-select__placeholder,
+::ng-deep .ng-select .ng-option {
+    color: $gray-color;
+}
+
+::ng-deep .ng-dropdown-panel .ng-dropdown-panel-items .ng-option.ng-option-selected {
+    background-color: $primary-color !important;
+    color: $white-color !important;
+}
+
+::ng-deep .multiple .ng-dropdown-panel .ng-dropdown-panel-items .ng-option.ng-option-selected {
+    background-color: $white-color !important;
+    color: $black-color !important;
+}
+
+::ng-deep .ng-select .ng-dropdown-panel .ng-dropdown-panel-items .ng-option.ng-option-marked:hover {
+    background-color: $gray-color !important;
+    color: $white-color !important;
+}
+
+::ng-deep .ng-select-multiple .ng-dropdown-panel .ng-dropdown-panel-items .ng-option.ng-option-marked:hover {
+    background-color: $hover-color !important;
+    color: $black-color !important;
+}
+
+.multi-label {
+    width: 80px;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+}
+
+.checkbox-container {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+}
+
+.checkbox {
+    width: 16px;
+    height: 16px;
+    border-radius: 3px;
+    border: 2px solid $gray-color;
+    transition: all 0.3s ease;
+}
+
+.checkbox.checked {
+    background-color: $primary-color;
+    border-color: $primary-color;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.checkmark {
+    width: 12px;
+    height: 12px;
+    stroke-width: 3;
+    color: $white-color;
+    display: block;
+}
+
+.checkbox:hover {
+    border-color: $primary-color;
+}
+
+.checkbox:hover, .checkbox.checked:hover {
+    transform: scale(1.1);
+}
+
+.emptyCheckbox {
+    border-color: $gray-color;
+}

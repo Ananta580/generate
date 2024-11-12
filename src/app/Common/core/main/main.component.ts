@@ -9,13 +9,13 @@ import { DB_PRESETS } from 'src/app/pages/preset/preset.data';
 export class MainComponent implements OnInit {
   presets: any = undefined;
 
-  items = ['Item 1', 'Item 2', 'Item 3'];
+  items = ['I 1', 'I 2', 'I 3', 'O'];
 
   blocks = [
     {
       id: 1,
-      name: 'Item 4',
-      items: ['Item 1', 'Item 2', 'Item 3'],
+      name: 'Something else',
+      items: ['I 1'],
     },
   ];
 
@@ -25,10 +25,6 @@ export class MainComponent implements OnInit {
     setTimeout(() => {
       this.presets = [...DB_PRESETS, ...DB_PRESETS];
     }, 500);
-  }
-
-  get getitems() {
-    return [...this.items, 'New Item'];
   }
 
   changed(event: any) {

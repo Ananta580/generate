@@ -5,4 +5,7 @@
 :root{
   --swiper-navigation-color: indigo;
   --swiper-navigation-size: 30px;
+  --danger: red;
+  --primary: #0097a7;
+  --gray: #343a40;
 }

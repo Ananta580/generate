@@ -1,8 +1,18 @@
-<!-- <ng-container *ngFor="let block of blocks">
-    <ng-select [items]="getitems" [clearable]="false" [searchable]="false" placeholder="Select an item"
-        [(ngModel)]="block.name" (ngModelChange)="changed($event)">
-    </ng-select>
-</ng-container> -->
+<div class="p-4" *ngFor="let block of blocks">
+
+    <!-- Multiple Select -->
+    <app-select [multiple]="true" [items]="items" [clearable]="false" [searchable]="false" placeholder="Select an item"
+        [(ngModel)]="block.items" (ngModelChange)="changed($event)">
+    </app-select>
+
+
+    <br />
+    <!-- What to do  -->
+    1. Create select-scss file to separate the styles & import in styles.scss
+    2. change the component select from single to mulitple select
+    3. Use ng-select wherever we can
+    4. Use app-multiple-select wherever needed
+</div>
 
 
 <gen-card-collection [itemList]="presets"></gen-card-collection>

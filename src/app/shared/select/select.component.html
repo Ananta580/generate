@@ -1,0 +1,41 @@
+<ng-select [ngClass]="{ error: error, multiple:multiple }" [items]="items" [class]="className" [bindLabel]="bindLabel"
+    [bindValue]="bindValue" [placeholder]="placeholder" [clearable]="clearable" [typeahead]="typeahead"
+    [loading]="loading" [multiple]="multiple" [searchable]="searchable" [disabled]="disabled" [required]="required"
+    [(ngModel)]="selectedItem" (ngModelChange)="onChange($event)" (open)="open.emit()" [closeOnSelect]="!multiple">
+
+    <!-- Checkbox style for multiple mode only -->
+    <ng-template *ngIf="multiple" ng-option-tmp let-item="item" let-item$="item$" let-index="index">
+        <div class="checkbox-container">
+            <ng-container *ngIf="item$.selected else emptyCheckbox">
+                <div class="checkbox checked">
+                    <svg class="checkmark" fill="none" stroke="currentColor" viewBox="0 0 24 24"
+                        xmlns="http://www.w3.org/2000/svg">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="4" d="M5 13l4 4L19 7"></path>
+                    </svg>
+                </div>
+            </ng-container>
+            <ng-template #emptyCheckbox>
+                <div class="checkbox"></div>
+            </ng-template>
+            {{ item }}
+        </div>
+
+    </ng-template>
+
+    <!-- Default option template for single select mode -->
+    <ng-template *ngIf="!multiple" ng-option-tmp let-item="item">
+        {{ item }}
+    </ng-template>
+
+    <!-- Custom label template for multiple mode (comma-separated display) -->
+    <ng-template ng-multi-label-tmp let-items="items" let-clear="clear">
+        <div class="multi-label">
+            <span>{{ items.sort()?.join(',') }}</span>
+        </div>
+    </ng-template>
+
+    <!-- Default label template for single select mode -->
+    <ng-template *ngIf="!multiple" ng-label-tmp let-item="item">
+        {{ item }}
+    </ng-template>
+</ng-select>

@@ -10,6 +10,7 @@ import { NgSelectModule } from '@ng-select/ng-select';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { ColorPickerModule } from 'ngx-color-picker';
 import { register } from 'swiper/element/bundle';
+import { SelectComponent } from './select/select.component';
 register();
 
 @NgModule({
@@ -19,6 +20,7 @@ register();
     ElementContainerComponent,
     RightClickContainerComponent,
     SidenavComponent,
+    SelectComponent,
   ],
   imports: [
     CommonModule,
@@ -34,6 +36,7 @@ register();
     ElementContainerComponent,
     RightClickContainerComponent,
     SidenavComponent,
+    SelectComponent,
   ],
   schemas: [CUSTOM_ELEMENTS_SCHEMA],
 })
