@@ -24,6 +24,12 @@ export class SidenavComponent implements OnInit {
   @Input() frontSideSelected!: boolean;
   @Input() twoSides!: boolean;
 
+  @Input() title = '';
+  @Input() subtitle = '';
+  @Input() designer = '';
+
+  actionType: 'add' | 'update' = 'add';
+
   selectedElementId!: number;
 
   @Output() downloadJpg = new EventEmitter<any>();
@@ -129,5 +135,31 @@ export class SidenavComponent implements OnInit {
 
   callParentBack() {
     this.loadDrops.emit(this.selectedElementId);
+  }
+
+  openSave(action: 'add' | 'update', content: any) {
+    this.actionType = action;
+    this.offcanvasService.open(content, {
+      ariaLabelledBy: 'offcanvas-basic-title',
+    });
+    if (action === 'add') {
+      this.title = '';
+      this.subtitle = '';
+      this.designer = '';
+    }
+  }
+
+  saveContent() {
+    const payload = {
+      title: this.title,
+      subtitle: this.subtitle,
+      designer: this.designer,
+    };
+    if (this.actionType === 'add') {
+      this.addNewContent.emit(payload);
+    } else {
+      this.updateExistingContent.emit(payload);
+    }
+    this.offcanvasService.dismiss();
   }
 }

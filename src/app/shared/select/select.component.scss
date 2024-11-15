@@ -16,6 +16,10 @@ $gray-color: gray;
     max-width: 200px;
 }
 
+::ng-deep .ng-dropdown-panel , ::ng-deep .ng-select.ng-select-opened .ng-select-container{
+    z-index: 10 !important;
+}
+
 ::ng-deep .ng-select.ng-select-single .ng-select-container,
 ::ng-deep .ng-select .ng-select-container {
     height: 30px !important;

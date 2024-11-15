@@ -22,6 +22,7 @@ export class EditorTabComponent implements OnInit {
   selectedWidth: number | undefined = 1;
 
   // Text Properties that are used to populate top bar
+  selectedText: string | undefined = '';
   selectedFont: number | undefined = 1;
   selectedSize: number | undefined = 1;
   selectedFontColor: string | undefined = 'red';
@@ -65,6 +66,7 @@ export class EditorTabComponent implements OnInit {
         : this.cardBackContent
       : this.content;
     var index = tempContent.findIndex((x) => x.id == Id);
+    this.selectedText = tempContent[index].text;
     this.selectedFontColor = tempContent[index].fontColor;
     this.selectedFont = tempContent[index].fontFamily;
     this.selectedSize = tempContent[index].fontSize;
@@ -82,6 +84,16 @@ export class EditorTabComponent implements OnInit {
     this.selectedLineColor = tempContent[index].lineColor;
   }
   //#region Setting Text Properties
+
+  setText() {
+    var tempContent = this.twoSides
+      ? this.frontSideSelected
+        ? this.cardFrontContent
+        : this.cardBackContent
+      : this.content;
+    var index = tempContent.findIndex((x) => x.id == this.selectedElementId);
+    tempContent[index].text = this.selectedText;
+  }
   setFontBold() {
     var tempContent = this.twoSides
       ? this.frontSideSelected

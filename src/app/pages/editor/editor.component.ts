@@ -22,6 +22,8 @@ import { DatabaseService } from 'src/app/common/services/database.service';
 export class EditorComponent {
   @ViewChild(EditorTabComponent) editorComp!: EditorTabComponent;
 
+  isLoading = false;
+
   // Properties as required
   selectedElementId = 0;
   selectedElementType = 0;
@@ -207,40 +209,41 @@ export class EditorComponent {
     }
   }
 
-  addNewContent() {
+  addNewContent(payload: any) {
     this.databaseService
       .addContent({
         contentId: this.contentId,
         content: this.content,
         width: this.width,
         height: this.height,
-        title: this.title,
-        subtitle: this.subtitle,
+        title: payload.title,
+        subtitle: payload.subtitle,
         type: this.type,
         date: this.date,
-        designer: this.designer,
+        designer: payload.designer,
       })
       .subscribe(() => {
         this.showSuccess('Content saved successfully');
       });
   }
 
-  updateExistingContent() {
+  updateExistingContent(payload: any) {
     var node: any = document.getElementById('image-section');
     htmlToImage.toBlob(node, { quality: 5 }).then(async (blob) => {
       if (blob) {
         const file = new File([blob], `content-${this.contentId}.jpg`, {
           type: 'image/jpeg',
         });
+        this.isLoading = true;
         this.databaseService
           .updateContent(
             {
               contentId: this.contentId,
-              title: this.title,
-              subtitle: this.subtitle,
+              title: payload.title,
+              subtitle: payload.subtitle,
               type: this.type,
-              date: this.date,
-              designer: this.designer,
+              date: new Date().toString(),
+              designer: payload.designer,
               content: this.content,
               width: this.width,
               height: this.height,
@@ -249,9 +252,11 @@ export class EditorComponent {
           )
           .subscribe({
             next: () => {
+              this.isLoading = false;
               this.showSuccess('Content updated successfully');
             },
             error: (err) => {
+              this.isLoading = false;
               this.showError('Failed to update content');
             },
           });

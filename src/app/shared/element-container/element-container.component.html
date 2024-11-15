@@ -14,7 +14,7 @@
         [style.height.px]="content.height" src="{{ content.src }}" />
     <!-- For Text -->
     <div *ngIf="content.type == 3" id="{{ contentPreTag + content.id }}" class="absolute leading-none"
-        (mouseup)="detectMouseClick($event, content.id)"
+        (mouseup)="detectMouseClick($event, content.id)" #el (blur)="content.text=el.innerText"
         [ngClass]="selectedElementId == content.id ? 'bordering' : 'outline-none'" [style.left.px]="content.left"
         [style.top.px]="content.top" [style.fontSize.px]="content.fontSize"
         [style.fontWeight]="content.bold ? 'bold' : 'normal'" [style.fontStyle]="content.italic ? 'italic' : 'normal'"

@@ -25,13 +25,13 @@
     <ng-container *ngIf="isAdminLoggedIn">
       <li
         class="flex items-center text-sm p-2 px-3 bg-emerald-900 cursor-pointer transition-colors hover:bg-indigo-900 text-gray-100 duration-200"
-        (click)="addNewContent.emit()">
+        (click)="openSave('add',savecontent)">
         <i class="mr-3 fas fa-plus"></i> Add as New
       </li>
 
       <li
         class="flex items-center text-sm p-2 px-3 bg-amber-900 cursor-pointer transition-colors hover:bg-indigo-900 text-gray-100 duration-200"
-        (click)="updateExistingContent.emit()">
+        (click)="openSave('update',savecontent)">
         <i class="mr-3 fas fa-save"></i> Update Existing
       </li>
     </ng-container>
@@ -132,3 +132,33 @@
   </div>
 </ng-template>
 <!-- End Off Canvas -->
+
+<ng-template #savecontent let-offcanvas>
+  <div class="shadow-md flex text-white justify-between h-16 p-4 py-3 bg-gradient-to-r from-indigo-900 to-black">
+    {{actionType ==='add'?'Add New':'Update Existing'}}
+  </div>
+
+  <div class="p-4 flex flex-col gap-4 ">
+    <div class="flex flex-col gap-1">
+      <label class="text-xs font-semibold"> Title <span class="text-red-500">*</span></label>
+      <input type="text" class="w-full p-2 outline-none border rounded-md focus:ring-2 focus:ring-indigo-500"
+        placeholder="Title of the template" [(ngModel)]="title" />
+    </div>
+
+    <div class="flex flex-col gap-1">
+      <label class="text-xs font-semibold"> Subtitle <span class="text-red-500">*</span></label>
+      <input type="text" class="w-full p-2 outline-none border rounded-md focus:ring-2 focus:ring-indigo-500"
+        placeholder="Subtitle of the template" [(ngModel)]="subtitle" />
+    </div>
+
+    <div class="flex flex-col gap-1">
+      <label class="text-xs font-semibold"> Designer name <span class="text-red-500">*</span></label>
+      <input type="text" class="w-full p-2 outline-none border rounded-md focus:ring-2 focus:ring-indigo-500"
+        placeholder="Designer of the template" [(ngModel)]="designer" />
+    </div>
+
+    <button
+      class="w-full p-2 border border-indigo-300 rounded-md bg-indigo-700 text-white hover:bg-indigo-900 transition-colors duration-300"
+      (click)="saveContent()">Save Changes</button>
+  </div>
+</ng-template>

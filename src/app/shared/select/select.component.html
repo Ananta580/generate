@@ -1,7 +1,8 @@
 <ng-select [ngClass]="{ error: error, multiple:multiple }" [items]="items" [class]="className" [bindLabel]="bindLabel"
     [bindValue]="bindValue" [placeholder]="placeholder" [clearable]="clearable" [typeahead]="typeahead"
-    [loading]="loading" [multiple]="multiple" [searchable]="searchable" [disabled]="disabled" [required]="required"
-    [(ngModel)]="selectedItem" (ngModelChange)="onChange($event)" (open)="open.emit()" [closeOnSelect]="!multiple">
+    [loading]="loading" closeOnScroll="true" [appendTo]="appendTo" [multiple]="multiple" [searchable]="searchable"
+    [disabled]="disabled" [required]="required" [(ngModel)]="selectedItem" (ngModelChange)="onChange($event)"
+    (open)="open.emit()" [closeOnSelect]="!multiple">
 
     <!-- Checkbox style for multiple mode only -->
     <ng-template *ngIf="multiple" ng-option-tmp let-item="item" let-item$="item$" let-index="index">

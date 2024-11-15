@@ -31,9 +31,9 @@
 
 <div class="max-xl:hidden">
   <!-- Side Navigation -->
-  <gen-sidenav [content]="content" (loadDrops)="callBackFromChild($event)" (downloadJpg)="downloadJpg()"
-    (downloadSvg)="downloadSvg()" (addNewContent)="addNewContent()"
-    (updateExistingContent)="updateExistingContent()"></gen-sidenav>
+  <gen-sidenav [title]="title" [subtitle]="subtitle" [designer]="designer" [content]="content"
+    (loadDrops)="callBackFromChild($event)" (downloadJpg)="downloadJpg()" (downloadSvg)="downloadSvg()"
+    (addNewContent)="addNewContent($event)" (updateExistingContent)="updateExistingContent($event)"></gen-sidenav>
   <!-- End Side Navigation -->
 
   <!-- Element Editor tab -->
@@ -67,4 +67,11 @@
     [positionY]="positionY" [selectedElementId]="selectedElementId" (loadDrops)="callBackFromChildRightClick($event)">
   </gen-right-click-container>
   <!-- End RightClickPanel -->
+</div>
+
+
+
+<div *ngIf="isLoading" style="background-color: rgba(0, 0, 0, 0.268);"
+  class="flex fixed top-0 left-0 w-full justify-center items-center h-screen">
+  <div class="animate-spin rounded-full h-20 w-20 border-t-2 border-b-2 border-indigo-500"></div>
 </div>
