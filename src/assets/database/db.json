@@ -5,7 +5,7 @@
     "title": "Visiting Card changed",
     "subtitle": "Dummy Visiting Card",
     "designer": "Ananta Poudel",
-    "date": "Fri Nov 15 2024 16:51:23 GMT-0500 (Eastern Standard Time)",
+    "date": "Fri Nov 15 2024 16:52:37 GMT-0500 (Eastern Standard Time)",
     "content": [
       {
         "id": 1,
@@ -49,26 +49,9 @@
         "position": 4,
         "height": "120",
         "width": 129.4922,
-        "top": 53,
-        "left": 28,
+        "top": 90,
+        "left": 41,
         "src": "./assets/visitingcard1/logo.png"
-      },
-      {
-        "text": "SUBASH PARIYAR",
-        "fontColor": "red",
-        "fontFamily": 3,
-        "fontSize": 30,
-        "fontWeight": "bold",
-        "bold": true,
-        "italic": true,
-        "underline": false,
-        "length": 0,
-        "thickness": 0,
-        "id": 5,
-        "type": 3,
-        "left": 16,
-        "top": 211,
-        "position": 5
       }
     ],
     "width": 525,

@@ -52,12 +52,22 @@ app.get("/api/content/:contentId", (req, res) => {
 });
 
 app.post("/api/content", (req, res) => {
-  const newContent = req.body;
+  const newContent = JSON.parse(req.body.data);
   const data = readData();
   newContent.contentId =
     data.length > 0 ? data[data.length - 1].contentId + 1 : 1;
   data.push(newContent);
   writeData(data);
+
+  if (req.files && req.files.file) {
+    const file = req.files.file;
+    const uploadPath = path.join(__dirname, "assets/images", file.name);
+    file.mv(uploadPath, (err) => {
+      if (err) {
+        console.error("Error uploading file:", err);
+      }
+    });
+  }
 
   res.status(201).json(newContent);
 });

@@ -210,21 +210,40 @@ export class EditorComponent {
   }
 
   addNewContent(payload: any) {
-    this.databaseService
-      .addContent({
-        contentId: this.contentId,
-        content: this.content,
-        width: this.width,
-        height: this.height,
-        title: payload.title,
-        subtitle: payload.subtitle,
-        type: this.type,
-        date: this.date,
-        designer: payload.designer,
-      })
-      .subscribe(() => {
-        this.showSuccess('Content saved successfully');
-      });
+    var node: any = document.getElementById('image-section');
+    htmlToImage.toBlob(node, { quality: 5 }).then(async (blob) => {
+      if (blob) {
+        const file = new File([blob], `content-${this.contentId}.jpg`, {
+          type: 'image/jpeg',
+        });
+        this.isLoading = true;
+        this.databaseService
+          .addContent(
+            {
+              contentId: this.contentId,
+              content: this.content,
+              width: this.width,
+              height: this.height,
+              title: payload.title,
+              subtitle: payload.subtitle,
+              type: this.type,
+              date: this.date,
+              designer: payload.designer,
+            },
+            file
+          )
+          .subscribe({
+            next: () => {
+              this.isLoading = false;
+              this.showSuccess('Content saved successfully');
+            },
+            error: (err) => {
+              this.isLoading = false;
+              this.showError('Failed to save content');
+            },
+          });
+      }
+    });
   }
 
   updateExistingContent(payload: any) {
