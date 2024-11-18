@@ -1,0 +1,27 @@
+<div class="flex relative items-center justify-center min-h-screen bg-gray-100">
+    <div class="w-full z-10 max-w-md p-6 bg-white rounded">
+        <h2 class="mb-8 text-2xl font-bold">Welcome, let's login</h2>
+        <form (ngSubmit)="onSubmit()">
+            <div class="mb-4">
+                <label for="username" class="block mb-2 text-sm font-medium">Username</label>
+                <input type="text" [(ngModel)]="username" name="username" placeholder="Username"
+                    class="w-full px-3 py-2 border outline-none rounded focus:ring-2 focus:ring-indigo-600" required />
+            </div>
+            <div class="mb-6">
+                <label for="password" class="block mb-2 text-sm font-medium">Password</label>
+                <input type="password" [(ngModel)]="password" name="password" placeholder="Password"
+                    class="w-full px-3 py-2 border outline-none rounded focus:ring-2 focus:ring-indigo-600" required />
+            </div>
+
+            <p class="my-2 text-xs font-medium"> Hint: <span class="text-gray-400">trekmateAdmin</span></p>
+            <button type="submit" class="w-full px-3 py-2 text-white bg-indigo-500 rounded hover:bg-indigo-600">
+                Login
+            </button>
+        </form>
+    </div>
+
+    <div
+        class="absolute top-[10%] blur-3xl rounded-full opacity-40 right-[20%] h-96 w-96 bg-gradient-to-tr from-emerald-500 via-indigo-500 to-red-500">
+
+    </div>
+</div>

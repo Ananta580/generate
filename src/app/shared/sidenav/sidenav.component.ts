@@ -1,7 +1,7 @@
 import { Location } from '@angular/common';
 import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
 import { NgbOffcanvas } from '@ng-bootstrap/ng-bootstrap';
-import { ElementInner } from 'src/app/common/nodels/element';
+import { ElementInner } from 'src/app/common/models/element';
 import { FONTSCOLLECTION } from 'src/app/common/models/font';
 import {
   TEXTTEMPLATES,

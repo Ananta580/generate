@@ -30,11 +30,21 @@ export class MenuBarComponent {
     },
   ];
 
+  isAdminLoggedIn = JSON.parse(
+    localStorage.getItem('isAdminLoggedIn') || 'false'
+  );
+
   isMenuHidden = true;
   isLargeScreen = false;
 
   toggleMenu() {
     this.isMenuHidden = !this.isMenuHidden;
+  }
+
+  logoutAdmin() {
+    localStorage.setItem('isAdminLoggedIn', 'false');
+    this.isAdminLoggedIn = false;
+    window.location.reload();
   }
 
   @HostListener('window:resize', ['$event'])

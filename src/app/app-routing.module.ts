@@ -14,6 +14,11 @@ const routes: Routes = [
     loadComponent: () =>
       import('./pages/editor/editor.component').then((c) => c.EditorComponent),
   },
+  {
+    path: 'login',
+    loadComponent: () =>
+      import('./pages/login/login.component').then((c) => c.LoginComponent),
+  },
 ];
 
 @NgModule({

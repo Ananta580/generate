@@ -1,8 +1,8 @@
-<div 
-
-[ngClass]="{'max-sm:bg-gradient-to-br max-sm:from-black max-sm:via-indigo-950 max-sm:to-black':!isMenuHidden, 'max-sm:!bg-gradient-to-r max-sm:!from-black max-sm:!to-black':isMenuHidden}"
-class="navigation-bar bg-gradient-to-r from-indigo-800 to-indigo-950">
-  <div class="flex items-center justify-between gap-2 max-sm:w-full w-[90%] max-sm:px-6 max-sm:h-auto max-sm:flex-col max-sm:items-start m-auto">
+<div
+  [ngClass]="{'max-sm:bg-gradient-to-br max-sm:from-black max-sm:via-indigo-950 max-sm:to-black':!isMenuHidden, 'max-sm:!bg-gradient-to-r max-sm:!from-black max-sm:!to-black':isMenuHidden}"
+  class="navigation-bar bg-gradient-to-r from-indigo-800 to-indigo-950">
+  <div
+    class="flex flex-wrap items-center justify-between gap-2 max-sm:w-full w-[90%] max-sm:px-6 max-sm:h-auto max-sm:flex-col max-sm:items-start m-auto">
     <!-- Hamburger Icon (visible on small screens) -->
     <div class="hidden max-sm:flex items-center max-sm:py-4" (click)="toggleMenu()">
       <i [ngClass]="isMenuHidden ? 'fas fa-bars text-white text-2xl' : 'fas fa-times text-white text-2xl'"></i>
@@ -15,22 +15,47 @@ class="navigation-bar bg-gradient-to-r from-indigo-800 to-indigo-950">
           'flex-col': !isLargeScreen && isMenuHidden, 
           'flex': !isLargeScreen && !isMenuHidden
         }" class="flex gap-2 py-2 max-sm:!pb-6 max-sm:flex-col max-sm:w-full">
-      <li 
-        routerLinkActive="active-link" 
-        routerLink="/" 
-        (click)="toggleMenu()"
+      <li routerLinkActive="active-link" routerLink="/" (click)="toggleMenu()"
         [routerLinkActiveOptions]="{ exact: true }"
         class="navigation-menu-item gap-3 bg-black max-sm:!bg-transparent text-lg py-2 sm:px-4 px-2">
         <i class="fas fa-home"></i>
         <span *ngIf="!isLargeScreen">Home</span>
       </li>
-      <li *ngFor="let menu of menuItems" 
-          routerLinkActive="active-link" 
-          [routerLink]="menu.link"
-          (click)="toggleMenu()"
-          class="navigation-menu-item sm:px-4 px-2 py-2">
+      <li *ngFor="let menu of menuItems" routerLinkActive="active-link" [routerLink]="menu.link" (click)="toggleMenu()"
+        class="navigation-menu-item sm:px-4 px-2 py-2">
         {{ menu.name }}
       </li>
+      <div class="hidden max-sm:flex items-center justify-center">
+        <a *ngIf="!isAdminLoggedIn" routerLink="/login"
+          class="flex  items-center max-sm:py-4 border px-4 py-1 rounded-full !border-indigo-300 text-indigo-300">
+          <i class="fas fa-sign-in-alt mr-2 text-sm"></i>
+          Login
+        </a>
+
+        <a *ngIf="isAdminLoggedIn" class="text-xs px-3 py-1 rounded-full bg-zinc-200 text-indigo-800">
+          Admin Logged In
+          <button (click)="logoutAdmin()" class="ml-2 py-1 cursor-pointer text-red-600 rounded-full">
+            | <span class="mr-2"> </span>Logout
+          </button>
+        </a>
+      </div>
+
     </ul>
+
+    <div class="flex max-sm:hidden items-center my-auto">
+      <a *ngIf="!isAdminLoggedIn" routerLink="/login"
+        class="flex  items-center max-sm:py-4 border px-4 py-1 rounded-full !border-indigo-300 text-indigo-300">
+        <i class="fas fa-sign-in-alt mr-2 text-sm"></i>
+        Login
+      </a>
+
+      <a *ngIf="isAdminLoggedIn" class="text-xs px-3 py-1 rounded-full bg-zinc-200 text-indigo-800">
+        Admin Logged In <span class="mr-2"> </span>|
+        <button (click)="logoutAdmin()" class="ml-2 py-1 cursor-pointer text-red-600 rounded-full">
+          Logout
+        </button>
+      </a>
+    </div>
+
   </div>
 </div>
