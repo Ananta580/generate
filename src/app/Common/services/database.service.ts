@@ -51,6 +51,10 @@ export class DatabaseService {
     return this.http.get<any>(this.jsonUrl);
   }
 
+  deleteContent(contentId: number): Observable<any> {
+    return this.http.delete<any>(`${this.apiUrl}/${contentId}`);
+  }
+
   addContent(content: ElementOuter, file?: File): Observable<any> {
     const formData = new FormData();
     formData.append('data', JSON.stringify(content));

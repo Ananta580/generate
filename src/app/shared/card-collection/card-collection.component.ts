@@ -3,11 +3,15 @@ import {
   Input,
   OnChanges,
   OnInit,
+  Output,
   SimpleChanges,
 } from '@angular/core';
 import { Subject } from 'rxjs';
 import { debounceTime } from 'rxjs/operators';
 import { Preset } from 'src/app/common/Models/preset';
+import { DatabaseService } from 'src/app/common/services/database.service';
+import { ToastService } from 'src/app/common/services/toast-service';
+import { EventEmitter } from '@angular/core';
 
 @Component({
   selector: 'gen-card-collection',
@@ -21,8 +25,14 @@ export class CardCollectionComponent implements OnInit, OnChanges {
   @Input() title?: string = 'Designs';
   activeSlideIndex: number = 0;
 
+  @Output() contentDeleted: EventEmitter<boolean> = new EventEmitter();
+
   searchValue: string = '';
   private searchSubject: Subject<string> = new Subject();
+
+  isAdminLoggedIn = JSON.parse(
+    localStorage.getItem('isAdminLoggedIn') || 'false'
+  );
 
   breakpoints = {
     300: { slidesPerView: 1, spaceBetween: 20 },
@@ -35,6 +45,11 @@ export class CardCollectionComponent implements OnInit, OnChanges {
 
     1300: { slidesPerView: 5, spaceBetween: 20 },
   };
+
+  constructor(
+    private db: DatabaseService,
+    private toastService: ToastService
+  ) {}
 
   ngOnInit(): void {
     this.searchSubject.pipe(debounceTime(200)).subscribe(() => {
@@ -69,5 +84,17 @@ export class CardCollectionComponent implements OnInit, OnChanges {
           .includes(this.searchValue.toUpperCase())
       );
     });
+  }
+
+  deleteContent(contentId: number) {
+    this.db.deleteContent(contentId).subscribe(
+      (data) => {
+        this.toastService.showSuccess('Content deleted successfully');
+        this.contentDeleted.emit(true);
+      },
+      (error) => {
+        this.toastService.showError('Content could not be deleted');
+      }
+    );
   }
 }

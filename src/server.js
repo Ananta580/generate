@@ -61,7 +61,11 @@ app.post("/api/content", (req, res) => {
 
   if (req.files && req.files.file) {
     const file = req.files.file;
-    const uploadPath = path.join(__dirname, "assets/images", file.name);
+    const uploadPath = path.join(
+      __dirname,
+      "assets/images",
+      `content-${newContent.contentId}.jpg`
+    );
     file.mv(uploadPath, (err) => {
       if (err) {
         console.error("Error uploading file:", err);
@@ -107,6 +111,22 @@ app.delete("/api/content/:contentId", (req, res) => {
   );
   if (filteredData.length !== data.length) {
     writeData(filteredData);
+
+    const imagePath = path.join(
+      __dirname,
+      "assets/images",
+      `content-${contentId}.jpg`
+    );
+    if (fs.existsSync(imagePath)) {
+      fs.unlink(imagePath, (err) => {
+        if (err) {
+          console.error("Error deleting image file:", err);
+        }
+      });
+    } else {
+      console.error("Image file does not exist:", imagePath);
+    }
+
     res.json({ message: "Content deleted successfully" });
   } else {
     res.status(404).json({ message: "Content not found" });

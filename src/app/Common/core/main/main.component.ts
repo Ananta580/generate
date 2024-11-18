@@ -25,4 +25,8 @@ export class MainComponent implements OnInit {
       },
     });
   }
+
+  contentDeleted() {
+    this.loadAllContents();
+  }
 }

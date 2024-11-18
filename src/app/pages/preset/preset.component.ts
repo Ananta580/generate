@@ -42,4 +42,8 @@ export class PresetComponent {
     const chars = this.presetType?.replace('-', ' ');
     return chars + 's';
   }
+
+  contentDeleted() {
+    this.loadPresets();
+  }
 }
