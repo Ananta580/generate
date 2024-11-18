@@ -8,7 +8,7 @@ import {
 } from '@angular/core';
 import { Subject } from 'rxjs';
 import { debounceTime } from 'rxjs/operators';
-import { Preset } from 'src/app/common/Models/preset';
+import { Preset } from 'src/app/common/models/preset';
 import { DatabaseService } from 'src/app/common/services/database.service';
 import { ToastService } from 'src/app/common/services/toast-service';
 import { EventEmitter } from '@angular/core';

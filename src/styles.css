@@ -9,3 +9,53 @@
   --primary: #0097a7;
   --gray: #343a40;
 }
+
+@font-face {
+  font-family: 'Roboto';
+  src: url('assets/fonts/Roboto.ttf') format('truetype');
+}
+
+@font-face {
+  font-family: 'Courier Prime';
+  src: url('assets/fonts/CourierPrime.ttf') format('truetype');
+}
+
+@font-face {
+  font-family: 'Dancing Script';
+  src: url('assets/fonts/DancingScript.ttf') format('truetype');
+}
+
+@font-face {
+  font-family: 'Libre Franklin';
+  src: url('assets/fonts/LibreFranklin.ttf') format('truetype');
+}
+
+@font-face {
+  font-family: 'Merriweather';
+  src: url('assets/fonts/Merriweather.ttf') format('truetype');
+}
+
+@font-face {
+  font-family: 'Noto Sans';
+  src: url('assets/fonts/NotoSans.ttf') format('truetype');
+}
+
+@font-face {
+  font-family: 'Nunito Sans';
+  src: url('assets/fonts/NunitoSans.ttf') format('truetype');
+}
+
+@font-face {
+  font-family: 'Open Sans';
+  src: url('assets/fonts/OpenSans.ttf') format('truetype');
+}
+
+@font-face {
+  font-family: 'Big Shoulders Stencil Text';
+  src: url('assets/fonts/BigShoulders.ttf') format('truetype');
+}
+
+@font-face {
+  font-family: 'Tourney';
+  src: url('assets/fonts/Tourney.ttf') format('truetype');
+}

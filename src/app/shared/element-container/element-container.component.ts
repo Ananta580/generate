@@ -1,7 +1,7 @@
 import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
-import { CONTENT_ID_PRETAG } from 'src/app/common/Models/constant';
-import { ElementInner } from 'src/app/common/Models/element';
-import { FONTSCOLLECTION } from 'src/app/common/Models/font';
+import { CONTENT_ID_PRETAG } from 'src/app/common/models/constant';
+import { ElementInner } from 'src/app/common/models/element';
+import { FONTSCOLLECTION } from 'src/app/common/models/font';
 
 @Component({
   selector: 'gen-element-container',

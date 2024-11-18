@@ -1,7 +1,7 @@
 import { CommonModule } from '@angular/common';
 import { Component } from '@angular/core';
 import { ActivatedRoute, Params } from '@angular/router';
-import { PRESET_TYPE, Preset } from 'src/app/common/Models/preset';
+import { PRESET_TYPE, Preset } from 'src/app/common/models/preset';
 import { DatabaseService } from 'src/app/common/services/database.service';
 import { SharedModule } from 'src/app/shared/shared.module';
 

@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { Preset } from '../../Models/preset';
+import { Preset } from '../../models/preset';
 import { DatabaseService } from '../../services/database.service';
 
 @Component({

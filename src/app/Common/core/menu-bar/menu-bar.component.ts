@@ -1,5 +1,5 @@
 import { Component, HostListener, OnInit } from '@angular/core';
-import { PRESET_TYPE } from '../../Models/preset';
+import { PRESET_TYPE } from '../../models/preset';
 
 @Component({
   selector: 'gen-menu-bar',

@@ -1,14 +1,14 @@
 import { Location } from '@angular/common';
 import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
 import { NgbOffcanvas } from '@ng-bootstrap/ng-bootstrap';
-import { ElementInner } from 'src/app/common/Models/element';
-import { FONTSCOLLECTION } from 'src/app/common/Models/font';
+import { ElementInner } from 'src/app/common/nodels/element';
+import { FONTSCOLLECTION } from 'src/app/common/models/font';
 import {
   TEXTTEMPLATES,
   IMAGETEMPLATES,
   SVGTEMPLATES,
   LINETEMPLATES,
-} from 'src/app/common/Models/template';
+} from 'src/app/common/models/template';
 
 @Component({
   selector: 'gen-sidenav',

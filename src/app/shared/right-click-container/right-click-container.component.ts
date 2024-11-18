@@ -1,5 +1,5 @@
 import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
-import { ElementInner } from 'src/app/common/Models/element';
+import { ElementInner } from 'src/app/common/models/element';
 import { ToastService } from 'src/app/common/services/toast-service';
 
 @Component({

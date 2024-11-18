@@ -2,14 +2,14 @@ import { Component, ViewChild } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { SharedModule } from 'src/app/shared/shared.module';
 import { ActivatedRoute } from '@angular/router';
-import { SessionData } from 'src/app/common/Data/Session';
+import { SessionData } from 'src/app/common/data/Session';
 import { ToastService } from 'src/app/common/services/toast-service';
 import { EditorTabComponent } from 'src/app/shared/editor-tab/editor-tab.component';
 import * as htmlToImage from 'html-to-image';
 import * as $ from 'jquery';
 import 'jquery-ui-dist/jquery-ui';
-import { ElementInner } from 'src/app/common/Models/element';
-import { CONTENT_ID_PRETAG } from 'src/app/common/Models/constant';
+import { ElementInner } from 'src/app/common/models/element';
+import { CONTENT_ID_PRETAG } from 'src/app/common/models/constant';
 import { DatabaseService } from 'src/app/common/services/database.service';
 
 @Component({

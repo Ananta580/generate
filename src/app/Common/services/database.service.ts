@@ -1,8 +1,8 @@
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { map, Observable } from 'rxjs';
-import { ElementOuter } from '../Models/content';
-import { Preset, PRESET_TYPE } from '../Models/preset';
+import { ElementOuter } from '../models/content';
+import { Preset, PRESET_TYPE } from '../models/preset';
 
 @Injectable({
   providedIn: 'root',
