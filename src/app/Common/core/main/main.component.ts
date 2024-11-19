@@ -13,9 +13,7 @@ export class MainComponent implements OnInit {
   constructor(private db: DatabaseService) {}
 
   ngOnInit(): void {
-    setTimeout(() => {
-      this.loadAllContents();
-    }, 500);
+    this.loadAllContents();
   }
 
   loadAllContents() {

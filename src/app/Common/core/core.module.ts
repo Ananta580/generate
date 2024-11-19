@@ -7,9 +7,15 @@ import { RouterModule } from '@angular/router';
 import { SharedModule } from 'src/app/shared/shared.module';
 import { NgSelectModule } from '@ng-select/ng-select';
 import { FormsModule } from '@angular/forms';
+import { FooterComponent } from './footer/footer.component';
 
 @NgModule({
-  declarations: [MenuBarComponent, TopBarComponent, MainComponent],
+  declarations: [
+    MenuBarComponent,
+    TopBarComponent,
+    MainComponent,
+    FooterComponent,
+  ],
   imports: [
     CommonModule,
     RouterModule,
@@ -17,6 +23,6 @@ import { FormsModule } from '@angular/forms';
     NgSelectModule,
     FormsModule,
   ],
-  exports: [MenuBarComponent, TopBarComponent],
+  exports: [MenuBarComponent, TopBarComponent, FooterComponent],
 })
 export class CoreModule {}

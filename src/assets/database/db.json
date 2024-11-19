@@ -1157,18 +1157,6 @@
         "position": 1
       },
       {
-        "height": 71,
-        "width": "50",
-        "src": "data:image/svg+xml;base64,PCFET0NUWVBFIHN2ZyBQVUJMSUMgIi0vL1czQy8vRFREIFNWRyAxLjEvL0VOIiAiaHR0cDovL3d3dy53My5vcmcvR3JhcGhpY3MvU1ZHLzEuMS9EVEQvc3ZnMTEuZHRkIj4KDTwhLS0gVXBsb2FkZWQgdG86IFNWRyBSZXBvLCB3d3cuc3ZncmVwby5jb20sIFRyYW5zZm9ybWVkIGJ5OiBTVkcgUmVwbyBNaXhlciBUb29scyAtLT4KPHN2ZyB3aWR0aD0iODAwcHgiIGhlaWdodD0iODAwcHgiIHZpZXdCb3g9IjAgMCAyNCAyNCIgZmlsbD0ibm9uZSIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIiBzdHJva2U9IiNmZmZmZmYiPgoNPGcgaWQ9IlNWR1JlcG9fYmdDYXJyaWVyIiBzdHJva2Utd2lkdGg9IjAiLz4KDTxnIGlkPSJTVkdSZXBvX3RyYWNlckNhcnJpZXIiIHN0cm9rZS1saW5lY2FwPSJyb3VuZCIgc3Ryb2tlLWxpbmVqb2luPSJyb3VuZCIvPgoNPGcgaWQ9IlNWR1JlcG9faWNvbkNhcnJpZXIiPiA8cGF0aCBkPSJNMTIgMTZDMTAuNjE5MyAxNiA5LjUgMTcuMTE5MyA5LjUgMTguNUM5LjUgMTkuODgwNyAxMC42MTkzIDIxIDEyIDIxQzEzLjM4MDcgMjEgMTQuNSAxOS44ODA3IDE0LjUgMTguNUMxNC41IDE3LjExOTMgMTMuMzgwNyAxNiAxMiAxNlpNMTIgMTZWMTJNNS41IDhDNi44ODA3MSA4IDggNi44ODA3MSA4IDUuNUM4IDQuMTE5MjkgNi44ODA3MSAzIDUuNSAzQzQuMTE5MjkgMyAzIDQuMTE5MjkgMyA1LjVDMyA2Ljg4MDcxIDQuMTE5MjkgOCA1LjUgOFpNNS41IDhWOC44QzUuNSA5LjkyMDExIDUuNSAxMC40ODAyIDUuNzE3OTkgMTAuOTA4QzUuOTA5NzMgMTEuMjg0MyA2LjIxNTY5IDExLjU5MDMgNi41OTIwMiAxMS43ODJDNy4wMTk4NCAxMiA3LjU3OTg5IDEyIDguNyAxMkgxNS4zQzE2LjQyMDEgMTIgMTYuOTgwMiAxMiAxNy40MDggMTEuNzgyQzE3Ljc4NDMgMTEuNTkwMyAxOC4wOTAzIDExLjI4NDMgMTguMjgyIDEwLjkwOEMxOC41IDEwLjQ4MDIgMTguNSA5LjkyMDExIDE4LjUgOC44VjhNMTguNSA4QzE5Ljg4MDcgOCAyMSA2Ljg4MDcxIDIxIDUuNUMyMSA0LjExOTI5IDE5Ljg4MDcgMyAxOC41IDNDMTcuMTE5MyAzIDE2IDQuMTE5MjkgMTYgNS41QzE2IDYuODgwNzEgMTcuMTE5MyA4IDE4LjUgOFoiIHN0cm9rZT0iI2ZmZmZmZiIgc3Ryb2tlLXdpZHRoPSIwLjk2MDAwMDAwMDAwMDAwMDIiIHN0cm9rZS1saW5lY2FwPSJyb3VuZCIgc3Ryb2tlLWxpbmVqb2luPSJyb3VuZCIvPiA8L2c+Cg08L3N2Zz4=",
-        "length": 0,
-        "thickness": 0,
-        "id": 3,
-        "type": 2,
-        "left": 360,
-        "top": 81,
-        "position": 3
-      },
-      {
         "text": "Github",
         "fontColor": "#ffffff",
         "fontFamily": 7,
@@ -1203,7 +1191,7 @@
     "title": "Front: Business card design for github",
     "subtitle": "Created visting card front side for github, leading code repository management",
     "type": "visiting-card",
-    "date": "Mon Nov 18 2024 23:28:30 GMT-0500 (Eastern Standard Time)",
+    "date": "Mon Nov 18 2024 23:36:59 GMT-0500 (Eastern Standard Time)",
     "designer": "Subash Pariyar"
   },
   {

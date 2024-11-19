@@ -22,9 +22,7 @@ export class PresetComponent {
         this.presetType = type;
         this.presets = undefined;
         if (type != undefined) {
-          setTimeout(() => {
-            this.loadPresets();
-          }, 500);
+          this.loadPresets();
         }
       },
     });
