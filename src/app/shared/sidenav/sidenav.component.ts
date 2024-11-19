@@ -100,12 +100,9 @@ export class SidenavComponent implements OnInit {
         : lineOrientation !== ''
         ? this.lineTemplates[index].thickness
         : 0;
-    addElement.id = this.twoSides
-      ? Math.max(
-          ...this.cardFrontContent.map((o) => o.id),
-          ...this.cardBackContent.map((o) => o.id)
-        ) + 1
-      : Math.max(...this.content.map((o) => o.id)) + 1;
+    const maxId =
+      tempContent.length > 0 ? Math.max(...tempContent.map((o) => o.id)) : 0;
+    addElement.id = maxId + 1;
     this.selectedElementId = addElement.id;
     addElement.type = type;
     addElement.left = 10;
